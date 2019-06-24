@@ -56,6 +56,8 @@ group :development, :test do
   gem 'capistrano-rails', '>= 1.4.0'
   gem 'capistrano3-unicorn', '>= 0.2.1'
   gem 'bullet', '>= 6.0.0'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
