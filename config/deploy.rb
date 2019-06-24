@@ -46,7 +46,7 @@ set :rbenv_ruby, '2.5.1'
 set :rbenv_custom_path, '/usr/local/rbenv'
 # config ssh
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/mercari53b.pem']
+                  keys: ['~/.ssh/mercari_25519']
 
 # config unicorn
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
