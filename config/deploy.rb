@@ -41,7 +41,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :ssh_options, verify_host_key: :secure
 
 # config git
-set :branch, ENV['BRANCH'] || "master"
+# set :branch, ENV['BRANCH'] || "master"
 
 # config ruby
 set :rbenv_type, :user
@@ -49,7 +49,7 @@ set :rbenv_ruby, '2.5.1'
 set :rbenv_custom_path, '/usr/local/rbenv'
 # config ssh
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/maro']
+                  keys: ['~/.ssh/mercari_25519']
 
 # config unicorn
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
