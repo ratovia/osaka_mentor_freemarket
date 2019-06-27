@@ -1,0 +1,18 @@
+$(function(){
+  $(".information__header-pos-right").on("click",function(){
+    $(".information").css("display","none");
+    $(".todo").css("display","block");
+  });
+  $(".todo__header-pos-left").on("click",function(){
+    $(".information").css("display","block");
+    $(".todo").css("display","none");
+  });
+  $(".trading__header-pos-right").on("click",function(){
+    $(".trading").css("display","none");
+    $(".finished").css("display","block");
+  });
+  $(".finished__header-pos-left").on("click",function(){
+    $(".trading").css("display","block");
+    $(".finished").css("display","none");
+  });
+})
