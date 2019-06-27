@@ -1,0 +1,23 @@
+
+.new_signup_main{
+  height: 400px;
+  
+  h1{
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: solid 1px $gray;
+    height: 90px;
+  }
+
+  &__view{
+    background-color: $white;
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+
+
+}
+
