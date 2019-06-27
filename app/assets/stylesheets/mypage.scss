@@ -1,0 +1,327 @@
+.user-my-page{
+  background-color: $gray;
+  .list-parent{
+    list-style:none;
+  }
+  .list-item{
+    padding:16px;
+    background-color: $white;
+    border-bottom: 1px solid $gray;
+    font-size: 14px;
+  }
+  .left-column{
+    padding: 40px auto;
+    float:left;
+    .menu-list{
+      &__title{
+        min-height: 48px;
+        width: 280px;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #eee;
+        &__arrow{
+          float: right;
+          color: #333;
+        } 
+      }
+      &__item{
+        &__arrow{
+          float: right;
+          color: rgb(204, 204, 204);
+        }  
+      }
+    }
+    h3{
+      margin: 40px auto 8px ;
+    }
+  }
+  .display-none{
+    display:none;
+  }
+  .right-column{
+    width: 700px;
+    text-decoration: none;
+    float:right;
+    .profile{
+      width: 100%;
+      height: 200px;
+      padding:20px;
+      background-image: url("user-bg.jpg");
+      background-size: cover;
+      text-align: center;
+      a,
+      a:after{
+        text-decoration: none;
+        color: $black;
+      }
+      &__image{
+        margin: 10px auto 8px;
+        img{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+      &__name{
+        margin: 0 auto 8px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &__number{
+        margin: 0 auto 8px;
+        font-size: 14px;
+        &__evaluation{
+          display: inline-block;
+          padding-right: 16px;
+          &__value{
+            padding-left: 4px;
+            font-weight: bold;
+          }
+        }
+        &__upload{
+          display: inline-block;
+          &__value{
+            padding-left: 4px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .information{
+      width: 100%;
+      &__header{
+        height: 74px;
+        display:flex;
+        &-pos-left{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: $white;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+        &-pos-right{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: #eee;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+      }
+      &__item{
+        width: 100%;
+        position: relative;
+        clear:both;
+        &__image{
+          width: 48px;
+          display: inline-block;
+          img{
+            position: absolute;
+            top:16px;
+            left: 16px;
+            width: 48px;
+            height: 48px;
+          }
+        }
+        &__body{
+          margin: 0 0 0 20px;
+          display: inline-block;
+          line-height: 21px;
+          width: calc(100% - 48px - 20px - 40px);
+          &__text{
+          }
+          &__time{
+            color: #888;
+            i{
+              font: normal normal normal 14px/1 FontAwesome;
+            }
+          }
+        }
+        &__arrow{
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          color: $black;
+        }
+      }
+      .menu-list__more{
+        background-color: $white;
+        padding: 16px;
+        h3{
+          height: 56px;
+          background-color: #eee;
+          text-align:center;
+          line-height: 56px;
+          font-size: 14px;
+          font-weight: normal;
+          &:hover{
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+    .todo{
+      width: 100%;
+      &__header{
+        height: 74px;
+        display:flex;
+        &-pos-left{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: #eee;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+        &-pos-right{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: $white;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+      }
+      &__item-data-nothing{
+        width: 100%;
+        height: 236px;
+        background-color: $white;
+        text-align:center;
+        background-image: url("logo-gray-icon.svg");
+        background-position: center 40px;
+        background-size: 78px 85px;
+        background-repeat: no-repeat;
+        h3{
+          padding-top: 160px;
+          color: #ccc;
+        }
+      }
+    }
+    .trading{
+      &-label{
+        width: 100%;
+        height: 72px;
+        background-color: $white;
+        line-height: 72px;
+        margin-top: 40px;
+        padding: 0 16px;
+      }
+      &__header{
+        display:flex;
+        &-pos-left{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: $white;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+        &-pos-right{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: #eee;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+      }
+      &__item-data-nothing{
+        width: 100%;
+        height: 236px;
+        background-color: $white;
+        text-align:center;
+        background-image: url("logo-gray-icon.svg");
+        background-position: center 40px;
+        background-size: 78px 85px;
+        background-repeat: no-repeat;
+        h3{
+          padding-top: 160px;
+          color: #ccc;
+        }
+      }
+    }
+    .finished{
+      &-label{
+        width: 100%;
+        height: 72px;
+        background-color: $white;
+        line-height: 72px;
+        margin-top: 40px;
+        padding: 0 16px;
+      }
+      &__header{
+        display:flex;
+        &-pos-left{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: #eee;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+        &-pos-right{
+          width: 50%;
+          height: 74px;
+          text-align:center;
+          background-color: $white;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 74px;
+          border-top: 2px solid $red;
+        }
+      }
+      &__item-data-nothing{
+        width: 100%;
+        height: 236px;
+        background-color: $white;
+        text-align:center;
+        background-image: url("logo-gray-icon.svg");
+        background-position: center 40px;
+        background-size: 78px 85px;
+        background-repeat: no-repeat;
+        h3{
+          padding-top: 160px;
+          color: #ccc;
+        }
+      }
+    }
+  }
+}
+
+
+// 以下共通内容なので、後に共通ファイルに移動させましょう。
+.container{
+  width: 1020px;
+  margin: 0px auto;
+  background-color: gray;
+}
+
+html,
+body,
+.wrapper{
+  margin: 0;
+  padding:0;
+  width: 100%;
+  height: 100vh;
+}
+
+footer{
+  clear:both;
+}
