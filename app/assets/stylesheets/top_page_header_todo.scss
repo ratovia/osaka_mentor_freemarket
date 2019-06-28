@@ -1,0 +1,24 @@
+.header_container_bottom__todo {
+  position: relative;
+  &_list {
+    display: none;
+  }
+    &:hover {
+      .header_container_bottom__todo_list {
+    font-weight: normal;
+    display: block;
+    list-style: none;
+    width: 420px;
+    height: 280px;
+    position: absolute;
+    background-image: url("mercari_not_todo.png");
+
+
+    top: 40px;
+    left: -200px;
+    border-left: $border-design;
+    border-right: $border-design;
+    border-bottom: $border-design;
+      }
+    }
+  }

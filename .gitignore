@@ -52,3 +52,9 @@ node_modules/
 /config/master.key
 
 .DS_Store
+
+# /db/migrate
+
+# /db/migrate/schema.rb
+
+

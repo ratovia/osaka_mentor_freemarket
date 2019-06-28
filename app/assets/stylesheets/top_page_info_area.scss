@@ -1,8 +1,8 @@
 .top_page_info_area {
-  background: #eee;
-}
-
-.banner {
-  display: block;
-  margin: 0 auto;
+  width: 100%;
+  &__banner {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
 }

@@ -1,34 +1,6 @@
 .top_page
-  %header.top_page_header
-    .header_container
-      .header_container_top
-        .header_container_top_left
-          = image_tag "logo.svg"
-        .header_container_top_right
-          %form.header_search
-            %input(type="text" class="header_search__input" placeholder="何かお探しですか？")
-            %lebel(for="search" class="search_label")
-              = fa_icon "search"
-            %input(type="submit" value="送信" class="header_search__submit" id="search")
-          
-      .header_container_bottom
-        .header_container_bottom__category
-          = fa_icon "list"
-          カテゴリーから探す
-        .header_container_bottom__bland
-          = fa_icon "tag"
-          ブランドから探す
-        .header_container_bottom__center
-          
-        .header_container_bottom__info
-          = fa_icon "bell"
-          お知らせ
-        .header_container_bottom__todo
-          = fa_icon "check"
-          やることリスト
-        .header_container_bottom__mypage
-          マイページ
+  = render "header"
   .top_page_info_area
-    = image_tag "banner-camp.jpg", class: "banner"
+    = image_tag "banner-camp.jpg", class: "top_page_info_area__banner"
   .top_page_main
   %footer.top_page_footer
