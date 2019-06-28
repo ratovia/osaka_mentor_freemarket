@@ -1,4 +1,35 @@
 .user-my-page{
+  @mixin item-data-nothing(){
+    width: 100%;
+    height: 236px;
+    background-color: $white;
+    text-align:center;
+    background-image: url("logo-gray-icon.svg");
+    background-position: center 40px;
+    background-size: 78px 85px;
+    background-repeat: no-repeat;
+    h3{
+      padding-top: 160px;
+      color: #ccc;
+    }
+  }
+  @mixin disable-link-decoration(){
+    a,
+    a:after{
+      text-decoration: none;
+      color: $black;
+    }
+  }
+  @mixin header-pos($bg-color: $white,$border-top: 2px solid $red){
+    width: 50%;
+    height: 74px;
+    text-align:center;
+    background-color: $bg-color;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 74px;
+    border-top: $border-top;
+  }
   background-color: $gray;
   .list-parent{
     list-style:none;
@@ -50,11 +81,7 @@
       background-image: url("user-bg.jpg");
       background-size: cover;
       text-align: center;
-      a,
-      a:after{
-        text-decoration: none;
-        color: $black;
-      }
+      @include disable-link-decoration();
       &__image{
         margin: 10px auto 8px;
         img{
@@ -94,24 +121,10 @@
         height: 74px;
         display:flex;
         &-pos-left{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: $white;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos();
         }
         &-pos-right{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: #eee;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos(#eee,none);
         }
       }
       &__item{
@@ -173,39 +186,14 @@
         height: 74px;
         display:flex;
         &-pos-left{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: #eee;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos(#eee,none);
         }
         &-pos-right{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: $white;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos();
         }
       }
       &__item-data-nothing{
-        width: 100%;
-        height: 236px;
-        background-color: $white;
-        text-align:center;
-        background-image: url("logo-gray-icon.svg");
-        background-position: center 40px;
-        background-size: 78px 85px;
-        background-repeat: no-repeat;
-        h3{
-          padding-top: 160px;
-          color: #ccc;
-        }
+        @include item-data-nothing()
       }
     }
     .trading{
@@ -220,39 +208,14 @@
       &__header{
         display:flex;
         &-pos-left{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: $white;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos();
         }
         &-pos-right{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: #eee;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos(#eee,none);
         }
       }
       &__item-data-nothing{
-        width: 100%;
-        height: 236px;
-        background-color: $white;
-        text-align:center;
-        background-image: url("logo-gray-icon.svg");
-        background-position: center 40px;
-        background-size: 78px 85px;
-        background-repeat: no-repeat;
-        h3{
-          padding-top: 160px;
-          color: #ccc;
-        }
+        @include item-data-nothing()
       }
     }
     .finished{
@@ -267,39 +230,14 @@
       &__header{
         display:flex;
         &-pos-left{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: #eee;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos(#eee,none);
         }
         &-pos-right{
-          width: 50%;
-          height: 74px;
-          text-align:center;
-          background-color: $white;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 74px;
-          border-top: 2px solid $red;
+          @include header-pos();
         }
       }
       &__item-data-nothing{
-        width: 100%;
-        height: 236px;
-        background-color: $white;
-        text-align:center;
-        background-image: url("logo-gray-icon.svg");
-        background-position: center 40px;
-        background-size: 78px 85px;
-        background-repeat: no-repeat;
-        h3{
-          padding-top: 160px;
-          color: #ccc;
-        }
+        @include item-data-nothing();
       }
     }
   }
