@@ -63,7 +63,7 @@
           }
         }
         &__body{
-          margin: 0 0 0 20px;
+          margin-left: 20px;
           display: inline-block;
           line-height: 21px;
           width: calc(100% - 48px - 20px - 40px);
@@ -71,9 +71,6 @@
           }
           &__time{
             color: #888;
-            i{
-              font: normal normal normal 14px/1 FontAwesome;
-            }
           }
         }
         &__arrow{
