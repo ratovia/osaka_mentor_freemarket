@@ -2,6 +2,7 @@
 @import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "./variable";
+@import "./mixin";
 /*
  
    _                         _                      
@@ -33,7 +34,8 @@
                       |_|                                                  
  
 */
-// @import "";
+@import "mypage_left_menu";
+@import "mypage_right_lists.scss";
 // @import "";
 // @import "";
 // @import "";

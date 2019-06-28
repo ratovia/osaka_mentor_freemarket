@@ -1,0 +1,27 @@
+.user-my-page{
+  .left-column{
+    .menu-list{
+      &__title{
+        min-height: 48px;
+        width: 280px;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #eee;
+        &__arrow{
+          float: right;
+          color: #333;
+        } 
+      }
+      &__item{
+        &__arrow{
+          float: right;
+          color: rgb(204, 204, 204);
+        }  
+      }
+    }
+    h3{
+      margin: 40px auto 8px ;
+    }
+  }
+}
