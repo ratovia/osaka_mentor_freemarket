@@ -1,0 +1,93 @@
+.header_container_bottom__mypage {
+  position: relative;
+  &_overview {
+    display: none;
+  }
+  &:hover {
+    .header_container_bottom__mypage_overview {
+      display: block;
+      width: 300px;
+      font-size: 14px;
+      background: white;
+      border-left: $border-design;
+      border-right: $border-design;
+      border-bottom: $border-design;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      .overview_background {
+        width: 300px;
+        height: 80px;
+        background: gray;
+        position: relative;
+        .user_image  {
+          width: 60px;
+          height: 60px;
+          background: $blue;
+          border-radius: 50%;
+          position: absolute;
+          top: 40px;
+          left: 120px;
+        }
+      }
+      .overview_main {
+        height: 200px;
+        border-bottom: $border-design;
+        padding: 10px;
+        &__top {
+          text-align: center;
+          .achievement {
+            font-size: 12px;
+          }
+          .stock_money_list {
+            list-style: none;
+            border: $border-design;
+            text-align: left;
+            background: $gray;
+            font-size: 12px;
+            span {
+              float: right;
+              i {
+                padding-left: 2px;
+                color: #ddd;
+              }
+            }
+            li {
+              padding: 5px;
+              &:hover {
+                color: #888;
+              }
+              &:first-child {
+                border-bottom: $border-design;
+              }
+            }
+          }
+        }
+        
+      }
+      .overview_lists {
+        ul {
+          list-style: none;
+          text-align: left;
+          .overview_list {
+            height: 50px;
+            line-height: 30px;
+            padding: 10px;
+            border-bottom: $border-design;
+            &:hover {
+              background: #eee;
+              padding-right: 5px;
+              span {
+                color: $black;
+              }
+            }
+            span {
+              float: right;
+              color: #ddd;
+            }
+          }
+        }
+          }
+    }
+  }
+}
