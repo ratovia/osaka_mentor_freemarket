@@ -1,6 +1,8 @@
 @import "./reset";
+@import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "./variable";
+@import "./mixin";
 /*
  
    _                         _                      
@@ -14,6 +16,8 @@
  
 */
 
+
+@import "mypage";
 @import "./new_signup";
 @import "./top_page_layout";
 @import "./footer";
@@ -33,6 +37,9 @@
                       |_|                                                  
  
 */
+
+@import "mypage_left_menu";
+@import "mypage_right_lists.scss";
 @import "./new_signup_header";
 @import "./new_signup_main";
 @import "./new_signup_footer";

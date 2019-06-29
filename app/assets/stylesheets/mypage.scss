@@ -1,0 +1,58 @@
+.user-my-page{
+  background-color: $gray;
+  .list-parent{
+    list-style:none;
+  }
+  .list-item{
+    padding:16px;
+    background-color: $white;
+    border-bottom: 1px solid $gray;
+    font-size: 14px;
+  }
+  .left-column{
+    padding: 40px auto;
+    float:left;
+  }
+  .display-none{
+    display:none;
+  }
+  .right-column{
+    width: 700px;
+    text-decoration: none;
+    float:right;
+    .profile{
+      width: 100%;
+      height: 200px;
+      padding:20px;
+      background-image: url("user-bg.jpg");
+      background-size: cover;
+      text-align: center;
+      @include disable-link-decoration();
+    }
+    .information,
+    .todo{
+      width: 100%;
+    }
+  }
+}
+
+
+// 以下共通内容なので、後に共通ファイルに移動させましょう。
+.container{
+  width: 1020px;
+  margin: 0px auto;
+  background-color: gray;
+}
+
+html,
+body,
+.wrapper{
+  margin: 0;
+  padding:0;
+  width: 100%;
+  height: 100vh;
+}
+
+footer{
+  clear:both;
+}
