@@ -10,18 +10,12 @@ html, body {
   }
   &_info_area {
     width: 100%;
-    height: 390px;
+    height: 420px;
     background: #eee;
   }
   &_main {
     width: 100%;
-    height: 2000px;
+    height: 4000px;
     background: $gray;
-  }
-  &_footer {
-    width: 100%;
-    height: 300px;
-    background: $black;
-    
   }
 }
