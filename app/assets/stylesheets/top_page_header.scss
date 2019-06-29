@@ -31,7 +31,6 @@
         width: 100%;
         height: inherit;
         position: relative;
-      
         &__input {
           display: inline-block;
           width: 100%;
@@ -63,7 +62,6 @@
       }
     }
   }
- 
   &_bottom {
     height: 40px;
     font-size: 14px;
@@ -71,22 +69,22 @@
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-      a {
-        color: $black;
-        text-decoration: none;
-        &:hover {
-          color: $blue;
-        }
+    a {
+      color: $black;
+      text-decoration: none;
+      &:hover {
+        color: $blue;
       }
+    }
     &__category {
       p:hover {       
           color: $blue;
       }
-    cursor: pointer;
-    font-weight: bold;
-    width: 18%;
-    position: relative;
-   }
+      cursor: pointer;
+      font-weight: bold;
+      width: 18%;
+      position: relative;
+    }
     &__bland {
       cursor: pointer;
       font-weight: bold;
@@ -102,13 +100,12 @@
       cursor: pointer;
       width: 10%;
       p:hover {
+        color: $blue;
+        i {
           color: $blue;
-          i {
-            color: $blue;
-          }
         }
       }
-    
+    }
     &__mypage {
       cursor: pointer;
       width: 10%;
@@ -126,30 +123,28 @@
         }
       }
       p:hover {
+        color: $blue;
+        i {
           color: $blue;
-          i {
-            color: $blue;
-          }
         }
       }
+    }
     &__todo {
       cursor: pointer;
       width: 14%;
       p:hover {
         color: $blue;
-            i {
-              color: $blue;
-            }
-          }
+        i {
+          color: $blue;
         }
-    
+      }
+    }
     .fa-tag, .fa-list {
       color: $red;
     }
     .fa-bell-o, .fa-check {
       color:#888;
     }
-    
   }
 }
   

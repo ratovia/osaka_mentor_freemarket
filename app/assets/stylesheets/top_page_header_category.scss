@@ -6,59 +6,57 @@
     background: white;
     border-bottom: $border-design;
 }
-
 .header_container_bottom__category {
   &_list {
     display: none;
   }
   &:hover {
-    
     .header_container_bottom__category_list {
       @include ul-style();
-    font-weight: normal;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    li {
-      border-right: $border-design;
-      border-left: $border-design;
-      padding: 5px 10px;
-      ul {
-        display: none;
-      }
-      &:hover {
-        background: $red;
-        color: white;
-        border-right: 0px;
-      ul {
-          @include ul-style();
-          color: $black;
-          position: absolute;
-          top: 0px;
-          left: 200px;
-          li {
-            border-right: $border-design;
-            height: 40px;
-            ul {
-              display: none;
-            }
-            &:hover {
-              background: $gray;
-              color: $black;
-              border-right: 0px;
-              
+      font-weight: normal;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      li {
+        border-right: $border-design;
+        border-left: $border-design;
+        padding: 5px 10px;
+        ul {
+          display: none;
+        }
+        &:hover {
+          background: $red;
+          color: white;
+          border-right: 0px;
+        ul {
+            @include ul-style();
+            color: $black;
+            position: absolute;
+            top: 0px;
+            left: 200px;
+            li {
+              border-right: $border-design;
+              height: 40px;
               ul {
-                @include ul-style();
-                position: absolute;
-                top: 0px;
-                left: 200px;
-                border-right: $border-design;
-                li {
-                 background: white;
-                }
-                li:hover {
-                  background: $gray;
-                  color: $black;
+                display: none;
+              }
+              &:hover {
+                background: $gray;
+                color: $black;
+                border-right: 0px;
+                ul {
+                  @include ul-style();
+                  position: absolute;
+                  top: 0px;
+                  left: 200px;
+                  border-right: $border-design;
+                  li {
+                  background: white;
+                  }
+                  li:hover {
+                    background: $gray;
+                    color: $black;
+                  }
                 }
               }
             }
@@ -66,7 +64,5 @@
         }
       }
     }
-    }
   }
-
 }
