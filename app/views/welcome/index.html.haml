@@ -1,6 +1,8 @@
 .top_page
-  = render "header"
+  %header.top_page_header
+    = render "header"
   .top_page_info_area
     = image_tag "banner-camp.jpg", class: "top_page_info_area__banner"
   .top_page_main
+    = render "top_page_main"
   %footer.top_page_footer
