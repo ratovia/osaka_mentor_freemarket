@@ -76,13 +76,13 @@
       .new_signup_page2_main_view__check
         %form.g-recaptcha_form_group
           .g-recaptcha{data: {callback: "clearcall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
-        .new_signup_page2_main_view__rule
+        .rule_agreement
           「次へ進む」のボタンを押すことにより、
           %a
           =link_to"利用規約"
           に同意したものとみなします
-        %input.new_signup_page2_main_view__next_page_buttom(type="submit" name="button" value="次へ進む")
-        %a.new_signup_page2_main_view__person_information_font
+        %input.next_page_buttom(type="submit" name="button" value="次へ進む")
+        %a.rule_list
         =link_to"本人情報の登録のついて>", "#"
-        
+
   = render 'shared/new_signup_footer'
