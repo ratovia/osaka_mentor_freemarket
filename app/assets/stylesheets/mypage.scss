@@ -24,7 +24,7 @@
       width: 100%;
       height: 200px;
       padding:20px;
-      background-image: url("user-bg.jpg");
+      background-image: image-url("user-bg.jpg");
       background-size: cover;
       text-align: center;
       @include disable-link-decoration();
