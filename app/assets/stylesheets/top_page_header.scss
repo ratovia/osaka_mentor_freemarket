@@ -1,0 +1,153 @@
+.page_header {
+  width: 100%;
+  height: 120px;
+  background: $white;
+}
+.header_container {
+  width: 85%;
+  margin: 0 auto;
+  background-color: $white;
+  &_top {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    &_left {
+      width: 15%;
+      height: inherit;
+      text-align: center;
+      img {
+        display: inline-block;
+        margin-top: 20px;
+        margin-right: 20px;
+        width: 80%;
+      }
+    }
+    &_right {
+      width: 85%;
+      height: inherit;
+      .header_search {
+        width: 100%;
+        height: inherit;
+        position: relative;
+        &__input {
+          display: inline-block;
+          width: 100%;
+          height: 40px;
+          background: $gray;
+          font-size: 14px;
+          border-radius: 5px;
+          padding: 5px;
+        }
+        &__submit {
+          display: inline-block;
+          width: 10%;
+          height: inherit;
+          display: none;
+        }
+        .search_label {
+          text-align: center;
+          color: white;
+          line-height: 40px;
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: 22px;
+          right: 1px;
+          background-color: rgb(102, 102, 102);
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+  }
+  &_bottom {
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    a {
+      color: $black;
+      text-decoration: none;
+      &:hover {
+        color: $blue;
+      }
+    }
+    &__category {
+      p:hover {       
+          color: $blue;
+      }
+      cursor: pointer;
+      font-weight: bold;
+      width: 18%;
+      position: relative;
+    }
+    &__bland {
+      cursor: pointer;
+      font-weight: bold;
+      width: 18%;
+      p:hover {
+          color: $blue;
+      }
+    }
+    &__center {
+      width: 30%;
+    }
+    &__info {
+      cursor: pointer;
+      width: 10%;
+      p:hover {
+        color: $blue;
+        i {
+          color: $blue;
+        }
+      }
+    }
+    &__mypage {
+      cursor: pointer;
+      width: 10%;
+      text-align: right;
+      &_image {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 5px;
+        left: 0px;
+        img{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+      }
+      p:hover {
+        color: $blue;
+        i {
+          color: $blue;
+        }
+      }
+    }
+    &__todo {
+      cursor: pointer;
+      width: 14%;
+      p:hover {
+        color: $blue;
+        i {
+          color: $blue;
+        }
+      }
+    }
+    .fa-tag, .fa-list {
+      color: $red;
+    }
+    .fa-bell-o, .fa-check {
+      color:#888;
+    }
+  }
+}
+  
+
+
+

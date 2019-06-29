@@ -1,0 +1,157 @@
+%header.page_header
+  .header_container
+    .header_container_top
+      .header_container_top_left
+        = image_tag "logo.svg"
+      .header_container_top_right
+        %form.header_search
+          %input(type="text" class="header_search__input" placeholder="何かお探しですか？")
+          %lebel(for="search" class="search_label")
+            = fa_icon "search"
+          %input(type="submit" value="送信" class="header_search__submit" id="search")
+        
+    .header_container_bottom
+      .header_container_bottom__category
+        %p
+          = fa_icon "list"
+          カテゴリーから探す
+        %ul.header_container_bottom__category_list
+          %li
+            レディース
+            %ul
+              %li
+                トップス
+                %ul
+                  %li Tシャツ/カットソー(半袖)
+                  %li Tシャツ/カットソー(長袖)
+                  %li シャツ/ブラウス(長袖)
+                  %li シャツ/ブラウス(半袖)
+              %li アウター・ジャケット
+              %li パンツ
+              %li スカート
+              %li ワンピース
+          %li 
+            メンズ
+            %ul
+              %li トップス
+              %li アウター・ジャケット
+              %li パンツ
+              %li バッグ
+              %li 靴
+          %li ベビー・キッズ
+          %li インテリア・住まい
+          %li 本・音楽・ゲーム
+      .header_container_bottom__bland
+        %p
+          = fa_icon "tag"
+          ブランドから探す
+        %ul.header_container_bottom__bland_list
+          %li シャネル
+          %li ナイキ
+          %li ルイヴィトン
+          %li シュプリーム
+          %li アディダス
+          %li ブランド一覧
+      .header_container_bottom__center
+        
+      .header_container_bottom__info
+        %p
+          = fa_icon "bell-o"
+          お知らせ
+        %ul.header_container_bottom__info_list
+          %li
+            = image_tag "mercari_profile.png"
+            .header_info__msg
+              チケットがあります
+              .header_info__msg__time
+                = fa_icon "clock-o"
+                2時間前
+            .header_info__chevrson_right
+              = fa_icon "chevron-right"
+          %li
+            = image_tag "mercari_profile.png"
+            .header_info__msg
+              チケットがあります
+              .header_info__msg__time
+                = fa_icon "clock-o"
+                2時間前
+            .header_info__chevrson_right
+              = fa_icon "chevron-right"
+          %li
+            = image_tag "mercari_profile.png"
+            .header_info__msg
+              チケットがあります
+              .header_info__msg__time
+                = fa_icon "clock-o"
+                2時間前
+            .header_info__chevrson_right
+              = fa_icon "chevron-right"
+          %li
+            = image_tag "mercari_profile.png"
+            .header_info__msg
+              チケットがあります
+              .header_info__msg__time
+                = fa_icon "clock-o"
+                2時間前
+            .header_info__chevrson_right
+              = fa_icon "chevron-right"
+          
+      .header_container_bottom__todo
+        %p
+          = fa_icon "check"
+          やることリスト
+        .header_container_bottom__todo_list
+      .header_container_bottom__mypage
+        %p
+          = link_to "マイページ", "#"
+        .header_container_bottom__mypage_image
+          = image_tag "member_photo_noimage_thumb.png"
+        .header_container_bottom__mypage_overview
+          .overview_background
+            .user_image
+              = image_tag "member_photo_noimage_thumb.png"
+          .overview_main
+            .overview_main__top
+              たぬ
+              .achievement
+                %span 評価: 11
+                %span 出品数: 20
+            .overview_main__top
+              %ul.stock_money_list
+                %li
+                  残高
+                  %span
+                    ￥800
+                    = fa_icon "chevron-right"
+                %li
+                  ポイント
+                  %span 
+                    P2000
+                    = fa_icon "chevron-right"
+          .overview_lists
+            %ul
+              %li.overview_list
+                いいね一覧
+                %span
+                  = fa_icon "chevron-right"
+              %li.overview_list
+                出品した商品 - 出品中
+                %span
+                  = fa_icon "chevron-right"
+              %li.overview_list
+                出品した商品 - 取引中
+                %span
+                  = fa_icon "chevron-right"
+              %li.overview_list
+                出品した商品 - 売却済
+                %span
+                  = fa_icon "chevron-right"
+              %li.overview_list 
+                購入した商品 - 取引中
+                %span
+                  = fa_icon "chevron-right"
+              %li.overview_list
+                購入した商品 - 購入済
+                %span
+                  = fa_icon "chevron-right"
+
