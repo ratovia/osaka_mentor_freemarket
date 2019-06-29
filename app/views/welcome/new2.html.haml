@@ -1,0 +1,97 @@
+.new_signup_page2
+  %header.new_signup_page2_header
+    .new_signup_page2_header__img_right
+      = image_tag "logo.svg"
+    .new_signup_page2_header__img_left
+      = image_tag "new_signup_page2_header_img.png"
+
+  %main.new_signup_page2_main
+    .new_signup_page2_main_view
+      %h1 会員情報入力
+      .new_signup_page2_main_view__input
+        %form
+          %span ニックネーム
+          %a.required_red 必須
+          %input(type="text" class="nickname_input" placeholder="例）メルカリ太郎")
+
+        %form
+          %span メールアドレス
+          %a.required_red 必須
+          %input(type="text" class="email_input" placeholder="PC・携帯どちらでも可")
+
+        %form
+          %span パスワード
+          %a.required_red 必須
+          %input(type="text" class="password_input" placeholder="6文字以上")
+
+        %form
+          %span パスワード(確認)
+          %a.required_red 必須
+          %input(type="text" class="password_input" placeholder="6文字以上")
+
+        %h2 本人確認
+        %p 安心・安全にご利用いただくために、お客さまの<br>本人情報の登録にご協力ください。他のお客さま<br>に公開されることはありません。
+
+        %form
+          %span 姓(全角)
+          %a.required_red 必須
+          %input(type="text" class="password_input" placeholder="例) 山田")
+
+        %form
+          %span 名(全角)
+          %a.required_red 必須
+          %input(type="text" class="password_input" placeholder="例) 綾")
+
+        %form
+          %span 姓カナ(全角)
+          %a.required_red 必須
+          %input(type="text" class="password_input" placeholder="例) ヤマダ")
+
+        %form
+          %span 名カナ(全角)
+          %a.required_red 必須
+          %input(type="text" class="password_input" placeholder="例) アヤ")
+
+        %form
+          %span 生年月日
+          %a.required_red 必須
+        .birthdate
+          .birthdate__year.birthdate__box
+            %select#year
+              %option{:value=>""} -- 
+            = fa_icon "chevron-down", class: "chevron_down"
+          .birthdate__font 年
+          .birthdate__month.birthdate__box
+            %select#month
+              %option{:value=>""} -- 
+            = fa_icon "chevron-down", class: "chevron_down"
+          .birthdate__font 月
+          .birthdate__month.birthdate__box
+            %select#day
+              %option{:value=>""} -- 
+            = fa_icon "chevron-down", class: "chevron_down"
+          .birthdate__font 日
+        %p.attention_font ※本人情報は正しく入力してください。会員登録<br>後、修正するにはお時間を頂く場合があります。
+
+      .new_signup_page2_main_view__check
+        %form.g-recaptcha_form_group
+          .g-recaptcha{data: {callback: "clearcall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
+        .new_signup_page2_main_view__rule
+          「次へ進む」のボタンを押すことにより、
+          %a
+          =link_to"利用規約"
+          に同意したものとみなします
+        %input.new_signup_page2_main_view__next_page_buttom(type="submit" name="button" value="次へ進む")
+        %a.new_signup_page2_main_view__person_information_font
+        =link_to"本人情報の登録のついて>", "#"
+
+      
+          
+          
+        
+              
+
+
+        
+
+  = render 'shared/new_signup_footer'
