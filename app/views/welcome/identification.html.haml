@@ -1,0 +1,225 @@
+.user-my-page
+  = render "header"
+  .container
+    .left-column
+      %ul.menu-list.list-parent
+        %li.menu-list__title.list-item
+          マイページ
+          = fa_icon "chevron-right",class:"menu-list__title__arrow"
+        %li.menu-list__item.list-item
+          お知らせ
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          やることリスト
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          いいね！一覧
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          出品する
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          出品した商品 - 出品中
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          出品した商品 - 取引中
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          出品した商品 - 売却済み
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          購入した商品 - 取引中
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          購入した商品 - 過去の取引
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          ニュース一覧
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          評価一覧
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          ガイド
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.menu-list__item.list-item
+          お問い合わせ
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+      %h3
+        メルペイ
+      %ul.melpay.list-parent
+        %li.melpay__item.list-item
+          売り上げ・振込申請
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.melpay__item.list-item
+          ポイント
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+      %h3
+        設定
+      %ul.setting.list-parent
+        %li.setting__item.list-item
+          プロフィール
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.setting__item.list-item
+          発送元・お届け先住所変更
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.setting__item.list-item
+          支払い方法
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.setting__item.list-item
+          メール/パスワード
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.setting__item.list-item
+          本人情報
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.setting__item.list-item
+          電話番号の確認
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+        %li.setting__item.list-item
+          ログアウト
+          = fa_icon "chevron-right",class:"menu-list__item__arrow"
+
+    .right-column
+      .user-identification
+        .user-identification__header
+          本人情報の登録
+        %form.user-identification__form
+          .user-identification__form__description
+            %p 
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            .user-identification__form__description__link
+              = link_to "本人確認書類のアップロードについて", "#"
+            = fa_icon ""
+          .user-identification__form__name.form_data
+            %label お名前
+            %p John
+          .user-identification__form__kana.form_data
+            %label お名前カナ
+            %p ジョン
+          .user-identification__form__birthday.form_data
+            %label 生年月日
+            %p 2112/9/30
+          .user-identification__form__postcode.form_data
+            %label 郵便番号
+            %span.optional 任意
+            %input{type: "number",placeholder: "例)1234567"}
+          .user-identification__form__prefecture.form_data
+            %label 都道府県
+            %span.optional 任意
+            %select{name:"pref"}
+              %option{value:""}
+                = "--"
+              %option{value: "1"} 
+                北海道
+              %option{value: "2"} 
+                青森県
+              %option{value: "3"} 
+                岩手県
+              %option{value: "4"} 
+                宮城県
+              %option{value: "5"} 
+                秋田県
+              %option{value: "6"} 
+                山形県
+              %option{value: "7"} 
+                福島県
+              %option{value: "8"} 
+                茨城県
+              %option{value: "9"} 
+                栃木県
+              %option{value: "10"}
+                群馬県
+              %option{value: "11"}
+                埼玉県
+              %option{value: "12"}
+                千葉県
+              %option{value: "13"}
+                東京都
+              %option{value: "14"}
+                神奈川県
+              %option{value: "15"}
+                新潟県
+              %option{value: "16"}
+                富山県
+              %option{value: "17"}
+                石川県
+              %option{value: "18"}
+                福井県
+              %option{value: "19"}
+                山梨県
+              %option{value: "20"}
+                長野県
+              %option{value: "21"}
+                岐阜県
+              %option{value: "22"}
+                静岡県
+              %option{value: "23"}
+                愛知県
+              %option{value: "24"}
+                三重県
+              %option{value: "25"}
+                滋賀県
+              %option{value: "26"}
+                京都府
+              %option{value: "27"}
+                大阪府
+              %option{value: "28"}
+                兵庫県
+              %option{value: "29"}
+                奈良県
+              %option{value: "30"}
+                和歌山県
+              %option{value: "31"}
+                鳥取県
+              %option{value: "32"}
+                島根県
+              %option{value: "33"}
+                岡山県
+              %option{value: "34"}
+                広島県
+              %option{value: "35"}
+                山口県
+              %option{value: "36"}
+                徳島県
+              %option{value: "37"}
+                香川県
+              %option{value: "38"}
+                愛媛県
+              %option{value: "39"}
+                高知県
+              %option{value: "40"}
+                福岡県
+              %option{value: "41"}
+                佐賀県
+              %option{value: "42"}
+                長崎県
+              %option{value: "43"}
+                熊本県
+              %option{value: "44"}
+                大分県
+              %option{value: "45"}
+                宮崎県
+              %option{value: "46"}
+                鹿児島県
+              %option{value: "47"}
+                沖縄県
+            = fa_icon "angle-down"
+          .user-identification__form__city.form_data
+            %label 市区町村
+            %span.optional 任意
+            %input{type: "text",placeholder: "例)福岡市中央区"}
+          .user-identification__form__address-number.form_data
+            %label 番地
+            %span.optional 任意
+            %input{type: "text",placeholder: "例)天神1-2-3"}
+          .user-identification__form__billdings.form_data
+            %label 建物名
+            %span.optional 任意
+            %input{type: "text",placeholder: "例)梅田センタービル30F"}
+          .user-identification__form__submit.form_data
+            %input{type: "submit",value:"送信する"} 
+          .user-identification__form__about-link.form_data
+            = link_to "本人情報の登録について", "#"     
+  = render "footer"
