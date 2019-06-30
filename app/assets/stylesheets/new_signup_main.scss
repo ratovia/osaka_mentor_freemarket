@@ -1,6 +1,5 @@
 .new_signup_main{
   height: 400px;
-  
   h1{
     padding: 30px;
     text-align: center;
@@ -9,7 +8,6 @@
     height: 90px;
     margin-bottom: 55px;
   }
-
   &__view{
     background-color: $white;
     width: 50%;
@@ -22,7 +20,6 @@
     width: 340px;
     margin: auto;
   }
-
   button{
     height: 50px;
     width: 350px;
@@ -30,7 +27,6 @@
     margin-bottom: 15px;
     border-radius: 7px;
   }
-
   i {
     display: inline-block;
     font-size: 30px;
@@ -41,29 +37,24 @@
     margin: auto;
     padding-right: 40px;
   }
-
   &__selection--btn-mail{
     color: $white;
     background-color: $red
   }
-  
   &__selection--btn-facebook{
     color: $white;
     background-color: #3B579D;
   }
-
   &__selection--btn-google{
     color: $black;
     font-size: 15px;
     margin: auto;
     padding-right: 20px;
     background-color: rgba(255,255,255, 0);
-
     .new_signup_main_btn__img{
       width: 350px;
       display: flex;
       margin-left: 3px;
-      
       img {
         background-color: $white;
         display: inline-block;
