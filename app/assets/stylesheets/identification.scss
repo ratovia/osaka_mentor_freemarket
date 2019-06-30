@@ -2,7 +2,7 @@
   .right-column{
     .user-identification{
       background-color: $white;
-      .user-identification__header{
+      &__header{
         height: 50px;
         padding: 8px 24px;
         color: #333;
@@ -12,7 +12,7 @@
         line-height: 34px;
         border-bottom: 1px solid #eee;
       }
-      .user-identification__form{
+      &__form{
         padding: 64px;
         font-size: 14px;
         color:#333;
@@ -22,8 +22,8 @@
             line-height: 20px;
           }
         }
-        .user-identification__form__about-link,
-        .user-identification__form__description__link{
+        &__about-link,
+        &__description__link{
           text-align: right;
           a{
             color: $blue;
@@ -84,7 +84,7 @@
         p{
           padding: 8px 0;
         }
-        .user-identification__form__prefecture{
+        &__prefecture{
           position: relative;
           i{
             font-size: 24px;
