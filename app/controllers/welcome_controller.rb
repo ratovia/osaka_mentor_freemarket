@@ -9,4 +9,6 @@ class WelcomeController < ApplicationController
   end
   def identification
   end
+  def logout
+  end
 end
