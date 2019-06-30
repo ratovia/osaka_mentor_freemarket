@@ -1,0 +1,23 @@
+.new_signup_page3_header{
+  height: 130px;
+  display: -webkit-flex;
+  justify-content: center;
+
+  &__img_right{
+    height: 50px;
+    width: 200px;
+    padding-top: 50px;
+    margin-right: 60px;
+  }
+
+  &__img_left{
+    height: 50px;
+    width: 200px;
+    padding-top: 30px;
+    margin-right: 280px;
+    img{
+      height: 100px;
+      width: 500px;
+    }
+  }
+}
