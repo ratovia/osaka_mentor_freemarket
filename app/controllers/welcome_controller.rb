@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
   end
   def new
   end
+  def new2
+  end
+  def identification
+  end
 end
