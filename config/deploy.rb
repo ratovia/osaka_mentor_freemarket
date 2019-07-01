@@ -41,7 +41,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :ssh_options, verify_host_key: :secure
 
 # config git
-# set :branch, ENV['BRANCH'] || "master"
+set :branch, ENV['BRANCH'] || "master"
 
 # config ruby
 set :rbenv_type, :user

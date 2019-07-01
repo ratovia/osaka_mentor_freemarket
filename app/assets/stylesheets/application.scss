@@ -1,5 +1,4 @@
 @import "./reset";
-@import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "./variable";
 @import "./mixin";
@@ -16,13 +15,12 @@
  
 */
 
-
 @import "mypage";
 @import "./new_signup";
 @import "./top_page_layout";
 @import "./footer";
-// @import "";
-// @import "";
+@import "identification";
+@import "./new_signup_page2";
 
 
 /*
@@ -51,7 +49,5 @@
 @import "./top_page_header_todo";
 @import "./top_page_header_mypage";
 @import "./top_page_main";
-// @import "";
-// @import "";
-// @import "";
-// @import "";
+@import "./new_signup_page2_header";
+@import "./new_signup_page2_main";
