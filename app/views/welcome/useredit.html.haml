@@ -1,0 +1,20 @@
+.user-my-page
+  = render "header"
+  .container
+    .left-column
+      = render "my_page_sidebar"
+    .right-column
+      .edit-profile
+        .edit-profile__header
+          プロフィール
+        %form.edit-profile__form
+          .edit-profile__form__banner
+            .edit-profile__form__banner__icon
+              = image_tag "member_photo_noimage_thumb.png"
+            .edit-profile__form__banner__name
+              %input{placeholder: "John"}
+          .edit-profile__form__content
+            %textarea{placeholder: "例)こんにちは！ご覧になってくれてありがとうございます。"}
+          .edit-profile__form__button
+            = link_to "変更する", "#"
+  = render "footer"
