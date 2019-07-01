@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/index' => 'welcome#index'
   get 'welcome/mypage' => 'welcome#mypage'
+  get 'welcome/useredit' => 'welcome#useredit'
   get 'welcome/new' => 'welcome#new'
   get 'welcome/new2' => 'welcome#new2'
   get 'welcome/new3' => 'welcome#new3'

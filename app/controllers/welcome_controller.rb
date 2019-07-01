@@ -6,6 +6,8 @@ class WelcomeController < ApplicationController
   def identification
     @prefecture = Prefecture.all
   end
+  def useredit
+  end
   def new
   end
   def new2
