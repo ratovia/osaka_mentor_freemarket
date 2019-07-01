@@ -58,14 +58,14 @@
 }
 @mixin label($color) {
   display: inline-block;
-      width: 30px;
-      height: 21px;
-      font-size: 12px;
-      font-weight: normal;
-      background: $color;
-      color: white;
-      text-align: center;
-      line-height: 21px;
-      margin-left: 10px;
-      border-radius: 2px; 
+  width: 30px;
+  height: 21px;
+  font-size: 12px;
+  font-weight: normal;
+  background: $color;
+  color: white;
+  text-align: center;
+  line-height: 21px;
+  margin-left: 10px;
+  border-radius: 2px; 
 }
