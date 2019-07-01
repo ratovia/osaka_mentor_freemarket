@@ -1,0 +1,56 @@
+.user-my-page
+  = render "header"
+  .container
+    .left-column
+      = render "my_page_sidebar"
+    .right-column
+      .user-identification
+        .user-identification__header
+          本人情報の登録
+        %form.user-identification__form
+          .user-identification__form__description
+            %p 
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            .user-identification__form__description__link
+              = link_to "本人確認書類のアップロードについて", "#"
+          .user-identification__form__name.form_data
+            %label お名前
+            %p John
+          .user-identification__form__kana.form_data
+            %label お名前カナ
+            %p ジョン
+          .user-identification__form__birthday.form_data
+            %label 生年月日
+            %p 2112/9/30
+          .user-identification__form__postcode.form_data
+            %label 郵便番号
+            %span.optional 任意
+            %input{type: "number",placeholder: "例)1234567"}
+          .user-identification__form__prefecture.form_data
+            %label 都道府県
+            %span.optional 任意
+            %select{name:"pref"}
+              %option{value:""} --
+              - @prefecture.each do |pre|
+                %option{value: pre.id} 
+                  = pre.name
+            = fa_icon "angle-down"
+          .user-identification__form__city.form_data
+            %label 市区町村
+            %span.optional 任意
+            %input{type: "text",placeholder: "例)福岡市中央区"}
+          .user-identification__form__address-number.form_data
+            %label 番地
+            %span.optional 任意
+            %input{type: "text",placeholder: "例)天神1-2-3"}
+          .user-identification__form__billdings.form_data
+            %label 建物名
+            %span.optional 任意
+            %input{type: "text",placeholder: "例)梅田センタービル30F"}
+          .user-identification__form__submit.form_data
+            %input{type: "submit",value:"送信する"} 
+          .user-identification__form__about-link.form_data
+            = link_to "本人情報の登録について", "#"     
+  = render "footer"
