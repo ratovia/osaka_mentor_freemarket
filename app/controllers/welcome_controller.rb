@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   end
 
   def new_item
+    @prefecture = Prefecture.all
   end
   def mypage
   end
