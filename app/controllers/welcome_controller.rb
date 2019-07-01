@@ -11,5 +11,6 @@ class WelcomeController < ApplicationController
   def new2
   end
   def identification
+    @prefecture = Prefecture.all
   end
 end

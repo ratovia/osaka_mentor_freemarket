@@ -39,7 +39,7 @@ gem 'erb2haml', '>= 0.1.5'
 gem 'font-awesome-rails', '>= 4.7.0.5'
 gem 'font-awesome-sass'
 gem 'devise', '>= 4.6.2'
-
+gem 'active_hash'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
