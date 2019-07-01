@@ -158,9 +158,11 @@
                 必須
             %input(type="text" name="price" id="price" placeholder="例）300")
           .sales_fee
-            販売手数料(10%)
+            %p 販売手数料(10%)
+            %p.sales_fee__computed -
           .sales_benefit
-            販売利益
+            %p 販売利益
+            %p.sales_benefit__computed -
     .new_item_page_container_bottom
       .bottom__attenssion
         %span プライバシーポリシー

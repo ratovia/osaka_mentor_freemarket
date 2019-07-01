@@ -33,7 +33,15 @@ $(function () {
         <option> ゆうパケット</option>
         `);
     }
-
   });
-
+  $('#price').on('keyup', function () {
+        var inputPrice = $(this).val();
+        var salesFee = Math.floor(inputPrice / 10);
+        if (salesFee === NaN) {
+          return;
+        }
+        var salesBenefit = inputPrice - salesFee;
+        $('.sales_fee__computed').text(salesFee);
+        $('.sales_benefit__computed').text(salesBenefit);
+      });
 });
