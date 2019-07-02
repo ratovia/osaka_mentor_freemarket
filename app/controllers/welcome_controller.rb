@@ -19,6 +19,7 @@ class WelcomeController < ApplicationController
   def sms
   end
   def address
+    @prefecture = Prefecture.all
   end
   def payment
   end

@@ -19,3 +19,11 @@ body{
 footer{
   clear:both;
 }
+
+.require_red{
+  @include label($red);
+}
+
+.optional{
+  @include label(#ccc);
+}
