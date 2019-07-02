@@ -1,10 +1,11 @@
 .signup_header{
-  height: 130px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &__img{
-    height: 50px;
-    width: 200px;
-  }
+  @include signup_header(center);
+}
+
+.registration_header,
+.sms_header,
+.address_header,
+.payment_header,
+.finish_header{
+  @include signup_header(space-between);
 }

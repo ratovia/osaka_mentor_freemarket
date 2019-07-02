@@ -67,3 +67,29 @@
   display: inline-block;
   margin-left: 10px;  
 }
+
+
+@mixin signup_header($justify){
+  height: 130px;
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content:$justify;
+  &__img{
+    height: 50px;
+    width: 200px;
+  }
+  &__img_left{
+    img{
+      height: 100px;
+      width: 200px;
+    }
+  }
+  &__img_right{
+    img{
+      height: 100px;
+      width: 500px;
+    }
+  }
+}
