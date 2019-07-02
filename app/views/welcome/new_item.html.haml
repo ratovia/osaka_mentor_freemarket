@@ -1,0 +1,184 @@
+.new_item_page
+  .new_item_page_container
+    .new_item_page_container_top
+      = image_tag "logo.svg"
+    %form.new_item_page_container_main
+      .new_item_page_container_main_title
+        商品の情報を入力
+      .new_item_page_container_main_item_image
+        %p.new_item_page_container_main_label
+          出品画像 
+          %span.required
+            必須
+        %p.desc 最大10枚までアップロードできます。
+        .image_file_area
+          %p 
+            ドラッグアンドドロップ
+            %br
+              もしくはクリックをしてアップロード
+          %input(type="file")
+      .new_item_page_container_main_item_description
+        %p.new_item_page_container_main_label
+          商品名 
+          %span.required
+            必須
+        %input(type="text" placeholder="商品名 (必須40文字まで)" maxlength="40")
+        %p.new_item_page_container_main_label
+          商品の説明
+          %span.required
+            必須
+        %textarea(maxlength="1000" placeholder="商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。")
+      .new_item_page_container_main_item_detail
+        .left_content
+          商品の詳細
+        .right_content
+          %p.new_item_page_container_main_label
+            カテゴリ
+            %span.required
+              必須
+          .select_box.category1
+            %select(name="categoly" id="category1")
+              %option(value="0") ---
+              %option(value="1") レディース
+              %option(value="2") メンズ
+              %option(value="3") ベビー・キッズ
+              %option(value="4") 家具・インテリア
+              %option(value="5") 本・音楽・ゲーム
+            = fa_icon "angle-down"
+          .select_box.category2
+            %select(name="categoly" id="category2")
+              %option(value="0") ---
+              %option(value="1") トップス
+              %option(value="2") ボトムス
+              %option(value="3") パンツ
+            = fa_icon "angle-down"
+          .select_box.category3
+            %select(name="categoly" id="category3")
+              %option(value="0") ---
+              %option(value="1") 半袖
+              %option(value="2") 長袖
+              %option(value="3") 七分
+            = fa_icon "angle-down"
+          #select_size
+            %p.new_item_page_container_main_label.select_label
+              サイズ
+              %span.required
+                必須
+            .select_box
+              %select(name="item_size")
+                %option(value="0") ---
+                %option(value="1") XXS以下
+                %option(value="2") XS(SS)
+                %option(value="3") S
+                %option(value="4") M
+                %option(value="5") L
+                %option(value="6") XL(LL)
+                %option(value="7") 2XL(3L)
+                %option(value="8") 3XL(4L)
+                %option(value="9") 4XL(5L)以上
+                %option(value="10") FREE SIZE
+              = fa_icon "angle-down"
+          #input_bland
+            %p.new_item_page_container_main_label.select_label
+              ブランド
+              %span.optional
+                任意
+            .input_box
+              %input(type="text" placeholder="例）シャネル" name="bland")
+          %p.new_item_page_container_main_label.select_label
+            商品の状態
+            %span.required
+              必須
+          .select_box
+            %select(name="item_status")
+              %option(value="0") ---
+              %option(value="1") 新品
+              %option(value="2") 未使用に近い
+              %option(value="3") 目立った傷や汚れなし
+              %option(value="4") やや傷や汚れあり
+              %option(value="5") 傷や汚れあり
+              %option(value="6") 全体的に状態が悪い
+            = fa_icon "angle-down"
+      .new_item_page_container_main_item_delivary
+        .left_content
+          配送について
+        .right_content
+          %p.new_item_page_container_main_label
+            配送料の負担
+            %span.required
+              必須
+          .select_box
+            %select(name="delivery_burden" id="delivery_burden")
+              %option(value="0") ---
+              %option(value="1") 送料込み(出品者負担)
+              %option(value="2") 着払い(購入者負担)
+            = fa_icon "angle-down"
+          %p.new_item_page_container_main_label.delivery_method_select_label
+            配送の方法
+            %span.required
+              必須
+          .select_box.delivery_method_select
+            %select(name="delivery_method" id="delivery_method")
+            = fa_icon "angle-down"
+          %p.new_item_page_container_main_label
+            発送元の地域
+            %span.required
+              必須
+          .select_box
+            = select_tag 'delivery_prefecture', options_from_collection_for_select(@prefecture, :id, :name)
+            = fa_icon "angle-down"
+          %p.new_item_page_container_main_label
+            発送までの日数
+            %span.required
+              必須
+          .select_box
+            %select(name="delivery_time")
+              %option(value="0") ---
+              %option(value="1") 1~2日
+              %option(value="2") 3~4日
+              %option(value="3") 4~7日
+            = fa_icon "angle-down"
+      .new_item_page_container_main_item_price
+        .left_content
+          販売価格
+          %span (300〜9,999,999)
+        .right_content
+          .input_price
+            %p.new_item_page_container_main_label
+              価格
+              %span.required
+                必須
+            .input_price__area
+              ¥
+              %input(type="text" name="price" id="price" placeholder="例）300" maxlength="7")
+          .sales_fee
+            %p 販売手数料(10%)
+            %p.sales_fee__computed -
+          .sales_benefit
+            %p 販売利益
+            %p.sales_benefit__computed -
+      .new_item_page_container_main_submit
+        %p.new_item_page_container_main_submit__attension
+          = link_to "禁止されている出品", "#"
+          、
+          = link_to "行為", "#"
+          を必ずご確認ください。
+          %br
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "#"
+            は犯罪であり処罰される可能性があります。
+            %br 
+              また、出品をもちまして
+              = link_to "加盟店規約", "#"
+              に同意したことになります。
+        %input(type="submit" value="出品する" id="item_submit")
+        = link_to "もどる", :back, class: "page_back"
+    .new_item_page_container_bottom
+      .bottom__attenssion
+        %span プライバシーポリシー
+        %span メルカリ利用規約
+        %span 特定商取引に関する表記
+      .bottom__logo
+        = image_tag 'logo-gray.svg'
+      .bottom__copy_light
+        &copy;2019 Mercari

@@ -42,3 +42,30 @@
   line-height: 74px;
   border-top: $border-top;
 }
+
+@mixin left($height) {
+  width: 35%;
+  height: $height;
+  padding: 30px;
+  color: #888;
+  font-weight: bold;
+  font-size: 14px;
+}
+@mixin right($height) {
+  width: 65%;
+  height: $height;
+  padding: 30px;
+}
+@mixin label($color) {
+  display: inline-block;
+  width: 30px;
+  height: 21px;
+  font-size: 12px;
+  font-weight: normal;
+  background: $color;
+  color: white;
+  text-align: center;
+  line-height: 21px;
+  margin-left: 10px;
+  border-radius: 2px; 
+}
