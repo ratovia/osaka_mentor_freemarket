@@ -1,56 +1,52 @@
-.new_signup_page3_main{
-  height: 100%;
-
-  &__view{
+.sms_main__view{
   background-color: $white;
-  width: 50%;
+  width: 700px;
+  margin: 0 auto;
   height: 100%;
-  margin: auto;
   padding-bottom: 30px;
 
-    h1{
-      padding: 20px;
-      text-align: center;
-      font-size: 22px;
-      border-bottom: solid 1px $gray;
-      margin-bottom: 55px;
+  h1{
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+    border-bottom: solid 1px $gray;
+    margin-bottom: 55px;
+  }
+
+  &__number_input{
+    div{
+      width: 46%;
+      margin: auto;
+      
+      input{
+        width: 100%;
+        height: 50px;
+        font-size: 15px;
+        padding: 15px;
+        border-radius: 7px;
       }
 
-    &__number_input{
-      div{
-        width: 46%;
-        margin: auto;
-        
-        input{
-          width: 100%;
-          height: 50px;
-          font-size: 15px;
-          padding: 15px;
-          border-radius: 7px;
-        }
+      p{
+        line-height: 30px;
+        font-size: 14px;
+        opacity: 0.8;
+        width: 100%
+      }
 
-        p{
-          line-height: 30px;
-          font-size: 14px;
-          opacity: 0.8;
-          width: 100%
-        }
+      button{
+        width: 100%;
+        height: 50px;
+        margin-top: 40px;
+        background-color: $red;
+        color: $white;
+        font-size: 13px;
+      }
 
-        button{
-          width: 100%;
-          height: 50px;
-          margin-top: 40px;
-          background-color: $red;
-          color: $white;
-          font-size: 13px;
-        }
-
-        a{
-          color: #0099e8;
-          font-size: 13px;
-          position: relative;
-          left: 190px;
-        }
+      a{
+        color: #0099e8;
+        font-size: 13px;
+        position: relative;
+        left: 190px;
       }
     }
   }
