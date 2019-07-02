@@ -1,0 +1,22 @@
+.registration_header{
+  height: 130px;
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__img_left{
+    img{
+      height: 100px;
+      width: 200px;
+    }
+  }
+
+  &__img_right{
+    img{
+      height: 100px;
+      width: 500px;
+    }
+  }
+}
