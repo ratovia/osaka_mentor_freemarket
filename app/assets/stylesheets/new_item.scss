@@ -23,6 +23,7 @@
         font-size: 14px;
       }
       .required {
+        line-height: 12px;
         @include label($red);
       }
       .select_box {
@@ -141,7 +142,8 @@
           border-radius: 5px;
       }
       .optional {
-        @include label(#ddd);
+        @include label(#ccc);
+        line-height: 12px;
       }
       }
       .left_content {
