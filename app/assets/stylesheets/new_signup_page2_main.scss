@@ -41,14 +41,6 @@
     font-weight: bold;
   }
 
-  .required_red{
-    background-color: $red;
-    color: $white;
-    border-radius: 2px;
-    padding: 5px;
-    font-size: 10px;
-  }
-
   input{
     display: block;
     height: 50px;
@@ -150,4 +142,12 @@
       font-size: 15px;
     }
   }
+}
+
+.required_red{
+  background-color: $red;
+  color: $white;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 10px;
 }

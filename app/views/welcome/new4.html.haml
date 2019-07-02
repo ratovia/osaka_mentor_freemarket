@@ -1,0 +1,53 @@
+.new_signup_page4
+  %header.new_signup_page4_header
+    .new_signup_page4_header__img_right
+      = image_tag "logo.svg"
+    .new_signup_page4_header__img_left
+      = image_tag "new_signup_page4_header_img.png"
+
+  %main.new_signup_page4_main
+    .new_signup_page4_main_view
+      %h1.new_signup_page4_main_view_font 発送元・お届け先住所入力
+      %form.new_signup_page4_main_view__input
+        %span お名前
+        %a.required_red 必須
+        %input(type="text" class="sei_input" placeholder="例) 山田")
+        %input(type="text" class="mei_input common_input" placeholder="例) 彩")
+
+        %span お名前カナ
+        %a.required_red 必須
+        %input(type="text" class="sei_kana_input" placeholder="例) ヤマダ")
+        %input(type="text" class="mei_kana_input common_input" placeholder="例) アヤ")
+
+        %span 郵便番号
+        %a.required_red 必須
+        %input(type="text" class="postal_code_input common_input" placeholder="例) 123-4567")
+
+        %span 都道府県
+        %a.required_red 必須
+        .prefectures_select
+          %select
+            - @prefecture.each do |pre|
+              %option{value: pre.id} 
+                = pre.name
+          = fa_icon "chevron-down", class: "chevron_down"
+        
+        %span 市区町村
+        %a.required_red 必須
+        %input(type="text" class="city_name_input common_input" placeholder="例) 横浜市緑区")
+
+        %span 番地
+        %a.required_red 必須
+        %input(type="text" class="block_name_input common_input" placeholder="例) 青山1-1-1")
+
+        %span 建物名
+        %a.required_red 任意
+        %input(type="text" class="building_name_input common_input" placeholder="例) 柳ビル103")
+
+        %span 電話
+        %a.required_red 任意
+        %input(type="text" class="tel_numbur_input common_input" placeholder="例) 09012345678")
+
+        %button(type="submit") 次へ進む
+
+  = render 'shared/new_signup_footer'

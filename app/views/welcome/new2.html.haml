@@ -30,19 +30,19 @@
 
       %span 姓(全角)
       %a.required_red 必須
-      %input(type="text" class="password_input" placeholder="例) 山田")
+      %input(type="text" class="sei_input" placeholder="例) 山田")
 
       %span 名(全角)
       %a.required_red 必須
-      %input(type="text" class="password_input" placeholder="例) 綾")
+      %input(type="text" class="mei_input" placeholder="例) 綾")
 
       %span 姓カナ(全角)
       %a.required_red 必須
-      %input(type="text" class="password_input" placeholder="例) ヤマダ")
+      %input(type="text" class="sei_kana_input" placeholder="例) ヤマダ")
 
       %span 名カナ(全角)
       %a.required_red 必須
-      %input(type="text" class="password_input" placeholder="例) アヤ")
+      %input(type="text" class="mei_kana__input" placeholder="例) アヤ")
 
       %span 生年月日
       %a.required_red 必須
@@ -70,7 +70,7 @@
       .rule_agreement
         次へ進む」のボタンを押すことにより、
         %a
-        =link_to"利用規約"
+        =link_to"利用規約", "#"
         に同意したものとみなします
       %input.next_page_buttom(type="submit" name="button" value="次へ進む")
       .rule_list
