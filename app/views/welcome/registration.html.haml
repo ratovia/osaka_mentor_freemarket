@@ -1,14 +1,14 @@
-.new_signup_page2
-  %header.new_signup_page2_header
-    .new_signup_page2_header__img_right
+.registration
+  %header.registration_header
+    .registration_header__img_right
       = image_tag "logo.svg"
-    .new_signup_page2_header__img_left
+    .registration_header__img_left
       = image_tag "new_signup_page2_header_img.png"
 
-  %main.new_signup_page2_main
-  %form.new_signup_page2_main_view
+  %main.ragistration_main
+  %form.ragistration_main_view
     %h1 会員情報入力
-    .new_signup_page2_main_view__input
+    .ragistration_main_view__input
       %span ニックネーム
       %a.required_red 必須
       %input(type="text" class="nickname_input" placeholder="例）メルカリ太郎")
@@ -64,7 +64,7 @@
         .birthdate__font 日
       %p.attention_font ※本人情報は正しく入力してください。会員登録<br>後、修正するにはお時間を頂く場合があります。
 
-    .new_signup_page2_main_view__check
+    .ragistration_main_view__check
       .g-recaptcha_form_group
         .g-recaptcha{data: {callback: "clearcall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
       .rule_agreement

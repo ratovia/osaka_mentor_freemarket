@@ -16,7 +16,7 @@
 */
 
 @import "mypage";
-@import "./new_signup";
+@import "./signup";
 @import "./top_page_layout";
 @import "./footer";
 @import "identification";
@@ -41,8 +41,8 @@
 
 @import "mypage_left_menu";
 @import "mypage_right_lists.scss";
-@import "./new_signup_header";
-@import "./new_signup_main";
+@import "./signup_header";
+@import "./signup_main";
 @import "./new_signup_footer";
 @import "./top_page_header";
 @import "./top_page_info_area";
