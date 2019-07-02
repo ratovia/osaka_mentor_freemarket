@@ -27,15 +27,11 @@
           .user-identification__form__postcode.form_data
             %label 郵便番号
             %span.optional 任意
-            %input{type: "number",placeholder: "例)1234567"}
+            %input{type: "text",placeholder: "例)1234567"}
           .user-identification__form__prefecture.form_data
             %label 都道府県
             %span.optional 任意
-            %select{name:"pref"}
-              %option{value:""} --
-              - @prefecture.each do |pre|
-                %option{value: pre.id} 
-                  = pre.name
+            = select_tag 'pref', options_from_collection_for_select(@prefecture, :id, :name)
             = fa_icon "angle-down"
           .user-identification__form__city.form_data
             %label 市区町村
