@@ -2,6 +2,7 @@
 @import "font-awesome";
 @import "./variable";
 @import "./mixin";
+@import "./common";
 /*
  
    _                         _                      
@@ -16,11 +17,15 @@
 */
 
 @import "mypage";
-@import "./new_signup";
+@import "./signup";
 @import "./top_page_layout";
 @import "./footer";
+@import "./new_item";
 @import "identification";
-@import "./new_signup_page2";
+@import "./registration";
+@import "./sms";
+@import "edit_profile";
+@import "./address";
 
 
 /*
@@ -38,8 +43,8 @@
 
 @import "mypage_left_menu";
 @import "mypage_right_lists.scss";
-@import "./new_signup_header";
-@import "./new_signup_main";
+@import "./signup_header";
+@import "./signup_main";
 @import "./new_signup_footer";
 @import "./top_page_header";
 @import "./top_page_info_area";
@@ -49,5 +54,6 @@
 @import "./top_page_header_todo";
 @import "./top_page_header_mypage";
 @import "./top_page_main";
-@import "./new_signup_page2_header";
-@import "./new_signup_page2_main";
+@import "./registration_main";
+@import "./sms_main";
+@import "./address_main";

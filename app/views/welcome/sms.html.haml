@@ -1,0 +1,23 @@
+.signup_wrapper  
+  .sms
+    %header.sms_header
+      .sms_header__img_left
+        = image_tag "logo.svg"
+      .sms_header__img_right
+        = image_tag "new_signup_page3_header_img.png"
+
+    %main.sms_main
+      .sms_main__view
+        %h1.sms_main__view__font 電話番号の確認
+        %form.sms_main__view__number_input
+          %div    
+            %input(type="text" class="tel_input" placeholder="携帯の電話番号を入力")
+            %p 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。
+
+            %button(type="submit" name="tel_submit")  SNSを送信する
+            %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありま<br>せん。
+
+            %a.tel_number_rule
+            =link_to"電話番号確認が必要な理由>", "#"
+
+    = render 'shared/new_signup_footer'
