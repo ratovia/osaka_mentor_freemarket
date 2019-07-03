@@ -5,7 +5,6 @@
     width: 700px;
     margin: 0 auto;
     &_header {
-  
       @include signup_header(center);
     }
     
@@ -15,7 +14,7 @@
     }
   
     &_footer {
-    @include  individual_footer ()
+      @include individual_footer();
     }
   }
 }
