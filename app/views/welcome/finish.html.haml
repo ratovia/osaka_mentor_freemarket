@@ -1,0 +1,34 @@
+.signup_wrapper
+  .finish
+    %header.registration_header
+      .finish_header__img_left
+        = image_tag "logo.svg"
+      .finish_header__img_right
+        = image_tag "new_signup_page6_header_img.png"
+  .finish_main_view
+    %h1 会員登録完了
+    %p ありがとうございます。
+    %p 会員登録が完了しました。
+    %input.finish_main_view__button(type="submit" name="button" value="メルカリを始める")
+
+    //以下切り出してrenderで呼び出し可能です。
+  %footer.top-page-footer
+    .app-banner
+      .app-banner__contents
+        %h3
+          スマホでかんたんフリマアプリ
+        %h2
+          今すぐ無料ダウンロード！
+        .app-banner__contents__icons
+          .app-banner__contents__icons__mercari
+            = image_tag "mercari_icon.png"
+          .app-banner__contents__icons__apple-store
+            = image_tag "app-store.svg"
+          .app-banner__contents__icons__google-play
+            = image_tag "google-play.svg"
+      .app-banner__app-image
+        = image_tag "download_content_pc.png"
+
+
+
+  = render 'shared/new_signup_footer'
