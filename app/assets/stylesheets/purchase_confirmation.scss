@@ -1,0 +1,21 @@
+.purchase_confirmation_page {
+  background: $gray;
+  width: 100%;
+  &_container {
+    width: 700px;
+    margin: 0 auto;
+    &_header {
+  
+      @include signup_header(center);
+    }
+    
+    &_main {
+      background: white;
+      height: 1000px;
+    }
+  
+    &_footer {
+    @include  individual_footer ()
+    }
+  }
+}

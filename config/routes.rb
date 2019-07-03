@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'welcome/create' => 'welcome#create'
   get 'welcome/identification' => 'welcome#identification'
   get 'welcome/new_item' => 'welcome#new_item'
+  get 'welcome/purchase_confirmation' => 'welcome#purchase_confirmation'
 end
