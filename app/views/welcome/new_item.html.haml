@@ -1,7 +1,9 @@
 .new_item_page
   .new_item_page_container
     .new_item_page_container_top
-      = image_tag "logo.svg"
+      .new_item_page_container_top__img
+        = link_to root_path do
+          = image_tag "logo.svg"
     %form.new_item_page_container_main
       .new_item_page_container_main_title
         商品の情報を入力
@@ -174,12 +176,13 @@
         %input(type="submit" value="出品する" id="item_submit")
         = link_to "もどる", :back, class: "page_back"
     .new_item_page_container_bottom
-      .bottom__attenssion
+      .bottom__attention
         %span プライバシーポリシー
         %span メルカリ利用規約
         %span 特定商取引に関する表記
       .bottom__logo
-        = image_tag 'logo-gray.svg'
+        = link_to root_path do
+          = image_tag 'logo-gray.svg'
       .bottom__copy_light
         &copy;2019 Mercari
   = render "new_item_button"

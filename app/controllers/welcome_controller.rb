@@ -5,6 +5,10 @@ class WelcomeController < ApplicationController
   def new_item
     @prefecture = Prefecture.all
   end
+
+  def purchase_confirmation
+  end
+  
   def mypage
   end
   def identification
@@ -24,5 +28,11 @@ class WelcomeController < ApplicationController
   def payment
   end
   def finish
+  end
+  def login_page
+  end
+  def detail_item
+  end
+  def logout
   end
 end

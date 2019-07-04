@@ -1,0 +1,40 @@
+.signup_wrapper
+  .payment
+    %header.payment_header
+      .payment_header__img_left
+        = image_tag "logo.svg"
+      .payment_header__img_right
+        = image_tag "new_signup_page5_header_img.png"
+  .payment_main_veiw
+    %h1 支払い方法
+    %form.payment_main_veiw__form
+      %p 
+        カード番号
+        %span.required_red 必須
+      %input(type="text" class="credit_number_input" placeholder="半角数字のみ")
+      .mercari_payment_image
+        = image_tag "mercari_payment_image.png"
+      .payment_expiry_date
+        %p
+          有効期限
+          %span.required_red 必須
+        .payment_expiry_date__input
+          .payment_expiry_date__input--font-month
+            %select#expiry_month
+            %a 月
+            = fa_icon "chevron-down", class: "chevron_down"
+          .payment_expiry_date__input--font-year
+            %select#expiry_year
+            %a 年
+            = fa_icon "chevron-down", class: "chevron_down"
+        .payment_expiry_date__security_input
+        %p
+          セキュリティコード
+          %span.required_red 必須
+          %input(type="text" class="security_input" placeholder="カード背面4桁もしくは3桁の番号" maxlength="4")
+        .payment_description
+          %a  カード背面の番号とは?
+          = fa_icon "fa-question-circle", class: "fa-question-circle"
+        = image_tag "credit_back.png", class: "credit_back_img"
+        %button(type="submit") 次へ進む
+  = render 'shared/new_signup_footer'

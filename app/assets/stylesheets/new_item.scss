@@ -5,13 +5,7 @@
     width: 70%;
     margin: 0 auto;
     &_top {
-      height: 150px;
-      text-align: center;
-      line-height: 150px;
-      img {
-        width: 200px;
-        height: 150px;
-      }
+      @include signup_header(center);
     }
     &_main {
       background: white;
@@ -252,31 +246,7 @@
     }
     }
     &_bottom {
-      height: 230px;
-      .bottom__attenssion {
-        height: 50px;
-        text-align: center;
-        span {
-          display: inline-block;
-          margin-top: 35px;
-          font-size: 12px;
-          margin-right: 20px;
-        }
-      }
-      .bottom__logo {
-        padding-top: 30px;
-        height: 130px;
-        text-align: center;
-        img {
-          width: 100px;
-          height: 100px;
-        }
-      }
-      .bottom__copy_light {
-        text-align: center;
-        font-size: 12px;
-        height: 50px;
-      }
+      @include individual_footer ();
     }
   }
 }

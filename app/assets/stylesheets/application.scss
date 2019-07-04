@@ -22,10 +22,12 @@
 @import "./footer";
 @import "./new_item";
 @import "identification";
+@import "logout";
 @import "./registration";
 @import "./sms";
 @import "edit_profile";
 @import "./address";
+@import "./detail";
 
 
 /*
@@ -57,4 +59,8 @@
 @import "./registration_main";
 @import "./sms_main";
 @import "./address_main";
+@import "./payment_main";
+@import "./finish_main";
+@import "./login_main";
+@import "./purchase_confirmation";
 @import "./new_item_button"

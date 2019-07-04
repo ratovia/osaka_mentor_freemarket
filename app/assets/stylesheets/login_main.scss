@@ -1,0 +1,111 @@
+.login{
+  background-color: whitesmoke;
+  width: 100%;
+}
+.login_main_view{
+  background-color: $white;
+  width: 450px;
+  margin: 0 auto;
+  height: 100%;
+
+  &__top{
+    height: 150px;
+    border-bottom: solid 1px $gray;
+    p{
+      padding-top: 50px;
+      text-align: center;
+      font-size: 13px;
+    }
+    input{
+      display: block;
+      width: 320px;
+      height: 40px;
+      background-color: #0099e8;
+      color: $white;
+      font-size: 15px;
+      margin: 10px auto 50px;
+    }
+  }
+  &__sns{
+    display: flex;
+    flex-direction: column;
+    &--login-facebook{
+      display: block;
+      margin: 0 auto;
+      margin-top: 30px;
+      position: relative;
+      input{
+        color: $white;
+        background-color: #3B579D;
+        width: 320px;
+        height: 50px;
+        font-size: 13px;
+      }
+      i{
+        position: absolute;
+        bottom: 10px;
+        left: 15px;
+        font-size: 30px;
+        color: $white;
+      }
+    }
+    &--login-google{
+      display: block;
+      margin: 0 auto;
+      padding-top: 15px;
+      position: relative;
+      input{
+        color: $black;
+        background-color: rgba(255,255,255, 0);
+        width: 320px;
+        height: 50px;
+      }
+      img{
+        position: absolute;
+        height: 30px;
+        width: 40px;
+        bottom: 11px;
+        left: 7px;
+      }
+    }
+    &--login-mail{
+      display: block;
+      margin: 0 auto;
+      padding-top: 60px;
+      input{
+        width: 320px; 
+        height: 50px;
+        border-radius: 7px;
+      }
+    }
+    &--login-pass{
+      display: block;
+      margin: 0 auto;
+      padding-top: 30px;
+      input{
+        width: 320px;
+        height: 50px;
+        border-radius: 7px;
+      }
+    }
+    .g-recaptcha{
+      margin: 20px 0 0 65px;
+    }
+    &--login-button{
+      display: block;
+      margin: 0 auto;
+      padding-top: 25px;
+      input{
+        width: 320px;
+        height: 50px;
+        background-color: $red;
+        color: $white;
+      }
+    }
+    a{
+      font-size: 13px;
+      margin: 30px 0 30px 65px;
+      color: #0099e8;
+    }
+  }
+}
