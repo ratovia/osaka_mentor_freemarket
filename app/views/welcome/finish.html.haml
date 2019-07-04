@@ -10,8 +10,6 @@
     %p ありがとうございます。
     %p 会員登録が完了しました。
     %input.finish_main_view__button(type="submit" name="button" value="メルカリを始める")
-
-    //以下切り出してrenderで呼び出し可能です。
   %footer.top-page-footer
     .app-banner
       .app-banner__contents
@@ -28,7 +26,4 @@
             = image_tag "google-play.svg"
       .app-banner__app-image
         = image_tag "download_content_pc.png"
-
-
-
   = render 'shared/new_signup_footer'

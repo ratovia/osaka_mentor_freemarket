@@ -3,12 +3,10 @@
     %header.signup_header
       .signup_header__img
         = image_tag "logo.svg"
-
     %form.login_main_view
       .login_main_view__top
         %p アカウントをお持ちでない方はこちら
         %input(type="submit" name="login_button" value="新規会員登録")
-
       .login_main_view__sns
         .login_main_view__sns--login-facebook
           %input(type="submit" name="facebook_login_button" value="Facebookでログイン")
@@ -24,5 +22,4 @@
         .login_main_view__sns--login-button
           %input(type="submit" name="login_button" value="ログイン")
         = link_to "パスワードをお忘れの方",  "#"
-
   = render 'shared/new_signup_footer'
