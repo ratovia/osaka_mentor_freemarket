@@ -126,8 +126,12 @@
     font-size: 12px;
     height: 50px;
   }
-@mixin one_item()  {
-  @include disable-link-decoration();
+@mixin one_item(){
+  a,
+  a:after{
+    text-decoration: none;
+    color: $black;
+  }
   .new_item{
     width: 220px;
     height: 330px;
