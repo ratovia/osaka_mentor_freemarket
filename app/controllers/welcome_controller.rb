@@ -1,22 +1,31 @@
 class WelcomeController < ApplicationController
   def index
   end
+
+  def new_item
+    @prefecture = Prefecture.all
+  end
   def mypage
   end
   def identification
     @prefecture = Prefecture.all
   end
+  def useredit
+  end
   def new
   end
-  def new2
+  def registration
   end
-  def new3
+  def sms
   end
-  def new4
+  def address
+    @prefecture = Prefecture.all
   end
-  def new5
+  def payment
   end
-  def new6
+  def finish
+  end
+  def detail_item
   end
   def logout
   end

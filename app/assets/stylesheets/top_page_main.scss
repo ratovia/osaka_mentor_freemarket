@@ -1,6 +1,6 @@
 .top_page_main_container {
   text-align: center;
-  width: 75%;
+  width: 940px;
   height: 100%;
   margin: 0 auto;
   padding: 40px 0;
@@ -42,7 +42,7 @@
             &:hover {
               opacity: 1;
               color: $black;
-              text-decoration: none;
+             text-decoration: none;
             }
             &__image_area {
               height: 70%;
@@ -65,7 +65,7 @@
                   float: right;
                 }
               }
-            }
+            } 
           }
         }
         .link_to_items {
