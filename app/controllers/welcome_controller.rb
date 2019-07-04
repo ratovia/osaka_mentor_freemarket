@@ -31,4 +31,6 @@ class WelcomeController < ApplicationController
   end
   def detail_item
   end
+  def logout
+  end
 end

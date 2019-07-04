@@ -1,0 +1,9 @@
+.user-my-page
+  = render "header"
+  .container
+    .left-column
+      = render "my_page_sidebar"
+    .right-column
+      .user-logout-form
+        = link_to "ログアウト", "#"
+  = render "footer"
