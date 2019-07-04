@@ -29,4 +29,6 @@ class WelcomeController < ApplicationController
   end
   def finish
   end
+  def detail_item
+  end
 end

@@ -72,6 +72,7 @@
 @mixin signup_header($justify){
   height: 130px;
   width: 700px;
+
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -125,4 +126,47 @@
     font-size: 12px;
     height: 50px;
   }
+@mixin one_item()  {
+  @include disable-link-decoration();
+  .new_item{
+    width: 220px;
+    height: 330px;
+    background: green;
+    text-align: left;
+    color: $black;
+    margin: 10px 0 20px;
+    &:hover {
+      opacity: 1;
+    }
+    &__image_area {
+      height: 220px;
+      width: 220px;
+      img{
+        height: inherit;
+        width: inherit;
+      }
+    }
+    &__text_area {
+      height: 110px;
+      width: 220px;
+      padding: 16px;
+      background: white;
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      &--title {
+        color: $black;
+        overflow:hidden;
+      }
+      &--price {
+        color: $black;
+        font-weight: bold;
+        span {
+          font-weight: normal;
+          float: right;
+        }
+      }
+    }
+  }  
 }
