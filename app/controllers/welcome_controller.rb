@@ -29,6 +29,8 @@ class WelcomeController < ApplicationController
   end
   def finish
   end
+  def login_page
+  end
   def detail_item
   end
   def logout
