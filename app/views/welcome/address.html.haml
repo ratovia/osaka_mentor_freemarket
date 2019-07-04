@@ -27,10 +27,7 @@
           %span 都道府県
           %a.required_red 必須
           .prefectures_select
-            %select
-              - @prefecture.each do |pre|
-                %option{value: pre.id} 
-                  = pre.name
+            = select_tag 'prefecture_input', options_from_collection_for_select(@prefecture, :id, :name)
             = fa_icon "chevron-down", class: "chevron_down"
           
           %span 市区町村

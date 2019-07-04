@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'welcome/identification' => 'welcome#identification'
   get 'welcome/logout' => 'welcome#logout'
   get 'welcome/new_item' => 'welcome#new_item'
+  get 'welcome/finish' => 'welcome#finish'
+  get 'welcome/login_page' => 'welcome#login_page'
   get 'welcome/purchase_confirmation' => 'welcome#purchase_confirmation'
   get 'welcome/detail_item' => 'welcome#detail_item'
 end

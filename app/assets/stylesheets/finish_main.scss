@@ -1,0 +1,30 @@
+.finish_main_view{
+  background-color: $white;
+  width: 700px;
+  margin: 0 auto;
+  height: 100%;
+  padding-bottom: 50px;
+
+  h1{
+    padding: 30px;
+    text-align: center;
+    font-size: 22px;
+    border-bottom: solid 1px $gray;
+    margin-bottom: 50px;
+  }
+  p{
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+  }
+  input{
+    display: block;
+    width: 330px;
+    height: 50px;
+    margin: 30px auto 0;
+    font-size: 15px;
+    padding: 15px;
+    background-color: $red;
+    color: $white;
+  }
+}
