@@ -72,11 +72,15 @@
 @mixin signup_header($justify){
   height: 130px;
   width: 700px;
+
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content:$justify;
   &__img{
+    a:hover {
+      opacity: 0.8;
+    }
     height: 50px;
     width: 200px;
   }
@@ -92,4 +96,77 @@
       width: 500px;
     }
   }
+}
+@mixin individual_footer () {
+  height: 230px;
+  .bottom__attention {
+    height: 50px;
+    text-align: center;
+    span {
+      display: inline-block;
+      margin-top: 35px;
+      font-size: 12px;
+      margin-right: 20px;
+    }
+  }
+  .bottom__logo {
+    padding-top: 30px;
+    height: 130px;
+    text-align: center;
+      a:hover {
+        opacity: 0.6;
+      }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .bottom__copy_light {
+    text-align: center;
+    font-size: 12px;
+    height: 50px;
+  }
+@mixin one_item()  {
+  @include disable-link-decoration();
+  .new_item{
+    width: 220px;
+    height: 330px;
+    background: green;
+    text-align: left;
+    color: $black;
+    margin: 10px 0 20px;
+    &:hover {
+      opacity: 1;
+    }
+    &__image_area {
+      height: 220px;
+      width: 220px;
+      img{
+        height: inherit;
+        width: inherit;
+      }
+    }
+    &__text_area {
+      height: 110px;
+      width: 220px;
+      padding: 16px;
+      background: white;
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      &--title {
+        color: $black;
+        overflow:hidden;
+      }
+      &--price {
+        color: $black;
+        font-weight: bold;
+        span {
+          font-weight: normal;
+          float: right;
+        }
+      }
+    }
+  }  
 }
