@@ -1,10 +1,9 @@
 @mixin ul-style() {
   display: block;
-    list-style: none;
-    width: 200px;
-    height: inherit;
-    background: white;
-    border-bottom: $border-design;
+  list-style: none;
+  width: 200px;
+  background: white;
+  border-bottom: $border-design;
 }
 .header_container_bottom__category {
   &_list {
@@ -35,7 +34,6 @@
             top: 0px;
             left: 200px;
             li {
-              border-right: $border-design;
               height: 40px;
               ul {
                 display: none;
