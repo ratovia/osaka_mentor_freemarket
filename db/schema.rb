@@ -18,21 +18,26 @@ ActiveRecord::Schema.define(version: 2019_07_05_072519) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "nickname", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
-    t.integer "birthday", null: false
-    t.string "image", null: false
-    t.integer "postal_cade", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.integer "address_num", null: false
-    t.string "building", null: false
-    t.integer "tell", null: false
-    t.string "gender", null: false
-    t.text "profile", null: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "nickname", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "first_name_kana", default: "", null: false
+    t.string "last_name_kana", default: "", null: false
+    t.integer "birthday", default: 0, null: false
+    t.string "image", default: "", null: false
+    t.integer "postal_cade", default: 0, null: false
+    t.string "prefecture", default: "", null: false
+    t.string "city", default: "", null: false
+    t.integer "address_num", default: 0, null: false
+    t.string "building", default: "", null: false
+    t.integer "tell", default: 0, null: false
+    t.string "gender", default: "", null: false
+    t.text "profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

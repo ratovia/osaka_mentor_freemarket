@@ -15,11 +15,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :remember_created_at
 
       ## Trackable
-      # t.integer  :sign_in_count, default: 0, null: false
-      # t.datetime :current_sign_in_at
-      # t.datetime :last_sign_in_at
-      # t.string   :current_sign_in_ip
-      # t.string   :last_sign_in_ip
+      t.integer  :sign_in_count, default: 0, null: false
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -31,21 +31,21 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string :nickname,               null: false
-      t.string :first_name,             null: false
-      t.string :last_name,              null: false
-      t.string :first_name_kana,        null: false
-      t.string :last_name_kana,         null: false
-      t.integer :birthday,              null: false
-      t.string :image,                  null: false
-      t.integer :postal_cade,           null: false
-      t.string :prefecture,             null: false
-      t.string :city,                   null: false
-      t.integer :address_num,           null: false
-      t.string :building,               null: false
-      t.integer :tell,                  null: false
-      t.string :gender,                 null: false
-      t.text :profile,                  null: false
+      t.string :nickname,               null: false, default: ""
+      t.string :first_name,             null: false, default: ""
+      t.string :last_name,              null: false, default: ""
+      t.string :first_name_kana,        null: false, default: ""
+      t.string :last_name_kana,         null: false, default: ""
+      t.integer :birthday,              null: false, default: 0
+      t.string :image,                  null: false, default: ""
+      t.integer :postal_cade,           null: false, default: 0
+      t.string :prefecture,             null: false, default: ""
+      t.string :city,                   null: false, default: ""
+      t.integer :address_num,           null: false, default: 0
+      t.string :building,               null: false, default: ""
+      t.integer :tell,                  null: false, default: 0
+      t.string :gender,                 null: false, default: ""
+      t.text :profile
 
       t.timestamps null: false
     end
