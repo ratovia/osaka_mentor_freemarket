@@ -5,5 +5,5 @@
       = render "my_page_sidebar"
     .right-column
       .user-logout-form
-        = link_to "ログアウト", "#"
+        = link_to "ログアウト",destroy_user_session_path, method: :delete
   = render "footer"
