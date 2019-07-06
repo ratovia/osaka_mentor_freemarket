@@ -4,10 +4,9 @@
       .signup_header__img
         = link_to root_path do
           = image_tag "logo.svg"
-    %form.login_main_view
+    = form_with model: User, url: user_session_path, method: :post, local: true, class: "login_main_view" do |f|
       .login_main_view__top
         %p アカウントをお持ちでない方はこちら
-        -# %input(type="submit" name="login_button" value="新規会員登録")
         = link_to "新規会員登録", new_user_registration_path
       .login_main_view__sns
         .login_main_view__sns--login-facebook
@@ -17,11 +16,11 @@
           %input(type="submit" name="google_login_button" value="Googleでログイン")
           = image_tag "google-icon.png"
         .login_main_view__sns--login-mail
-          %input(type="text" class="mail_login_input" placeholder="メールアドレス")
+          = f.email_field :email,  {autofocus: true, autocomplete: "email", class: "email_login_input", placeholder: "メールアドレス"}
         .login_main_view__sns--login-pass
-          %input(type="text" class="pass_login_input" placeholder="パスワード")
+          = f.password_field :password, {class: "password_input", autocomplete: "new-password", placeholder: "パスワード"}
         .g-recaptcha{data: {callback: "clearcall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
         .login_main_view__sns--login-button
-          %input(type="submit" name="login_button" value="ログイン")
+          = f.submit "ログイン",{class: "next_page_buttom"}
         = link_to "パスワードをお忘れの方",  "#"
   = render 'shared/new_signup_footer'
