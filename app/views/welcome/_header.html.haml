@@ -53,105 +53,111 @@
           %li アディダス
           %li ブランド一覧
       .header_container_bottom__center
-        
-      .header_container_bottom__info
-        %p
-          = fa_icon "bell-o"
-          お知らせ
-        %ul.header_container_bottom__info_list
-          %li
-            = image_tag "mercari_profile.png"
-            .header_info__msg
-              チケットがあります
-              .header_info__msg__time
-                = fa_icon "clock-o"
-                2時間前
-            .header_info__chevrson_right
-              = fa_icon "chevron-right"
-          %li
-            = image_tag "mercari_profile.png"
-            .header_info__msg
-              チケットがあります
-              .header_info__msg__time
-                = fa_icon "clock-o"
-                2時間前
-            .header_info__chevrson_right
-              = fa_icon "chevron-right"
-          %li
-            = image_tag "mercari_profile.png"
-            .header_info__msg
-              チケットがあります
-              .header_info__msg__time
-                = fa_icon "clock-o"
-                2時間前
-            .header_info__chevrson_right
-              = fa_icon "chevron-right"
-          %li
-            = image_tag "mercari_profile.png"
-            .header_info__msg
-              チケットがあります
-              .header_info__msg__time
-                = fa_icon "clock-o"
-                2時間前
-            .header_info__chevrson_right
-              = fa_icon "chevron-right"
-          
-      .header_container_bottom__todo
-        %p
-          = fa_icon "check"
-          やることリスト
-        .header_container_bottom__todo_list
-      .header_container_bottom__mypage
-        %p
-          = link_to "マイページ", "#"
-        .header_container_bottom__mypage_image
-          = image_tag "member_photo_noimage_thumb.png"
-        .header_container_bottom__mypage_overview
-          .overview_background
-            .user_image
-              = image_tag "member_photo_noimage_thumb.png"
-          .overview_main
-            .overview_main__top
-              たぬ
-              .achievement
-                %span 評価: 11
-                %span 出品数: 20
-            .overview_main__top
-              %ul.stock_money_list
-                %li
-                  残高
+      - if user_signed_in?
+        .header_container_bottom__info
+          %p
+            = fa_icon "bell-o"
+            お知らせ
+          %ul.header_container_bottom__info_list
+            %li
+              = image_tag "mercari_profile.png"
+              .header_info__msg
+                チケットがあります
+                .header_info__msg__time
+                  = fa_icon "clock-o"
+                  2時間前
+              .header_info__chevrson_right
+                = fa_icon "chevron-right"
+            %li
+              = image_tag "mercari_profile.png"
+              .header_info__msg
+                チケットがあります
+                .header_info__msg__time
+                  = fa_icon "clock-o"
+                  2時間前
+              .header_info__chevrson_right
+                = fa_icon "chevron-right"
+            %li
+              = image_tag "mercari_profile.png"
+              .header_info__msg
+                チケットがあります
+                .header_info__msg__time
+                  = fa_icon "clock-o"
+                  2時間前
+              .header_info__chevrson_right
+                = fa_icon "chevron-right"
+            %li
+              = image_tag "mercari_profile.png"
+              .header_info__msg
+                チケットがあります
+                .header_info__msg__time
+                  = fa_icon "clock-o"
+                  2時間前
+              .header_info__chevrson_right
+                = fa_icon "chevron-right"
+            
+        .header_container_bottom__todo
+          %p
+            = fa_icon "check"
+            やることリスト
+          .header_container_bottom__todo_list
+        .header_container_bottom__mypage
+          %p
+            = link_to "マイページ", "#"
+          .header_container_bottom__mypage_image
+            = image_tag "member_photo_noimage_thumb.png"
+          .header_container_bottom__mypage_overview
+            .overview_background
+              .user_image
+                = image_tag "member_photo_noimage_thumb.png"
+            .overview_main
+              .overview_main__top
+                たぬ
+                .achievement
+                  %span 評価: 11
+                  %span 出品数: 20
+              .overview_main__top
+                %ul.stock_money_list
+                  %li
+                    残高
+                    %span
+                      ￥800
+                      = fa_icon "chevron-right"
+                  %li
+                    ポイント
+                    %span 
+                      P2000
+                      = fa_icon "chevron-right"
+            .overview_lists
+              %ul
+                %li.overview_list
+                  いいね一覧
                   %span
-                    ￥800
                     = fa_icon "chevron-right"
-                %li
-                  ポイント
-                  %span 
-                    P2000
+                %li.overview_list
+                  出品した商品 - 出品中
+                  %span
                     = fa_icon "chevron-right"
-          .overview_lists
-            %ul
-              %li.overview_list
-                いいね一覧
-                %span
-                  = fa_icon "chevron-right"
-              %li.overview_list
-                出品した商品 - 出品中
-                %span
-                  = fa_icon "chevron-right"
-              %li.overview_list
-                出品した商品 - 取引中
-                %span
-                  = fa_icon "chevron-right"
-              %li.overview_list
-                出品した商品 - 売却済
-                %span
-                  = fa_icon "chevron-right"
-              %li.overview_list 
-                購入した商品 - 取引中
-                %span
-                  = fa_icon "chevron-right"
-              %li.overview_list
-                購入した商品 - 購入済
-                %span
-                  = fa_icon "chevron-right"
+                %li.overview_list
+                  出品した商品 - 取引中
+                  %span
+                    = fa_icon "chevron-right"
+                %li.overview_list
+                  出品した商品 - 売却済
+                  %span
+                    = fa_icon "chevron-right"
+                %li.overview_list 
+                  購入した商品 - 取引中
+                  %span
+                    = fa_icon "chevron-right"
+                %li.overview_list
+                  購入した商品 - 購入済
+                  %span
+                    = fa_icon "chevron-right"
+      - else 
+        .header_container_bottom__new_user
+          = link_to "新規会員登録", new_user_registration_path, class: "registration"
+          = link_to "ログイン", new_user_session_path, class: "session"
+
+
 
