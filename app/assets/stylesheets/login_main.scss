@@ -21,7 +21,7 @@
         text-align: center;
         font-size: 13px;
       }
-      input{
+      a {
         display: block;
         width: 320px;
         height: 40px;
@@ -29,8 +29,11 @@
         color: $white;
         font-size: 15px;
         margin: 10px auto 50px;
+        text-align: center;
+        line-height: 40px;
+        text-decoration: none;
+        }
       }
-    }
     &__sns{
       display: flex;
       flex-direction: column;

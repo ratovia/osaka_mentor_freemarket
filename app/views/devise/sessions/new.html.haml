@@ -2,11 +2,13 @@
   .login
     %header.signup_header
       .signup_header__img
-        = image_tag "logo.svg"
+        = link_to root_path do
+          = image_tag "logo.svg"
     %form.login_main_view
       .login_main_view__top
         %p アカウントをお持ちでない方はこちら
-        %input(type="submit" name="login_button" value="新規会員登録")
+        -# %input(type="submit" name="login_button" value="新規会員登録")
+        = link_to "新規会員登録", new_user_registration_path
       .login_main_view__sns
         .login_main_view__sns--login-facebook
           %input(type="submit" name="facebook_login_button" value="Facebookでログイン")
