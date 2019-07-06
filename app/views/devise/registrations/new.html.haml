@@ -5,44 +5,43 @@
         = image_tag "logo.svg"
       .registration_header__img_right
         = image_tag "new_signup_page2_header_img.png"
-
-    %form.registration_main_view
+    = form_with model: User.new, url: user_registration_path, method: :post, local: true, class: "registration_main_view" do |f|
       %h1 会員情報入力
       .registration_main_view__input
         %span ニックネーム
         %a.required_red 必須
-        %input(type="text" class="nickname_input" placeholder="例）メルカリ太郎")
+        = f.text_field :nickname, class: "nickname_input", placeholder: "例）メルカリ太郎" 
 
         %span メールアドレス
         %a.required_red 必須
-        %input(type="text" class="email_input" placeholder="PC・携帯どちらでも可")
+        = f.email_field :email, {autofocus: true, autocomplete: "email", class: "email_input", placeholder: "PC・携帯どちらでも可"}
 
         %span パスワード
         %a.required_red 必須
-        %input(type="text" class="password_input" placeholder="6文字以上")
+        = f.password_field :password, {class: "password_input", autocomplete: "new-password"}
 
         %span パスワード(確認)
         %a.required_red 必須
-        %input(type="text" class="password_input" placeholder="6文字以上")
-
+        = f.password_field :password_confirmation, {class: "password_input", autocomplete: "new-password"}
+        
         %h2 本人確認
         %p 安心・安全にご利用いただくために、お客さまの<br>本人情報の登録にご協力ください。他のお客さま<br>に公開されることはありません。
 
         %span 姓(全角)
         %a.required_red 必須
-        %input(type="text" class="sei_input" placeholder="例) 山田")
-
+        = f.text_field :first_name, {class: "sei_input", placeholder: "山田"}
+        
         %span 名(全角)
         %a.required_red 必須
-        %input(type="text" class="mei_input" placeholder="例) 綾")
+        = f.text_field :last_name, {class: "mei_input", placeholder:"綾"}
 
         %span 姓カナ(全角)
         %a.required_red 必須
-        %input(type="text" class="sei_kana_input" placeholder="例) ヤマダ")
+        = f.text_field :first_name_kana, {class: "sei_kana__input", placeholder:"ヤマダ"}
 
         %span 名カナ(全角)
         %a.required_red 必須
-        %input(type="text" class="mei_kana__input" placeholder="例) アヤ")
+        = f.text_field :last_name_kana, {class:"mei_kana__input", placeholder:"アヤ"}
 
         %span 生年月日
         %a.required_red 必須
@@ -57,23 +56,23 @@
               %option{value: ""} -- 
             = fa_icon "chevron-down", class: "chevron_down"
           .birthdate__font 月
-          .birthdate__month.birthdate__box
+          .birthdate__day.birthdate__box
             %select#day
               %option{value: ""} -- 
             = fa_icon "chevron-down", class: "chevron_down"
           .birthdate__font 日
         %p.attention_font ※本人情報は正しく入力してください。会員登録<br>後、修正するにはお時間を頂く場合があります。
+        = f.hidden_field :birthday, id: "birth_hidden"
 
       .registration_main_view__check
         .g-recaptcha_form_group
-          .g-recaptcha{data: {callback: "clearcall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
+          .g-recaptcha{data: {callback: "clearCall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
         .rule_agreement
           次へ進む」のボタンを押すことにより、
           %a
           =link_to"利用規約", "#"
           に同意したものとみなします
-        %input.next_page_buttom(type="submit" name="button" value="次へ進む")
+        = f.submit "次へ進む",{class: "next_page_buttom",disabled: "disabled"}
         .rule_list
           =link_to"本人情報の登録のついて>", "#"
-
     = render 'shared/new_signup_footer'
