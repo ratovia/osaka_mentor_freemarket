@@ -2,7 +2,7 @@
   background: $gray;
   width: 100%;
   &_container {
-    width: 70%;
+    width: 55%;
     margin: 0 auto;
     &_top {
       @include signup_header(center);
@@ -62,25 +62,57 @@
           margin-top: 10px;
           font-size: 13px;
         }
-        .image_file_area {
-        width: 100%;
-        height: 170px;
-        margin-top: 30px;
-        background: $gray;
-        border: 1px dashed #ccc;
-        position: relative;
-        text-align: center;
-        p {
-          margin-top: 50px;
-        }
-        input[type="file"] {
-          opacity: 0;
+        &_area {
+          display: flex;
+          flex-direction: row-reverse;
+          margin-top: 30px;
+          justify-content: space-between;
+          .select_image {
+            width: 100px;
+            #image_preview {
+              display: block;
+              width: 100px;
+              height: 120px;
+            }
+            p {
+              float: left;
+              height: 50px;
+              width: 50px;
+              text-align: center;
+              line-height: 50px;
+              background: #eee;
+              font-size: 14px;
+              a {
+                text-decoration: none;
+                color: $blue;
+                cursor: pointer;
+                &:hover {
+                  text-decoration: underline;
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+          .image_file_area {
           width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-         }
+          height: 170px;
+          background: $gray;
+          border: 1px dashed #ccc;
+          position: relative;
+          text-align: center;
+          p {
+            margin-top: 50px;
+          }
+          input[type="file"] {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+           }
+          
+          }
         }
       }
     &_item_description {

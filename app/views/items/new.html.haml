@@ -14,13 +14,23 @@
           %span.required
             必須
         %p.desc 最大10枚までアップロードできます。
-        .image_file_area
-          %p 
-            ドラッグアンドドロップ
-            %br
-              もしくはクリックをしてアップロード
-          -# %input(type="file")
-          = f.file_field :image
+        .new_item_page_container_main_item_image_area
+          .image_file_area
+            %p 
+              ドラッグアンドドロップ
+              %br
+                もしくはクリックをしてアップロード
+            = f.file_field :images, id: "upload_file", multiple: "multiple", accept: "image/png, image/jpeg"
+            = f.hidden_field :image_url, class: "item_image_url1"
+            = f.hidden_field :image_url, class: "item_image_url2"
+            = f.hidden_field :image_url, class: "item_image_url3"
+            = f.hidden_field :image_url, class: "item_image_url4"
+            = f.hidden_field :image_url, class: "item_image_url5"
+            = f.hidden_field :image_url, class: "item_image_url6"
+            = f.hidden_field :image_url, class: "item_image_url7"
+            = f.hidden_field :image_url, class: "item_image_url8"
+            = f.hidden_field :image_url, class: "item_image_url9"
+            = f.hidden_field :image_url, class: "item_image_url10"
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名 
