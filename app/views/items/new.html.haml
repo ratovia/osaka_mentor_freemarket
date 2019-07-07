@@ -20,7 +20,7 @@
             %br
               もしくはクリックをしてアップロード
           -# %input(type="file")
-          = f.file_field :image
+          = f.file_field :images, multiple: true
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名 
