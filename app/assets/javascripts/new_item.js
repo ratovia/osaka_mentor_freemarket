@@ -29,7 +29,7 @@ $(function () {
     }
   });
 
-  $('#delivery_burden').change(function () {
+  $('#item_delivery_burden').change(function () {
     var delivarySelect = $(this).prop('selectedIndex');
 
     if (delivarySelect === 0) {
@@ -38,29 +38,29 @@ $(function () {
     } else if (delivarySelect === 1) {
       $('.delivery_method_select_label').css('display', 'block');
       $('.delivery_method_select').css('display', 'block');
-
-      $('#delivery_method').html(`
-      <option value="0">---</option>
-      <option value="1"> 未定 </option>
-      <option value="2">らくらくメルカリ</option>
-      <option value="3">ゆうメール</option>
-      <option value="4"> レターパック</option>
-      <option value="5"> 普通郵便(定型、定形外）</option>
-      <option value="6"> クロネコヤマ</option>
-      <option value="7"> ゆうパック</option>
-      <option value="8"> クリックポス</option>
-      <option value="9"> ゆうパケット</option>
+      
+      $('#item_delivery_method').html(`
+      <option value="---">---</option>
+      <option value="未定"> 未定 </option>
+      <option value="らくらくメルカリ便">らくらくメルカリ便</option>
+      <option value="ゆうメール">ゆうメール</option>
+      <option value="レターパック"> レターパック</option>
+      <option value="普通郵便(定型、定形外"> 普通郵便(定型、定形外）</option>
+      <option value="クロネコヤマ"> クロネコヤマ</option>
+      <option value="ゆうパック"> ゆうパック</option>
+      <option value="クリックポスト"> クリックポスト</option>
+      <option value="ゆうパケット"> ゆうパケット</option>
         `);
     } else if (delivarySelect === 2) {
       $('.delivery_method_select_label').css('display', 'block');
       $('.delivery_method_select').css('display', 'block');
 
-      $('#delivery_method').html(`
-        <option value="0">---</option>
-        <option value="1">未定</option>
-        <option value="2">クロネコヤマト</option>
-        <option value="3">ゆうパック</option>
-        <option value="4">ゆうメール</option>
+      $('#item_delivery_method').html(`
+        <option value="---">---</option>
+        <option value="未定">未定</option>
+        <option value="クロネコヤマト">クロネコヤマト</option>
+        <option value="ゆうパック">ゆうパック</option>
+        <option value="ゆうメール">ゆうメール</option>
         `);
     }
   });
