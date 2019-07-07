@@ -4,6 +4,22 @@ describe "Item" do
   before do
     @item = create(:item)
   end
+
+  describe "valid" do
+    it "商品名, 商品説明, 商品の状態, 配送料の負担, 配送の方法, 発送元の地域, 発送元の地域, 発送までの日数, 価格を入力すれば出品できる" do
+      item = Item.new(
+        name: "アイテム",
+        description: "商品説明欄",
+        status: "新品",
+        delivery_burden: "送料込み(出品者負担)",
+        delivery_method: "らくらくメルカリ便",
+        delivery_prefecture: "1",
+        delivery_time: "3~4日",
+        price: "100000"
+      )
+      expect(item).to be_valid
+    end
+  end
   
   describe "invalid" do
     it "商品名が空の時出品できない" do
