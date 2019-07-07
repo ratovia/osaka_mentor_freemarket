@@ -138,7 +138,7 @@
             %span.required
               必須
           .select_box
-            = f.select :delivery_prefecture, options_from_collection_for_select(@prefecture, :id, :name)
+            = f.select :delivery_prefecture, options_from_collection_for_select(Prefecture.all, :id, :name)
             = fa_icon "angle-down"
           %p.new_item_page_container_main_label
             発送までの日数
