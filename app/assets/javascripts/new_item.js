@@ -64,33 +64,7 @@ $(function () {
         `);
     }
   });
-  var i = 1;
-  $('#upload_file').change(function(e){
-    
-    var reader = new FileReader();
-    reader.onload = function(e){
-      $('.new_item_page_container_main_item_image_area').append(`
-      <div class="select_image" data-id=${i}>
-        <img src=${e.target.result} id="image_preview">
-        <p><a href="">編集</a></p>
-        <p><a class="remove_image">削除</a></p>
-      </div>
-      `);
-      $('.image_file_area').css('width', `calc(100% - ${i * 20}% + 120px)`);
-      if (i === 6) {
-        $('.image_file_area').css('display', 'none');
-      }
-    }
-    reader.readAsDataURL(e.target.files[0]);
-    $(`.item_image_url${i}`).val(e.target.files[0].name);
-    i++;
-  });
-  $('body').on('click', '.remove_image', function () {
-    $(this).closest('.select_image').remove();
-    var width = $('.image_file_area').css('width');
-    $('.image_file_area').css('width', `calc(${width} + 20%)`);
-  });
-
+  
 
   $('#price').on('keyup', function () {
 
