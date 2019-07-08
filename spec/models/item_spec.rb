@@ -96,5 +96,49 @@ describe "Item" do
       item.valid?
       expect(item.errors[:description]).to include("is too long (maximum is 1000 characters)")
     end
+
+    it "価格が数値でない場合は出品できない" do
+      item = Item.new(
+        name: "アイテム",
+        description: "商品説明欄",
+        status: "新品",
+        delivery_burden: "送料込み(出品者負担)",
+        delivery_method: "らくらくメルカリ便",
+        delivery_prefecture: "1",
+        delivery_time: "3~4日",
+        price: "ああああ"
+      )
+      item.valid?
+      expect(item.errors[:price]).to include("is not a number")
+    end
+
+    it "価格が300円未満の場合できない" do
+    item = Item.new(
+      name: "アイテム",
+      description: "商品説明欄",
+      status: "新品",
+      delivery_burden: "送料込み(出品者負担)",
+      delivery_method: "らくらくメルカリ便",
+      delivery_prefecture: "1",
+      delivery_time: "3~4日",
+      price: "299"
+    )
+    item.valid?
+    expect(item.errors[:price]).to include("must be greater than or equal to 300")
+    end
+    it "価格が9,999,999円を超える場合出品できない" do
+      item = Item.new(
+      name: "アイテム",
+      description: "商品説明欄",
+      status: "新品",
+      delivery_burden: "送料込み(出品者負担)",
+      delivery_method: "らくらくメルカリ便",
+      delivery_prefecture: "1",
+      delivery_time: "3~4日",
+      price: "10000000"
+    )
+    item.valid?
+    expect(item.errors[:price]).to include("must be less than or equal to 9999999")
+    end
   end
 end
