@@ -29,7 +29,8 @@ class ItemsController < ApplicationController
       :delivery_burden,
       :delivery_method,
       :delivery_prefecture,
-      :delivery_time
+      :delivery_time,
+      images: []
     )
   end
 end

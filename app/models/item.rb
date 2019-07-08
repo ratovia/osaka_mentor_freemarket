@@ -8,4 +8,5 @@ class Item < ApplicationRecord
   validates :delivery_prefecture, presence: true
   validates :delivery_time, presence: true
   validates :price, presence: true
+  has_many_attached :images
 end
