@@ -19,8 +19,8 @@
           = f.email_field :email,  {autofocus: true, autocomplete: "email", class: "email_login_input", placeholder: "メールアドレス"}
         .login_main_view__sns--login-pass
           = f.password_field :password, {class: "password_input", autocomplete: "new-password", placeholder: "パスワード"}
-        .g-recaptcha{data: {callback: "clearcall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
+        .g-recaptcha{data: {callback: "clearCall", sitekey: "6LcHKqsUAAAAAC6rhshzpdtqjowHvq7CorDrom0s"}}
         .login_main_view__sns--login-button
-          = f.submit "ログイン",{class: "next_page_buttom"}
+          = f.submit "ログイン",{class: "next_page_buttom", disabled: "disabled"}
         = link_to "パスワードをお忘れの方",  "#"
   = render 'shared/new_signup_footer'

@@ -109,6 +109,9 @@
           background-color: $red;
           color: $white;
         }
+        input[disabled="disabled"] {
+          background-color: #ccc;
+        }
       }
       a{
         font-size: 13px;
