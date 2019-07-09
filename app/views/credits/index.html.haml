@@ -1,0 +1,22 @@
+.user-my-page
+  = render "shared/header"
+  .container
+    .left-column
+      = render "shared/my_page_sidebar"
+    .right-column
+      .select-payment
+        .select-payment__header
+          支払い方法
+        .select-payment__contents
+          %h2 クレジットカード一覧
+          = link_to new_credit_path do
+            = fa_icon "credit-card"
+            クレジットカードを追加する
+          .select-payment__contents__bar
+        .select-payment__footer
+          = link_to "#" do
+            支払い方法について
+            = fa_icon "angle-right"
+        
+  = render "shared/footer"
+  = render "shared/new_item_button"
