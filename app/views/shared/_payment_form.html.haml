@@ -1,0 +1,32 @@
+-# %form.payment_form
+= form_with model: Cregit.new, method: :post,url: new_credit_path,local: true,class: "payment_form" do |f|
+  %p 
+    カード番号
+    %span.required_red 必須
+  %input(type="text" class="credit_number_input" placeholder="半角数字のみ")
+  .mercari_payment_image
+    = image_tag "mercari_payment_image.png"
+  %p
+    有効期限
+    %span.required_red 必須
+  .payment_expiry
+    .payment_expiry__box
+      %select#expiry_month
+      %p 月
+      = fa_icon "chevron-down", class: "chevron_down"
+    .payment_expiry__box
+      %select#expiry_year
+      %p 年
+      = fa_icon "chevron-down", class: "chevron_down"
+  %p
+    セキュリティコード
+    %span.required_red 必須
+  .payment_expiry__security_input
+    %input(type="text" class="security_input" placeholder="カード背面4桁もしくは3桁の番号" maxlength="4")
+  .payment_description
+    = fa_icon "question-circle"
+    %span カード背面の番号とは?
+    = image_tag "credit_back.png", class: "credit_back_img"
+  -# %button(type="submit") 
+  = f.submit "次へ進む", class: "payment_submit"
+    
