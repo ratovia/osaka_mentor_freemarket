@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Item" do
   before do
-    @item = create(:item)
+    @item = build(:item)
   end
 
   describe "valid" do
