@@ -2,7 +2,8 @@
   = render 'shared/header'
   .main
     .main_header
-      %h2 メンズジャケット
+      %h2 
+        = @item.name
     .main_item-detail
       .main_item-detail_images
         .main_item-detail_images__big
@@ -58,33 +59,38 @@
           .cell
             商品の状態
           .cell
-            目立った損傷なし
+            = @item.status
         .main_item-detail_table__row
           .cell
             配送料の負担
           .cell
-            送料込み
+            = @item.delivery_burden
         .main_item-detail_table__row
           .cell
             配送の方法
           .cell
-            未定
+            = @item.delivery_method
         .main_item-detail_table__row
           .cell
             配送元地域
           .cell
-            福岡県
+            = @item.delivery_prefecture
         .main_item-detail_table__row
           .cell
             発送日の目安
           .cell
-            1年
+            = @item.delivery_time
     .main_price
       .main_price__display
-        ¥800
+        ¥
+        = @item.price
       .main_price__delivery_fee
         %span.tax (税込)
-        %span.fee 送料込み
+        %span.fee
+          - if @item.delivery_burden == "送料込み(出品者負担)"
+            送料込み
+          - else 
+            送料別
     .main_balloon_area
       .main_stock_money
         残高 ¥925をお持ちです
@@ -92,11 +98,7 @@
     = link_to "購入画面に進む", "#", class: "main_purchase_button"
     .main_item_description
       .main_item_description__top
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
+        = @item.description
       .main_item_description__bottom
         .main_item_description__bottom--right
           .goob_button
@@ -245,4 +247,4 @@
               %span
                 = fa_icon "heart-o"
                 8
-  = render "footer"
+  = render "shared/footer"
