@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :delivery_prefecture,
       :delivery_time,
-      {images: []}
+      images: []
     )
   end
 end
