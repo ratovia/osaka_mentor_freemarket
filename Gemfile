@@ -81,6 +81,7 @@ end
 
 group :production do
   gem 'unicorn', '5.5.1'
+  gem "aws-sdk-s3"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
