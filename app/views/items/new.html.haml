@@ -4,7 +4,6 @@
       .new_item_page_container_top__img
         = link_to root_path do
           = image_tag "logo.svg"
-    -# %form.new_item_page_container_main
     = form_with model: Item.new, url: items_path, class: "new_item_page_container_main" ,method: :post , local: true do |f|
       .new_item_page_container_main_title
         商品の情報を入力
@@ -14,25 +13,24 @@
           %span.required
             必須
         %p.desc 最大10枚までアップロードできます。
-        .image_file_area
-          %p 
-            ドラッグアンドドロップ
-            %br
-              もしくはクリックをしてアップロード
-          -# %input(type="file")
-          = f.file_field :images, multiple: true
+        .new_item_page_container_main_item_image_area
+          .image_file_area
+            %p 
+              ドラッグアンドドロップ
+              %br
+                もしくはクリックをしてアップロード
+            = f.file_field :images, multiple: true, id: "upload_file", accept: "image/png, image/jpeg, image/gif"
+            = f.hidden_field :file, class: "item_images_hidden", multiple: true
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名 
           %span.required
             必須
-        -# %input(type="text" placeholder="商品名 (必須40文字まで)" maxlength="40")
         = f.text_field :name, {placeholder: "商品名 (必須40文字まで)", maxlength: "40"}
         %p.new_item_page_container_main_label
           商品の説明
           %span.required
             必須
-        -# %textarea(maxlength="1000" placeholder="商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。")
         = f.text_area :description, {maxlength: "1000",  placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
       .new_item_page_container_main_item_detail
         .left_content
@@ -60,11 +58,6 @@
               %option(value="3") パンツ
             = fa_icon "angle-down"
           .select_box.category3
-            -# %select(name="categoly" id="category3")
-            -#   %option(value="0") ---
-            -#   %option(value="1") 半袖
-            -#   %option(value="2") 長袖
-            -#   %option(value="3") 七分
             = f.select :categoly_id, [["---","---"],["半袖","半袖"],["長袖","長袖"],["七分","七分"]],id: "category3"
             = fa_icon "angle-down"
           #select_size
@@ -73,18 +66,6 @@
               %span.required
                 必須
             .select_box
-              -# %select(name="item_size")
-                -# %option(value="0") ---
-                -# %option(value="1") XXS以下
-                -# %option(value="2") XS(SS)
-                -# %option(value="3") S
-                -# %option(value="4") M
-                -# %option(value="5") L
-                -# %option(value="6") XL(LL)
-                -# %option(value="7") 2XL(3L)
-                -# %option(value="8") 3XL(4L)
-                -# %option(value="9") 4XL(5L)以上
-                -# %option(value="10") FREE SIZE
               = f.select :size, [["---", "---"], ["XXS以下", "XXS以下"],["XS(SS)", "XS(SS)"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL(LL)", "XL(LL)"], ["2XL(3L)", "2XL(3L)"], ["3XL(4L)", "3XL(4L)"], ["4XL(5L)以上", "4XL(5L)以上"], ["FREE SIZE", "FREE SIZE"]]
               = fa_icon "angle-down"
           #input_bland
@@ -93,21 +74,12 @@
               %span.optional
                 任意
             .input_box
-              -# %input(type="text" placeholder="例）シャネル" name="bland")
               = f.text_field :bland, {placeholder: "例) シャネル"}
           %p.new_item_page_container_main_label.select_label
             商品の状態
             %span.required
               必須
           .select_box
-            -# %select(name="item_status")
-              -# %option(value="0") ---
-              -# %option(value="1") 新品
-              -# %option(value="2") 未使用に近い
-              -# %option(value="3") 目立った傷や汚れなし
-              -# %option(value="4") やや傷や汚れあり
-              -# %option(value="5") 傷や汚れあり
-              -# %option(value="6") 全体的に状態が悪い
             = f.select :status, [["---", "---"], ["新品", "新品"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]]
             = fa_icon "angle-down"
       .new_item_page_container_main_item_delivary
@@ -119,10 +91,6 @@
             %span.required
               必須
           .select_box
-            -# %select(name="delivery_burden" id="delivery_burden")
-            -#   %option(value="0") ---
-            -#   %option(value="1") 送料込み(出品者負担)
-            -#   %option(value="2") 着払い(購入者負担)
             = f.select :delivery_burden, [["---", "---"], ["送料込み(出品者負担)", "送料込み(出品者負担)"],["着払い(購入者負担)", "着払い(購入者負担)"]]
             = fa_icon "angle-down"
           %p.new_item_page_container_main_label.delivery_method_select_label
@@ -130,7 +98,6 @@
             %span.required
               必須
           .select_box.delivery_method_select
-            -# %select(name="delivery_method" id="delivery_method")
             = f.select :delivery_method, [], id: "delivery_method"
             = fa_icon "angle-down"
           %p.new_item_page_container_main_label
@@ -145,11 +112,6 @@
             %span.required
               必須
           .select_box
-            -# %select(name="delivery_time")
-            -#   %option(value="0") ---
-            -#   %option(value="1") 1~2日
-            -#   %option(value="2") 3~4日
-            -#   %option(value="3") 4~7日
             = f.select :delivery_time, [["---", "---"], ["1~2日", "1~2日"],["3~4日", "3~4日"],["4~7日", "4~7日"]]
             = fa_icon "angle-down"
       .new_item_page_container_main_item_price
@@ -164,7 +126,6 @@
                 必須
             .input_price__area
               ¥
-              -# %input(type="text" name="price" id="price" placeholder="例）300" maxlength="7")
               = f.text_field :price, {id: "price", placeholder: "例）300", maxlength: "7"}
           .sales_fee
             %p 販売手数料(10%)
@@ -186,7 +147,6 @@
               また、出品をもちまして
               = link_to "加盟店規約", "#"
               に同意したことになります。
-        -# %input(type="submit" value="出品する" id="item_submit")
         = f.submit "出品する", {id: "item_submit"}
         = link_to "もどる", :back, class: "page_back"
     .new_item_page_container_bottom

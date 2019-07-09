@@ -64,6 +64,8 @@ $(function () {
         `);
     }
   });
+  
+
   $('#price').on('keyup', function () {
 
     var inputPrice = $(this).val();
