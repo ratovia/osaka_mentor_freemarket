@@ -1,6 +1,5 @@
 $(function () {
-  var i = 1;
-  $('#upload_file').change(function(e){
+  $('body').on('change', '#upload_file', function(e){
     var filesArray = $('.item_images_hidden').val().split(',');
     if (filesArray[0] === "") {
       filesArray.splice(0, 1);
@@ -20,18 +19,16 @@ $(function () {
     }
     reader.readAsDataURL(e.target.files[0]);
     
-    $('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" accept="image/png, image/jpeg, image/gif" type="file" name="item[images][${i}]">`);
-    console.log($('#upload_file').attr('name'));
-    // $('.images').files.push(url);
-    
-    filesArray.push(url);
+    $('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" class="prepend">`);
+    $(e.target).css('width', '0px');
+
     
     $('.item_images_hidden').val(filesArray);
-    console.log(filesArray);
     
     var filesArray = $('.item_images_hidden').val().split(',');
-      if ( filesArray.length > 4) {
+      if ( filesArray.length === 4) {
         $('.image_file_area').css('width', '100%');
+        $('.new_item_page_container_main_item_image_area'),css('', '');
       }
       i++;
   });
