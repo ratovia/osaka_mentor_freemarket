@@ -32,6 +32,6 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       images: []
-    )
+    ).merge(user_id: current_user.id)
   end
 end
