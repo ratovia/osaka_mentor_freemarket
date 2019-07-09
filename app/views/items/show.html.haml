@@ -7,11 +7,11 @@
     .main_item-detail
       .main_item-detail_images
         .main_item-detail_images__big
-          = image_tag @item.images[0]
+          = image_tag @item.images[0], id: "big_image"
         %ul.main_item-detail_images__small
           - @item.images.each do |image|
             %li
-              = image_tag image
+              = image_tag image, class: "small_image"
       .main_item-detail_table
         .main_item-detail_table__row
           .cell
