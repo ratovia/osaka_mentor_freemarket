@@ -17,6 +17,7 @@
         padding: 64px 64px 0;
         
         h2{
+          text-align: center;
           margin: 0 auto 30px;
           width: 50%;
           font-size: 16px;
@@ -24,7 +25,7 @@
           padding: 24px auto;
         }
         @include disable-link-decoration();
-        a{
+        .new_credit_btn{
           margin: 0 auto;
           display: flex;
           justify-content: center;
@@ -37,6 +38,27 @@
           transition: 0.3s;
           &:hover{
             opacity: 0.8;
+          }
+        }
+        &__card{
+          display:flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          &__data{
+            display: flex;
+            flex-direction: column;
+            img{
+              width: 50px;
+              height: 30px;
+            }
+          }
+          &__link{
+            p{
+              border: 2px solid $red;
+              padding: 5px;
+              color: $red;
+            }
           }
         }
         &__bar{
