@@ -40,11 +40,12 @@
             ブランド
           .cell
             Maeda Shoppers Team
-        .main_item-detail_table__row
-          .cell
-            商品のサイズ
-          .cell
-            S
+        - if @item.size 
+          .main_item-detail_table__row
+            .cell
+              商品のサイズ
+            .cell
+              = @item.size
         .main_item-detail_table__row
           .cell
             商品の状態

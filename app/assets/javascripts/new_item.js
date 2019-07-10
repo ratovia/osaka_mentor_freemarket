@@ -18,7 +18,7 @@ $(function () {
       $('.category3').css('display', 'none');
     }
   });
-  $('#category3').change(function(){
+  $('#item_category_id').change(function(){
     var categorySelect3 = $(this).prop('selectedIndex');
     var categorySelect1 = $('#category1').prop('selectedIndex');
     if (categorySelect3 !== 0 && categorySelect1 <= 3
