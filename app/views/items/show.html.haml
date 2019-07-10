@@ -72,7 +72,6 @@
             = @item.delivery_time
     .main_price
       .main_price__display
-        ¥
         = @item.price
       .main_price__delivery_fee
         %span.tax (税込)
@@ -152,44 +151,11 @@
               .new_item__text_area--title
                 = item.name
               .new_item__text_area--price
-                ¥
-                = item.price
+                %span.new_item__text_area--price_display
+                  = item.price
                 %span
                   = fa_icon "heart-o"
                   8
-          -# = link_to "#", class: "new_item" do
-          -#   .new_item__image_area
-          -#     = image_tag "300×300.png"
-          -#   .new_item__text_area
-          -#     .new_item__text_area--title
-          -#       メンズジャケット
-          -#     .new_item__text_area--price
-          -#       ￥5000
-          -#       %span
-          -#         = fa_icon "heart-o"
-          -#         8
-          -# = link_to "#", class: "new_item" do
-          -#   .new_item__image_area
-          -#     = image_tag "300×300.png"
-          -#   .new_item__text_area
-          -#     .new_item__text_area--title
-          -#       メンズジャケット
-          -#     .new_item__text_area--price
-          -#       ￥5000
-          -#       %span
-          -#         = fa_icon "heart-o"
-          -#         8
-          -# = link_to "#", class: "new_item" do
-          -#   .new_item__image_area
-          -#     = image_tag "300×300.png"
-          -#   .new_item__text_area
-          -#     .new_item__text_area--title
-          -#       メンズジャケット
-          -#     .new_item__text_area--price
-          -#       ￥5000
-          -#       %span
-          -#         = fa_icon "heart-o"
-          -#         8
   .item_listing
     .pick_up_category_ladies.main_block_new_items
       %h2
@@ -213,7 +179,8 @@
             .new_item__text_area--title
               メンズジャケット
             .new_item__text_area--price
-              ￥5000
+              %span.new_item__text_area--price_display
+                5000
               %span
                 = fa_icon "heart-o"
                 8

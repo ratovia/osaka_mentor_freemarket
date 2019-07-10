@@ -321,7 +321,7 @@
       width: 100%;
       @include  one_item();
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
       flex-direction: row;
       flex-wrap: wrap;
       align-content: space-between;
