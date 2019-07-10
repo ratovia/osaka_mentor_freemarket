@@ -40,7 +40,7 @@ $(function () {
       $('.delivery_method_select').css('display', 'block');
       
       $('#item_delivery_method').html(`
-      <option value="---">---</option>
+      <option value="">---</option>
       <option value="未定"> 未定 </option>
       <option value="らくらくメルカリ便">らくらくメルカリ便</option>
       <option value="ゆうメール">ゆうメール</option>
@@ -56,7 +56,7 @@ $(function () {
       $('.delivery_method_select').css('display', 'block');
 
       $('#item_delivery_method').html(`
-        <option value="---">---</option>
+        <option value="">---</option>
         <option value="未定">未定</option>
         <option value="クロネコヤマト">クロネコヤマト</option>
         <option value="ゆうパック">ゆうパック</option>
