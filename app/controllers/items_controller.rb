@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   end
   
   def new
-    @prefecture = Prefecture.all
+    @prefectures = Prefecture.all
   end
   
   def create
