@@ -6,7 +6,7 @@
         %h2
           = link_to "レディース 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |ladys|
+          - @items.each do |ladys|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag ladys.images[0]
@@ -24,7 +24,7 @@
         %h2
           = link_to "メンズ 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |mens|
+          - @items.each do |mens|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag mens.images[0]
@@ -42,7 +42,7 @@
         %h2
           = link_to "ベビー・キッズ 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |babies|
+          - @items.each do |babies|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag babies.images[0]
@@ -60,7 +60,7 @@
         %h2 
           = link_to "コスメ・香水・美容 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |cosme|
+          - @items.each do |cosme|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag cosme.images[0]
@@ -81,7 +81,7 @@
         %h2
           = link_to "シャネル 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |chanel|
+          - @items.each do |chanel|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag chanel.images[0]
@@ -99,7 +99,7 @@
         %h2 
           = link_to "ルイヴィトン 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |vuitton|
+          - @items.each do |vuitton|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag vuitton.images[0]
@@ -117,7 +117,7 @@
         %h2 
           = link_to "シュプリーム 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |supreme|
+          - @items.each do |supreme|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag supreme.images[0]
@@ -135,7 +135,7 @@
         %h2
           = link_to "ナイキ 新着アイテム", "#"
         .main_block_new_items_area
-          - @item.each do |nike|
+          - @items.each do |nike|
             = link_to "#", class: "new_item" do
               .new_item__image_area
                 = image_tag nike.images[0]
