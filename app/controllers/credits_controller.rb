@@ -9,6 +9,11 @@ class CreditsController < ApplicationController
   end
 
   end
+  
   def new
+    unless current_user.credits.blank?
+      redirect_to credits_path
+    end
+  end
   end
 end
