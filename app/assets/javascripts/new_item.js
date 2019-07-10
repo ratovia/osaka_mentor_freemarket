@@ -73,8 +73,8 @@ $(function () {
       if (inputPrice >= 300 && inputPrice <= 9999999) {
         var salesFee = Math.floor(inputPrice / 10);
         var salesBenefit = inputPrice - salesFee;
-        $('.sales_fee__computed').text('¥' + salesFee);
-        $('.sales_benefit__computed').text('¥' + salesBenefit);
+        $('.sales_fee__computed').text('¥' + String(salesFee).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        $('.sales_benefit__computed').text('¥' + String(salesBenefit).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       } else {
         $('.sales_fee__computed').text('-');
         $('.sales_benefit__computed').text('-');
