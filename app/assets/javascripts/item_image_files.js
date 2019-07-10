@@ -45,7 +45,11 @@ $(function () {
       };
       $('.item_images_hidden').val(filesArray);
     });
-    
+    $('.upload_files').each(function (index, element) {
+      if(element.files[0].name === url) {
+        $(element).remove();
+      }
+    });
     $(this).closest('.select_image').remove();
     var width = $('.image_file_area').css('width');
     $('.image_file_area').css('display', 'block');

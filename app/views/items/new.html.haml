@@ -19,7 +19,7 @@
               ドラッグアンドドロップ
               %br
                 もしくはクリックをしてアップロード
-            = f.file_field :images, multiple: true, id: "upload_file", accept: "image/png, image/jpeg, image/gif"
+            = f.file_field :images, multiple: true, id: "upload_file", class: "upload_files", accept: "image/png, image/jpeg, image/gif"
             = f.hidden_field :file, class: "item_images_hidden", multiple: true
           -# .image_file_area.under_area
           -#   %p 
@@ -132,7 +132,7 @@
                 必須
             .input_price__area
               ¥
-              = f.text_field :price, {id: "price", placeholder: "例）300", maxlength: "7"}
+              = f.text_field :price, {id: "price", placeholder: "例）300", maxlength: "7", value: ""}
           .sales_fee
             %p 販売手数料(10%)
             %p.sales_fee__computed -
