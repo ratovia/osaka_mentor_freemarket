@@ -18,7 +18,8 @@
             出品者
           .cell
             .listing-person 
-              .listing-person_name John
+              .listing-person_name
+                = @item.user.nickname
               .listing-person_evelute-box
                 .listing-person_evelute-box--icon-good
                   = image_tag "face-grin.png"
@@ -62,7 +63,7 @@
         .main_item-detail_table__row
           .cell
             配送元地域
-          .cell
+          .cell#prefecture
             = @item.delivery_prefecture
         .main_item-detail_table__row
           .cell
