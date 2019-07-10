@@ -22,13 +22,17 @@ $(function () {
     $('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]">`);
     $(e.target).css('width', '0px');
 
-    
+    filesArray.push(url);
     $('.item_images_hidden').val(filesArray);
     
     var filesArray = $('.item_images_hidden').val().split(',');
-    if ( filesArray.length === 4) {
-      $('.image_file_area').css('width', '100%');
-      $('.new_item_page_container_main_item_image_area'),css('height', '340px');
+    if ( filesArray.length === 5) {
+      $('.top_area').css('display', 'none');
+      // $('.under_area').css('display', 'block');
+      // $('.under_area').css('width', '100%');
+      // $('.new_item_page_container_main_item_image_area').css('align-content', 'space-around');
+      // $('.new_item_page_container_main_item_image_area').css('height', '350px');
+
     }
   });
 
