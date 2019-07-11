@@ -7,7 +7,9 @@ $(function () {
       filesArray.splice(0, 1);
     }
     var reader = new FileReader();
-    var url = e.target.files[0].name;
+    var url = e.target.files[0];
+    console.log(url);
+    
     reader.onload = function(e){
       $(target).closest('.prepend_area').prepend(`
         <div class="select_image" data-id=${id - 1}>
@@ -21,7 +23,7 @@ $(function () {
     }
     reader.readAsDataURL(target.files[0]);
     
-    $(target).closest('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id}">`);
+    $(target).closest('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id + 1}">`);
     $(target).css('width', '0px');
 
     filesArray.push(id);
@@ -31,7 +33,8 @@ $(function () {
     switch (filesArray.length) {
       case 5: $(target).closest('.image_file_area').css('display', 'none');
               $('.under_area .image_file_area').css('display', 'block');
-              $('.under_area .image_file_area').css('width', '100%');       
+              $('.under_area .image_file_area').css('width', '100%');
+              $('.under_area .image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id + 1}">`);
         break;
       case 10: $(target).closest('.image_file_area').css('display', 'none');     
         break;
@@ -63,7 +66,7 @@ $(function () {
       if(!$(element).data('id')){
        return true;
       }     
-      if($(element).data('id') === id) {
+      if($(element).data('id') === Number(id)) {
         $(element).remove();
       }
     });
@@ -73,10 +76,15 @@ $(function () {
 
     var filesArray = $('.item_images_hidden').val().split(',');
     // .image_file_areaの幅を調整
-    if(filesArray.length < 6) {
+    if(filesArray.length < 5) {
       var width = $('.image_file_area:first').css('width');
       console.log('first');
-      
+      if (filesArray.length === 4) {
+        var fileField = $('.under_area .upload_files');
+        fileField.remove();
+        $('.image_file_area:first').prepend(fileField);
+      }
+      $('.image_file_area:last').css('display', 'none');
       $('.image_file_area:first').css('display', 'block').css('width', `calc(${width} + 20%)`);
     } else {
       var width = $('.image_file_area:last').css('width');
