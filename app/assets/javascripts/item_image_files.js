@@ -1,4 +1,5 @@
 $(function () {
+  var id = 1;
   $('body').on('change', '#upload_file', function(e){
     var filesArray = $('.item_images_hidden').val().split(',');
     var target = e.target;
@@ -9,7 +10,7 @@ $(function () {
     var url = e.target.files[0].name;
     reader.onload = function(e){
       $(target).closest('.prepend_area').prepend(`
-        <div class="select_image" data-url=${url}>
+        <div class="select_image" data-id=${id - 1}>
           <img src=${e.target.result} id="image_preview">
           <p><a href="">編集</a></p>
           <p><a class="remove_image">削除</a></p>
@@ -20,10 +21,10 @@ $(function () {
     }
     reader.readAsDataURL(target.files[0]);
     
-    $(target).closest('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]">`);
+    $(target).closest('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id}">`);
     $(target).css('width', '0px');
 
-    filesArray.push(url);
+    filesArray.push(id);
     $('.item_images_hidden').val(filesArray);
     
     var filesArray = $('.item_images_hidden').val().split(',');
@@ -35,29 +36,34 @@ $(function () {
       case 10: $(target).closest('.image_file_area').css('display', 'none');     
         break;
     }
+  id++;
+  console.log(filesArray);
+  
   });
 
   $('body').on('click', '.remove_image', function () {
     var filesArray = $('.item_images_hidden').val().split(',');
-    var url = $(this).closest('.select_image').data('url');
+    var id = $(this).closest('.select_image').data('id');
 
-    // 選択されたurlとfilesArrayの要素が一致すればfilesArrayから削除
+    // 選択されたidとfilesArrayの要素が一致すればfilesArrayから削除
     $.each(filesArray, function (index, file) {
-      if(url === file){
+      if(id === Number(file)){
         filesArray.splice(index, 1);
       };
       // .item_images_hiddenのval()を更新
       $('.item_images_hidden').val(filesArray);
       console.log(filesArray.length);
+      console.log(filesArray);
+    
     });
 
 
-    // 選択されたurlを持つinput[type="file"]を削除
+    // 選択されたidを持つinput[type="file"]を削除
     $('.upload_files').each(function (index, element) {
-      if(!element.files[0]){
+      if(!$(element).data('id')){
        return true;
       }     
-      if(element.files[0].name === url) {
+      if($(element).data('id') === id) {
         $(element).remove();
       }
     });
@@ -78,5 +84,6 @@ $(function () {
       
       $('.image_file_area:last').css('display', 'block').css('width', `calc(${width} + 20%)`);
     }
+    
   });
 });
