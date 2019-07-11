@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
   def new
     @prefectures = Prefecture.all
   end
+
+  def edit
+    @item = Item.find(parame[:id])
+  end
   
   def create
     @item = Item.new(item_params)
@@ -18,6 +22,11 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def preview
+    @item = Item.find(params[:id])
+    # preview_item_path
   end
   
   private
