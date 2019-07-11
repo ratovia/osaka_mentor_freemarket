@@ -40,7 +40,7 @@
             ブランド
           .cell
             Maeda Shoppers Team
-        - if @item.size && @item.size != ""
+        - if @item.size.present?
           .main_item-detail_table__row
             .cell
               商品のサイズ

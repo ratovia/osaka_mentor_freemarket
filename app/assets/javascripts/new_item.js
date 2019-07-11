@@ -45,7 +45,7 @@ $(function () {
       <option value="らくらくメルカリ便">らくらくメルカリ便</option>
       <option value="ゆうメール">ゆうメール</option>
       <option value="レターパック"> レターパック</option>
-      <option value="普通郵便(定型、定形外"> 普通郵便(定型、定形外）</option>
+      <option value="普通郵便(定型、定形外)"> 普通郵便(定型、定形外）</option>
       <option value="クロネコヤマ"> クロネコヤマ</option>
       <option value="ゆうパック"> ゆうパック</option>
       <option value="クリックポスト"> クリックポスト</option>
