@@ -7,8 +7,6 @@ $(function () {
       filesArray.splice(0, 1);
     }
     var reader = new FileReader();
-    var url = e.target.files[0];
-    console.log(url);
     
     reader.onload = function(e){
       $(target).closest('.prepend_area').prepend(`
@@ -40,7 +38,6 @@ $(function () {
         break;
     }
   id++;
-  console.log(filesArray);
   
   });
 
@@ -55,9 +52,6 @@ $(function () {
       };
       // .item_images_hiddenのval()を更新
       $('.item_images_hidden').val(filesArray);
-      console.log(filesArray.length);
-      console.log(filesArray);
-    
     });
 
 
@@ -78,7 +72,6 @@ $(function () {
     // .image_file_areaの幅を調整
     if(filesArray.length < 5) {
       var width = $('.image_file_area:first').css('width');
-      console.log('first');
       if (filesArray.length === 4) {
         var fileField = $('.under_area .upload_files');
         fileField.remove();
@@ -88,7 +81,6 @@ $(function () {
       $('.image_file_area:first').css('display', 'block').css('width', `calc(${width} + 20%)`);
     } else {
       var width = $('.image_file_area:last').css('width');
-      console.log('last');
       
       $('.image_file_area:last').css('display', 'block').css('width', `calc(${width} + 20%)`);
     }
