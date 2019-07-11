@@ -1,0 +1,81 @@
+.user-my-page{
+  .right-column{
+    .select-payment{
+      background-color: $white;
+      &__header{
+        height: 50px;
+        padding: 8px 24px;
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        text-align:center;
+        line-height: 34px;
+        border-bottom: 1px solid #eee;
+      }
+      &__contents{
+        width: 100%;
+        padding: 64px 64px 0;
+        
+        h2{
+          text-align: center;
+          margin: 0 auto 30px;
+          width: 50%;
+          font-size: 16px;
+          color: $black;
+          padding: 24px auto;
+        }
+        @include disable-link-decoration();
+        .new_credit_btn{
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          background-color: $red;
+          width: 50%;
+          height: 50px;
+          font-size: 14px;
+          transition: 0.3s;
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+        &__card{
+          display:flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          &__data{
+            display: flex;
+            flex-direction: column;
+            img{
+              width: 50px;
+              height: 30px;
+            }
+          }
+          &__link{
+            p{
+              border: 2px solid $red;
+              padding: 5px;
+              color: $red;
+            }
+          }
+        }
+        &__bar{
+          width: 100%;
+          margin: 32px auto 0 ;
+          border-bottom: 1px solid #eee;
+        }
+      }
+      &__footer{
+        padding: 32px 0 70px;
+        text-align: right;
+        font-size: 14px;
+        margin-right: 64px;
+        a{
+          color: $blue;
+        }
+      }
+    }
+  }
+}
