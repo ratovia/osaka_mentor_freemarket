@@ -92,8 +92,15 @@
             text-align: center;
             line-height: 50px;
             background: $red;
-            color: white;
             font-weight: bold;
+            @include disable-link-decoration();
+            a{
+              color: white;
+            }
+          }
+          .disable_buy_btn{
+            background-color: #888;
+            color: white;
           }
         }
       }
