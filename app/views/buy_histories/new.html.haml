@@ -1,0 +1,69 @@
+.purchase_confirmation_page
+  .purchase_confirmation_page_container
+    .purchase_confirmation_page_container_header
+      .purchase_confirmation_page_container_header__img
+        = link_to root_path do
+          = image_tag "logo.svg"
+    .purchase_confirmation_page_container_main
+      .purchase_confirmation_page_container_main_title
+        購入内容の確認
+      .purchase_confirmation_page_container_main_price
+        .price_container
+          .price_container_title
+          .price_container_item
+            = image_tag @item.images[0]
+            .item_name
+              = @item.name
+          .price_container_price
+            %span.price_container_price__display
+              ="¥#{@item.price}"
+            %span.price_container_price__shipping_fee
+              送料込み
+          .price_container_point
+            .no_point ポイントはありません
+          .price_container_pay_money
+            .price_container_pay_money__title
+              お支払金額
+            .price_container_pay_money__display
+              = "¥#{@item.price}"
+          - if @card_info.nil?
+            .price_container_purchase_button.disable_buy_btn
+              購入する
+          - else 
+            .price_container_purchase_button
+              = link_to item_buy_histories_path, method: :post do
+                購入する
+      .purchase_confirmation_page_container_main_delivery_destination
+        .delivery_destination_container
+          .delivery_destination_container__title
+            配送先
+          .delivery_destination_container__address
+            .delivery_destination_container__address--post_number
+              〒 000-0000
+            .delivery_destination_container__address--place
+              福岡県福岡市天神スーパーハイツ503号室
+            .delivery_destination_container__address--purchaser
+              ryuji
+          = link_to "#", class: "change" do
+            変更する
+            = fa_icon "chevron-right"
+      .purchase_confirmation_page_container_main_delivery_payment 
+        .delivery_payment_container
+          .delivery_payment_container__title
+            支払方法
+          - if @card_info.nil?
+            %p /
+            = link_to "#", class: "change" do
+              変更する
+              = fa_icon "chevron-right"
+          - else
+            .delivery_payment_container__credit--number
+              = @card_info[:last4]
+            .delivery_payment_container__credit--using_period
+              = @card_info[:exp_date]
+            .delivery_payment_container__credit--image
+              = image_tag @card_info[:brand]
+            = link_to "#", class: "change" do
+              変更する
+              = fa_icon "chevron-right"
+    = render 'shared/new_signup_footer'
