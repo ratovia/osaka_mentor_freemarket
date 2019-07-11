@@ -1,0 +1,11 @@
+= link_to "#", class: "new_item" do
+  .new_item__image_area
+    = image_tag item.images[0]
+  .new_item__text_area
+    .new_item__text_area--title
+      = item.name
+    .new_item__text_area--price
+      = "¥#{item.price}"
+      %span
+        = fa_icon "heart-o"
+        8
