@@ -62,10 +62,10 @@
               &--price {
                 height: 33%;
                 background: white;
-                font-weight: bold;
-                span {
-                  font-weight: normal;
-                  float: right;
+                display: flex;
+                justify-content: space-between;
+                &_display {
+                  font-weight: bold;
                 }
               }
             } 

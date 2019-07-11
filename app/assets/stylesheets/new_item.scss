@@ -64,9 +64,14 @@
         }
         &_area {
           margin-top: 30px;
-          display: flex;
-          justify-content: space-between;
-
+          .prepend_area {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+          .under_area {
+            margin-top: 20px;
+          }
           .select_image {
             width: 100px;
             #image_preview {
@@ -111,6 +116,9 @@
             top: 0;
             left: 0;
            }
+          }
+          .under_area .image_file_area {
+            display: none;
           }
         }
       }

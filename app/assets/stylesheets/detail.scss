@@ -30,11 +30,17 @@
           display: flex;
           flex-wrap: wrap;
           width: 300px;
+          li:first-child {
+            img {
+              opacity: 1;
+            }
+          }
           li{
             list-style:none;
             img{
               width: 60px;
               height: 60px;
+              opacity: 0.5;
             }
           }
         }
@@ -315,7 +321,6 @@
       width: 100%;
       @include  one_item();
       display: flex;
-      justify-content: space-between;
       flex-direction: row;
       flex-wrap: wrap;
       align-content: space-between;
