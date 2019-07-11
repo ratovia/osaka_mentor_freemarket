@@ -40,7 +40,7 @@
             ブランド
           .cell
             Maeda Shoppers Team
-        - if @item.size 
+        - if @item.size && @item.size != ""
           .main_item-detail_table__row
             .cell
               商品のサイズ
@@ -81,11 +81,12 @@
             送料込み
           - else 
             送料別
-    .main_balloon_area
-      .main_stock_money
-        残高 ¥925をお持ちです
-        .main_stock_money__triangle
-    = link_to "購入画面に進む", "#", class: "main_purchase_button"
+    - if @item.user.id != current_user.id
+      .main_balloon_area
+        .main_stock_money
+          残高 ¥925をお持ちです
+          .main_stock_money__triangle
+      = link_to "購入画面に進む", "#", class: "main_purchase_button"
     .main_item_description
       .main_item_description__top
         = @item.description
