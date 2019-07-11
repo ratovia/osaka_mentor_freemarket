@@ -44,6 +44,7 @@ The final product of the team B.
 |delivery_prefecture|string|
 |delivery_time|string|
 |category_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### association
 - belongs_to :user
@@ -81,7 +82,7 @@ The final product of the team B.
 |credit_number|integer|null: false|
 |expiry_date|integer|null: false|
 |security_code|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### association
 - belongs_to :user
