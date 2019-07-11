@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item
   def index
     @items = Item.limit(4).order("id DESC")
   end
@@ -8,7 +9,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(parame[:id])
   end
   
   def create
@@ -21,15 +21,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def preview
-    @item = Item.find(params[:id])
-    # preview_item_path
   end
   
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(
