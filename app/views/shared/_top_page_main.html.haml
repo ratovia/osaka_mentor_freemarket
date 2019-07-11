@@ -6,54 +6,21 @@
         %h2
           = link_to "レディース 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |ladys|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag ladys.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = ladys.name
-                .new_item__text_area--price
-                  = "¥#{ladys.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
       .pick_up_category_mens.main_block_new_items
         %h2
           = link_to "メンズ 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |mens|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag mens.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = mens.name
-                .new_item__text_area--price
-                  = "￥#{mens.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
       .pick_up_category_babies.main_block_new_items
         %h2
           = link_to "ベビー・キッズ 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |babies|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag babies.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = babies.name
-                .new_item__text_area--price
-                  = "￥#{babies.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
       .pick_up_category_cosme.main_block_new_items
@@ -81,71 +48,27 @@
         %h2
           = link_to "シャネル 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |chanel|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag chanel.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = chanel.name
-                .new_item__text_area--price
-                  ="￥#{chanel.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
       .pick_up_bland_vuitton.main_block_new_items
         %h2 
           = link_to "ルイヴィトン 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |vuitton|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag vuitton.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = vuitton.name
-                .new_item__text_area--price
-                  ="￥#{vuitton.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
       .pick_up_bland_supreme.main_block_new_items
         %h2 
           = link_to "シュプリーム 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |supreme|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag supreme.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = supreme.name
-                .new_item__text_area--price
-                  ="￥#{supreme.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
       .pick_up_bland_nike.main_block_new_items
         %h2
           = link_to "ナイキ 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |nike|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag nike.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = nike.name
-                .new_item__text_area--price
-                  ="￥#{nike.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
