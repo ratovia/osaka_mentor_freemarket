@@ -134,12 +134,13 @@
     color: $black;
   }
   .new_item{
+    display: block;
     width: 220px;
     height: 330px;
     background: green;
     text-align: left;
     color: $black;
-    margin: 10px 0 20px;
+    margin: 10px 13px 20px 0;
     &:hover {
       opacity: 1;
     }
@@ -166,12 +167,13 @@
       }
       &--price {
         color: $black;
-        font-weight: bold;
-        span {
-          font-weight: normal;
-          float: right;
+          background: white;
+          display: flex;
+          justify-content: space-between;
+          &_display {
+            font-weight: bold;
+          }
         }
-      }
     }
   }
 }

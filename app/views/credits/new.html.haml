@@ -1,0 +1,12 @@
+.user-my-page
+  = render "shared/header"
+  .container
+    .left-column
+      = render "shared/my_page_sidebar"
+    .right-column
+      .new-card
+        .new-card__header
+          クレジットカード情報入力
+        = render 'shared/payment_form'
+  = render "shared/footer"
+  = render "shared/new_item_button"
