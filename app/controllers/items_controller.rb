@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @items = Item.limit(4).order("id DESC")
   end
@@ -26,6 +28,7 @@ class ItemsController < ApplicationController
 
   def preview
     @item = Item.find(params[:id])
+    @items = Item.where(user_id: current_user.id)
     # preview_item_path
   end
   
