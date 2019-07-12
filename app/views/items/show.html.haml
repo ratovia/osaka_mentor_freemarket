@@ -81,7 +81,7 @@
             送料込み
           - else 
             送料別
-    - if @item.user.id != current_user.id
+    - if user_signed_in? && @item.user.id != current_user.id
       .main_balloon_area
         .main_stock_money
           残高 ¥925をお持ちです
