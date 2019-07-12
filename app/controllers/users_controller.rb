@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :set_user, only: [:show, :edit, :update, :logout, :identification]
   def new
   end
 
@@ -19,4 +19,9 @@ class UsersController < ApplicationController
     @prefectures = Prefecture.all
   end
 
+  private
+  
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

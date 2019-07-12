@@ -9,7 +9,7 @@
           .profile__image
             = image_tag "member_photo_noimage_thumb.png"
           .profile__name
-            John
+            = current_user.nickname
           .profile__number
             .profile__number__evaluation
               評価数

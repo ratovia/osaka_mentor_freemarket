@@ -115,7 +115,7 @@
                 = image_tag "member_photo_noimage_thumb.png"
             .overview_main
               .overview_main__top
-                たぬ
+                = current_user.nickname if user_signed_in?
                 .achievement
                   %span 評価: 11
                   %span 出品数: 20
