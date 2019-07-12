@@ -1,1 +1,136 @@
-あ
+.detail_item
+  = render 'shared/header'
+  .main
+    .main_header
+      %h2 
+        = @item.name
+    .main_item-detail
+      .main_item-detail_images
+        .main_item-detail_images__big
+          = image_tag @item.images[0], id: "big_image"
+        %ul.main_item-detail_images__small
+          - @item.images.each do |image|
+            %li
+              = image_tag image, class: "small_image"
+      .main_item-detail_table
+        .main_item-detail_table__row
+          .cell
+            出品者
+          .cell
+            .listing-person 
+              .listing-person_name
+                = @item.user.nickname
+              .listing-person_evelute-box
+                .listing-person_evelute-box--icon-good
+                  = image_tag "face-grin.png"
+                  %p 151
+                .listing-person_evelute-box--icon-soso
+                  = image_tag "face-mef.png"
+                  %p 151
+                .listing-person_evelute-box--icon-bad
+                  = image_tag "face-frown.png"
+                  %p 151
+        .main_item-detail_table__row
+          .cell
+            カテゴリー
+          .cell
+            レディース
+        .main_item-detail_table__row
+          .cell
+            ブランド
+          .cell
+            Maeda Shoppers Team
+        - if @item.size.present?
+          .main_item-detail_table__row
+            .cell
+              商品のサイズ
+            .cell
+              = @item.size
+        .main_item-detail_table__row
+          .cell
+            商品の状態
+          .cell
+            = @item.status
+        .main_item-detail_table__row
+          .cell
+            配送料の負担
+          .cell
+            = @item.delivery_burden
+        .main_item-detail_table__row
+          .cell
+            配送の方法
+          .cell
+            = @item.delivery_method
+        .main_item-detail_table__row
+          .cell
+            配送元地域
+          .cell#prefecture
+            = @item.delivery_prefecture
+        .main_item-detail_table__row
+          .cell
+            発送日の目安
+          .cell
+            = @item.delivery_time
+    .main_price
+      .main_price__display
+        = @item.price
+      .main_price__delivery_fee
+        %span.tax (税込)
+        %span.fee
+          - if @item.delivery_burden == "送料込み(出品者負担)"
+            送料込み
+          - else 
+            送料別
+    - if @item.user.id != current_user.id
+      .main_balloon_area
+        .main_stock_money
+          残高 ¥925をお持ちです
+          .main_stock_money__triangle
+      = link_to "購入画面に進む", "#", class: "main_purchase_button"
+    .main_item_description
+      .main_item_description__top
+        = @item.description
+      .main_item_description__bottom
+        .main_item_description__bottom--right
+          .goob_button
+            = fa_icon "heart-o"
+            いいね!
+            8
+          .notice_button
+            = fa_icon "flag"
+            不適切な商品の報告
+        = link_to "#", class: "safty_effort_link" do
+          = fa_icon "lock"
+          安心、安全への取り組み
+  .preview_page_box
+    = link_to "", class: "preview_page_box__edit" do
+      商品の編集
+    or
+    .preview_page_box__suspend
+      商品の出品を一旦停止する
+    .preview_page_box__edit__destory
+      この商品を削除する
+  .user_comments.repeview_page_comment
+    .user_comments__bix
+      .user_icon
+        = image_tag "member_photo_noimage_thumb.png"
+      .user_name
+        %p John
+      .user_comment
+        %p 初めまして値下げ可能ですか？
+        .user_comment__timestamp
+          %span
+            = fa_icon "clock-o"
+            6 時間前
+    .user_comments__bix
+      .user_icon
+        = image_tag "member_photo_noimage_thumb.png"
+      .user_name
+        %p John
+      .user_comment
+        %p 初めまして値下げ可能ですか？
+        .user_comment__timestamp
+          %span
+            = fa_icon "clock-o"
+            6 時間前
+  = render "shared/footer"

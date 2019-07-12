@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: [:index,:create,:new]
   def index
     @items = Item.limit(4).order("id DESC")
@@ -24,6 +26,9 @@ class ItemsController < ApplicationController
   end
 
   def preview
+    @item = Item.find(params[:id])
+    @items = Item.where(user_id: current_user.id)
+
   end
   
   private
