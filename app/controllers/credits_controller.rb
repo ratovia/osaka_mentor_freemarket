@@ -5,7 +5,7 @@ class CreditsController < ApplicationController
       credit = current_user.credits.first
       customer = Payjp::Customer.retrieve(credit.customer_id)
       card = customer.cards.retrieve(customer.default_card)
-      @card_info = get_card_info(card)
+      @card_info = get_card_info(current_user)
     end
   end
   
