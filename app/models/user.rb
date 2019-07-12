@@ -15,22 +15,14 @@ class User < ApplicationRecord
   #SNS認証で得られたユーザー情報を取得する
   def self.from_omniauth(access_token)
     data = access_token.info
+    #emailが既に登録されているか確認する
     user = User.where(email: data['email']).first
-# binding.pry
-    # Uncomment the section below if you want users to be created if they don't exist
     unless user
-      user = User.create(
-      nickname: data['name'],
-      email: data['email'],
-      password: Devise.friendly_token[0,20]
+      user = User.new(
+        nickname: data['name'],
+        email: data['email']
       )
     end
     user
-  end
-
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

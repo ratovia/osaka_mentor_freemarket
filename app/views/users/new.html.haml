@@ -11,7 +11,7 @@
           %p
             %button.signup_main__selection--btn-mail
               = fa_icon "envelope-o"
-              %a
+              = link_to new_user_registration_path do
                 メールアドレスで登録
             %button.signup_main__selection--btn-facebook
               = fa_icon "facebook-square"
