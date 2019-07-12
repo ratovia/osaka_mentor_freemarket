@@ -1,23 +1,22 @@
 class CreditsController < ApplicationController
   def index
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       Payjp.api_key = get_payjp_key()
       credit = current_user.credits.first
       customer = Payjp::Customer.retrieve(credit.customer_id)
       card = customer.cards.retrieve(customer.default_card)
-      @card_info = get_card_info(card)
+      @card_info = get_card_info(current_user)
     end
-    
   end
   
   def new
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       redirect_to credits_path
     end
   end
 
   def create
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       credit = current_user.credits.first
       @credit = create_payjp_card(current_user , credit.costomer)
     else
@@ -33,7 +32,7 @@ class CreditsController < ApplicationController
   end
 
   def destroy 
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       Payjp.api_key = get_payjp_key()
       credit = current_user.credits.first
       customer = Payjp::Customer.retrieve(credit.customer_id)
@@ -66,7 +65,11 @@ class CreditsController < ApplicationController
     ENV["MERUCARI_PAYJP_SECRET_KEY"]
   end
 
-  def get_card_info(card)
+  def get_card_info(user)
+    Payjp.api_key = get_payjp_key()
+    credit = user.credits.first
+    customer = Payjp::Customer.retrieve(credit.customer_id)
+    card = customer.cards.retrieve(customer.default_card)
     card_info = {}
     if card.brand == "Visa"
       card_info[:brand] = "visa.svg"
@@ -83,4 +86,16 @@ class CreditsController < ApplicationController
     return card_info
   end
 
+  def pay(user,item)
+    if user.nil? || item.nil? || user.credits.blank?
+      return false
+    end
+    Payjp.api_key = get_payjp_key()
+    charge = Payjp::Charge.create(
+      amount: item.price,
+      customer: user.credits.first.customer_id,
+      currency: 'jpy'
+    )
+    return true
+  end
 end

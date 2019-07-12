@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :credits, only: [:index, :new, :create, :destroy]
   resources :items, only: [:index,:new,:create,:show, :edit] do
+    resources :buy_histories, only: [:new, :create]
     member do
       get 'preview'
     end
