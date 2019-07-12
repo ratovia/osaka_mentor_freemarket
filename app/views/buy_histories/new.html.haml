@@ -11,34 +11,39 @@
         .price_container
           .price_container_title
           .price_container_item
-            = image_tag "wallet.jpg"
+            = image_tag @item.images[0]
             .item_name
-              プラダ 三つ折り財布 ブラック エナメル
+              = @item.name
           .price_container_price
             %span.price_container_price__display
-              ¥1,500
+              ="¥#{@item.price}"
             %span.price_container_price__shipping_fee
               送料込み
           .price_container_point
             .no_point ポイントはありません
           .price_container_pay_money
             .price_container_pay_money__title
-              支払金額
+              お支払金額
             .price_container_pay_money__display
-              ¥1,500
-          .price_container_purchase_button
-            購入する
+              = "¥#{@item.price}"
+          - if @card_info.nil?
+            .price_container_purchase_button.disable_buy_btn
+              購入する
+          - else 
+            .price_container_purchase_button
+              = link_to item_buy_histories_path, method: :post do
+                購入する
       .purchase_confirmation_page_container_main_delivery_destination
         .delivery_destination_container
           .delivery_destination_container__title
             配送先
           .delivery_destination_container__address
             .delivery_destination_container__address--post_number
-              000-0000
+              〒 000-0000
             .delivery_destination_container__address--place
-              大阪府大阪市淀川区十三1丁目2番3-45グリーン淀川ハイツ201号室
+              福岡県福岡市天神スーパーハイツ503号室
             .delivery_destination_container__address--purchaser
-              前田賢
+              ryuji
           = link_to "#", class: "change" do
             変更する
             = fa_icon "chevron-right"
@@ -46,22 +51,19 @@
         .delivery_payment_container
           .delivery_payment_container__title
             支払方法
-          .delivery_payment_container__credit--number
-            ************9999
-          .delivery_payment_container__credit--using_period
-            03/22
-          .delivery_payment_container__credit--image
-            = image_tag "visa.svg"
-          = link_to "#", class: "change" do
-            変更する
-            = fa_icon "chevron-right"
-    .purchase_confirmation_page_container_footer
-      .bottom__attention
-        %span プライバシーポリシー
-        %span メルカリ利用規約
-        %span 特定商取引に関する表記
-      .bottom__logo
-        = link_to root_path do
-          = image_tag 'logo-gray.svg'
-      .bottom__copy_light
-        &copy;2019 Mercari
+          - if @card_info.nil?
+            %p /
+            = link_to "#", class: "change" do
+              変更する
+              = fa_icon "chevron-right"
+          - else
+            .delivery_payment_container__credit--number
+              = @card_info[:last4]
+            .delivery_payment_container__credit--using_period
+              = @card_info[:exp_date]
+            .delivery_payment_container__credit--image
+              = image_tag @card_info[:brand]
+            = link_to "#", class: "change" do
+              変更する
+              = fa_icon "chevron-right"
+    = render 'shared/new_signup_footer'
