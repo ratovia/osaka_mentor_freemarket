@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.limit(4).order("id DESC")
   end
 
   def preview
