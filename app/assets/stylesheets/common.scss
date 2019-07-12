@@ -27,3 +27,27 @@ footer{
 .optional{
   @include label(#ccc);
 }
+
+.item_soldout{
+  &__parent{
+    position: relative;
+    overflow: hidden;
+  }
+  &__children:after{
+    position: absolute;
+    top: -71px;
+    left: -71px;
+    padding: 10px;
+    content: "SOLD";
+    color: $white;
+    width: 141px;
+    height: 141px;
+    background-color: $red;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 22px;
+    font-weight: bold;
+    transform: rotate(-45deg); 
+  }
+}
