@@ -5,13 +5,22 @@
       %h2 
         = @item.name
     .main_item-detail
-      .main_item-detail_images
-        .main_item-detail_images__big
-          = image_tag @item.images[0], id: "big_image"
-        %ul.main_item-detail_images__small
-          - @item.images.each do |image|
-            %li
-              = image_tag image, class: "small_image"
+      - if @item.buy_history.present?
+        .main_item-detail_images.item_soldout__parent
+          .main_item-detail_images__big.item_soldout__children
+            = image_tag @item.images[0], id: "big_image"
+          %ul.main_item-detail_images__small
+            - @item.images.each do |image|
+              %li
+                = image_tag image, class: "small_image"
+      - else
+        .main_item-detail_images
+          .main_item-detail_images__big
+            = image_tag @item.images[0], id: "big_image"
+          %ul.main_item-detail_images__small
+            - @item.images.each do |image|
+              %li
+                = image_tag image, class: "small_image"
       .main_item-detail_table
         .main_item-detail_table__row
           .cell
@@ -81,7 +90,7 @@
             送料込み
           - else 
             送料別
-    - if @item.user.id != current_user.id
+    - if user_signed_in? && @item.user.id != current_user.id
       .main_balloon_area
         .main_stock_money
           残高 ¥925をお持ちです
