@@ -2,7 +2,7 @@ class BuyHistoriesController < CreditsController
   before_action :set_item
 
   def new
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       @card_info = get_card_info(current_user)
     end
   end
