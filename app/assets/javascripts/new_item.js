@@ -18,7 +18,7 @@ $(function () {
       $('.category3').css('display', 'none');
     }
   });
-  $('#category3').change(function(){
+  $('#item_category_id').change(function(){
     var categorySelect3 = $(this).prop('selectedIndex');
     var categorySelect1 = $('#category1').prop('selectedIndex');
     if (categorySelect3 !== 0 && categorySelect1 <= 3
@@ -40,12 +40,12 @@ $(function () {
       $('.delivery_method_select').css('display', 'block');
       
       $('#item_delivery_method').html(`
-      <option value="---">---</option>
+      <option value="">---</option>
       <option value="未定"> 未定 </option>
       <option value="らくらくメルカリ便">らくらくメルカリ便</option>
       <option value="ゆうメール">ゆうメール</option>
       <option value="レターパック"> レターパック</option>
-      <option value="普通郵便(定型、定形外"> 普通郵便(定型、定形外）</option>
+      <option value="普通郵便(定型、定形外)"> 普通郵便(定型、定形外）</option>
       <option value="クロネコヤマ"> クロネコヤマ</option>
       <option value="ゆうパック"> ゆうパック</option>
       <option value="クリックポスト"> クリックポスト</option>
@@ -56,7 +56,7 @@ $(function () {
       $('.delivery_method_select').css('display', 'block');
 
       $('#item_delivery_method').html(`
-        <option value="---">---</option>
+        <option value="">---</option>
         <option value="未定">未定</option>
         <option value="クロネコヤマト">クロネコヤマト</option>
         <option value="ゆうパック">ゆうパック</option>
@@ -73,8 +73,8 @@ $(function () {
       if (inputPrice >= 300 && inputPrice <= 9999999) {
         var salesFee = Math.floor(inputPrice / 10);
         var salesBenefit = inputPrice - salesFee;
-        $('.sales_fee__computed').text('¥' + salesFee);
-        $('.sales_benefit__computed').text('¥' + salesBenefit);
+        $('.sales_fee__computed').text('¥' + String(salesFee).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        $('.sales_benefit__computed').text('¥' + String(salesBenefit).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       } else {
         $('.sales_fee__computed').text('-');
         $('.sales_benefit__computed').text('-');

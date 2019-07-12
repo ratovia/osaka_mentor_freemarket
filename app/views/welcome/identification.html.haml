@@ -31,7 +31,7 @@
           .user-identification__form__prefecture.form_data
             %label 都道府県
             %span.optional 任意
-            = select_tag 'pref', options_from_collection_for_select(@prefecture, :id, :name)
+            = select_tag 'pref', options_from_collection_for_select(@prefecture, :name, :name)
             = fa_icon "angle-down"
           .user-identification__form__city.form_data
             %label 市区町村

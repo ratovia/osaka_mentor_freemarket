@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :credits
   has_many :buy_histories
+  has_many :items
 end

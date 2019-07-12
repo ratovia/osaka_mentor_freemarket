@@ -2,33 +2,24 @@
   = render 'shared/header'
   .main
     .main_header
-      %h2 メンズジャケット
+      %h2 
+        = @item.name
     .main_item-detail
       .main_item-detail_images
         .main_item-detail_images__big
-          = image_tag "300×300.png"
+          = image_tag @item.images[0], id: "big_image"
         %ul.main_item-detail_images__small
-          %li
-            = image_tag "300×300.png"
-          %li
-            = image_tag "300×300.png"
-          %li
-            = image_tag "300×300.png"
-          %li
-            = image_tag "300×300.png"
-          %li
-            = image_tag "300×300.png"
-          %li
-            = image_tag "300×300.png"
-          %li
-            = image_tag "300×300.png"
+          - @item.images.each do |image|
+            %li
+              = image_tag image, class: "small_image"
       .main_item-detail_table
         .main_item-detail_table__row
           .cell
             出品者
           .cell
             .listing-person 
-              .listing-person_name John
+              .listing-person_name
+                = @item.user.nickname
               .listing-person_evelute-box
                 .listing-person_evelute-box--icon-good
                   = image_tag "face-grin.png"
@@ -49,54 +40,56 @@
             ブランド
           .cell
             Maeda Shoppers Team
-        .main_item-detail_table__row
-          .cell
-            商品のサイズ
-          .cell
-            S
+        - if @item.size.present?
+          .main_item-detail_table__row
+            .cell
+              商品のサイズ
+            .cell
+              = @item.size
         .main_item-detail_table__row
           .cell
             商品の状態
           .cell
-            目立った損傷なし
+            = @item.status
         .main_item-detail_table__row
           .cell
             配送料の負担
           .cell
-            送料込み
+            = @item.delivery_burden
         .main_item-detail_table__row
           .cell
             配送の方法
           .cell
-            未定
+            = @item.delivery_method
         .main_item-detail_table__row
           .cell
             配送元地域
-          .cell
-            福岡県
+          .cell#prefecture
+            = @item.delivery_prefecture
         .main_item-detail_table__row
           .cell
             発送日の目安
           .cell
-            1年
+            = @item.delivery_time
     .main_price
       .main_price__display
-        ¥800
+        = @item.price
       .main_price__delivery_fee
         %span.tax (税込)
-        %span.fee 送料込み
-    .main_balloon_area
-      .main_stock_money
-        残高 ¥925をお持ちです
-        .main_stock_money__triangle
-    = link_to "購入画面に進む", "#", class: "main_purchase_button"
+        %span.fee
+          - if @item.delivery_burden == "送料込み(出品者負担)"
+            送料込み
+          - else 
+            送料別
+    - if user_signed_in? && @item.user.id != current_user.id
+      .main_balloon_area
+        .main_stock_money
+          残高 ¥925をお持ちです
+          .main_stock_money__triangle
+      = link_to "購入画面に進む", "#", class: "main_purchase_button"
     .main_item_description
       .main_item_description__top
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
-        ご覧いただきましてありがとうございます。
+        = @item.description
       .main_item_description__bottom
         .main_item_description__bottom--right
           .goob_button
@@ -150,52 +143,21 @@
   .other_listing
     .pick_up_category_ladies.main_block_new_items
       %h2
-        = link_to "Johnさんのその他の出品", "#"
+        = link_to "#{@item.user.nickname}さんのその他の出品", "#"
       .main_block_new_items_area
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケットasdfasdfasdfasdfasfasdfghjhgfdsasdfghj
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
+        - @item.user.items.each do |item|
+          = link_to item_path(item), class: "new_item" do
+            .new_item__image_area
+              = image_tag item.images[0]
+            .new_item__text_area
+              .new_item__text_area--title
+                = item.name
+              .new_item__text_area--price
+                %span.new_item__text_area--price_display
+                  = item.price
+                %span
+                  = fa_icon "heart-o"
+                  8
   .item_listing
     .pick_up_category_ladies.main_block_new_items
       %h2
@@ -219,7 +181,8 @@
             .new_item__text_area--title
               メンズジャケット
             .new_item__text_area--price
-              ￥5000
+              %span.new_item__text_area--price_display
+                5000
               %span
                 = fa_icon "heart-o"
                 8

@@ -1,9 +1,14 @@
 class ItemsController < ApplicationController
+  before_action :set_item, except: [:index,:create,:new]
   def index
+    @items = Item.limit(4).order("id DESC")
   end
   
   def new
     @prefectures = Prefecture.all
+  end
+
+  def edit
   end
   
   def create
@@ -17,8 +22,15 @@ class ItemsController < ApplicationController
 
   def show
   end
+
+  def preview
+  end
   
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(
@@ -30,7 +42,8 @@ class ItemsController < ApplicationController
       :delivery_method,
       :delivery_prefecture,
       :delivery_time,
+      :size,
       images: []
-    )
+    ).merge(user_id: current_user.id)
   end
 end

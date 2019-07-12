@@ -1,18 +1,22 @@
 class CreditsController < ApplicationController
   def index
-    unless current_user.credits.blank?
-      @card_info = get_card_info(current_user)
+    if current_user.credits.present?
+      Payjp.api_key = get_payjp_key()
+      credit = current_user.credits.first
+      customer = Payjp::Customer.retrieve(credit.customer_id)
+      card = customer.cards.retrieve(customer.default_card)
+      @card_info = get_card_info(card)
     end
   end
   
   def new
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       redirect_to credits_path
     end
   end
 
   def create
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       credit = current_user.credits.first
       @credit = create_payjp_card(current_user , credit.costomer)
     else
@@ -28,7 +32,7 @@ class CreditsController < ApplicationController
   end
 
   def destroy 
-    unless current_user.credits.blank?
+    if current_user.credits.present?
       Payjp.api_key = get_payjp_key()
       credit = current_user.credits.first
       customer = Payjp::Customer.retrieve(credit.customer_id)
