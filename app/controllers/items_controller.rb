@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(parame[:id])
+    @item = Item.find(params[:id])
   end
   
   def create
@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   def preview
     @item = Item.find(params[:id])
     @items = Item.where(user_id: current_user.id)
-    # preview_item_path
   end
   
   private
