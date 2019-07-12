@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: [:index,:create,:new, :edit, :update, :destory, :preview]
+  before_action :set_item, except: [:index,:create,:new,:edit,:update,:destory,:preview]
+
   def index
     @items = Item.limit(4).order("id DESC")
   end
@@ -11,6 +12,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+   @item = Item.find(params[:id])
+  #  @item.image.attach(image)
+  #  binding.pry
   end
   
   def create
@@ -26,7 +30,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
     @item.update(item_params)
+    redirect_to root_path
   end
 
   def destory
@@ -34,6 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def preview
+    @item = Item.find(params[:id])
     @items = Item.where(user_id: current_user.id)
   end
 
