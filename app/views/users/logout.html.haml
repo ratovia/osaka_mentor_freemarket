@@ -1,9 +1,9 @@
 .user-my-page
-  = render "header"
+  = render "shared/header"
   .container
     .left-column
       = render "my_page_sidebar"
     .right-column
       .user-logout-form
         = link_to "ログアウト",destroy_user_session_path, method: :delete
-  = render "footer"
+  = render "shared/footer"
