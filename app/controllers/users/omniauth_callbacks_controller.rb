@@ -5,49 +5,25 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # このコントローラでこのようなアクションメソッドを作成する必要があります。
+  # def google_oauth2
+  #   callback_from :google
+  # end
+
   def google_oauth2
-    callback_from :google
-  end
-
-  private
-
-  def callback_from(provider)
-    provider = provider.to_s
-      #SNSから取得したユーザー情報を@userに渡している
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
-
-      #@userに情報が入っているかどうかチェックするif文
+    # You need to implement the method below in your model (e.g. app/models/user.rb)
+    # binding.pry
+    @user = User.from_omniauth(request.env['omniauth.auth'])
     if @user.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
+      # sign_in_and_redirect @user, event: :authentication
+        redirect_to new_user_registration_path
     else
-      session[:nickname] = @user.nickname
-      session[:email] = @user.email
-      session[:password] = @user.password
-      session[:provider] = @user.provider
-      session[:uid] = @user.uid
-      redirect_to new_user_registration_path
+      session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
+      redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
     end
   end
-end
 
-  # 詳細情報
-  # https://github.com/plataformatec/devise#omniauth
-
-  # GET|POST /resource/auth/twitter
+  
   # def passthru
   #   super
-  # end
-
-  # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
-
-  # protected
-
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
   # end
 end
