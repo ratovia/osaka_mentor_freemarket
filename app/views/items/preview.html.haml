@@ -103,13 +103,11 @@
           = fa_icon "lock"
           安心、安全への取り組み
   .preview_page_box
-    = link_to edit_item_path, class: "preview_page_box__edit" do
-      商品の編集
+    = link_to "商品の編集", edit_item_path, class: "preview_page_box__edit"
     or
     .preview_page_box__suspend
       商品の出品を一旦停止する
-    .preview_page_box__edit__destory
-      この商品を削除する
+    = link_to "この商品を削除する", item_path, class: "preview_page_box__destroy", method: :delete
   .user_comments.repeview_page_comment
     .user_comments__bix
       .user_icon
