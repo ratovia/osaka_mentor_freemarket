@@ -20,6 +20,5 @@
             %button.signup_main__selection--btn-google
               .signup_main_btn__img
                 = image_tag "google-icon.png"
-                %a
-                  Google
+                = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path
     = render 'shared/new_signup_footer'
