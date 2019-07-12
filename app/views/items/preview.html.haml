@@ -102,11 +102,15 @@
         = link_to "#", class: "safty_effort_link" do
           = fa_icon "lock"
           安心、安全への取り組み
-  .item_edit_box
-    商品の編集
-    商品の出品停止
-    この商品を削除する
-  .user_comments
+  .preview_page_box
+    = link_to "", class: "preview_page_box__edit" do
+      商品の編集
+    or
+    .preview_page_box__suspend
+      商品の出品を一旦停止する
+    .preview_page_box__edit__destory
+      この商品を削除する
+  .user_comments.repeview_page_comment
     .user_comments__bix
       .user_icon
         = image_tag "member_photo_noimage_thumb.png"
@@ -129,87 +133,87 @@
           %span
             = fa_icon "clock-o"
             6 時間前
-    .adjacent_item
-      .return_item
-        =link_to "水着"
-        =fa_icon "chevron-left"
-      .next_item
-        =link_to "ホテルキー風キーホルダー"
-        =fa_icon "chevron-right"
-  .sns_login
-    .sns_login__box
-      .sns_login__box--icon-facebook
-        = fa_icon "facebook-square"
-      .sns_login__box--icon-twitter
-        = fa_icon "twitter-square"
-      .sns_login__box--icon-pinterest
-        = fa_icon "pinterest-square"
-  .other_listing
-    .pick_up_category_ladies.main_block_new_items
-      %h2
-        = link_to "#{@item.user.nickname}さんのその他の出品", "#"
-      .main_block_new_items_area
-        - @item.user.items.each do |item|
-          = link_to item_path(item), class: "new_item" do
-            .new_item__image_area
-              = image_tag item.images[0]
-            .new_item__text_area
-              .new_item__text_area--title
-                = item.name
-              .new_item__text_area--price
-                %span.new_item__text_area--price_display
-                  = item.price
-                %span
-                  = fa_icon "heart-o"
-                  8
-  .item_listing
-    .pick_up_category_ladies.main_block_new_items
-      %h2
-        = link_to "レディース 新着アイテム", "#"
-      .main_block_new_items_area
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケットaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            .new_item__text_area--price
-              ￥5000sss
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              %span.new_item__text_area--price_display
-                5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
+  -#   .adjacent_item
+  -#     .return_item
+  -#       =link_to "水着"
+  -#       =fa_icon "chevron-left"
+  -#     .next_item
+  -#       =link_to "ホテルキー風キーホルダー"
+  -#       =fa_icon "chevron-right"
+  -# .sns_login
+  -#   .sns_login__box
+  -#     .sns_login__box--icon-facebook
+  -#       = fa_icon "facebook-square"
+  -#     .sns_login__box--icon-twitter
+  -#       = fa_icon "twitter-square"
+  -#     .sns_login__box--icon-pinterest
+  -#       = fa_icon "pinterest-square"
+  -# .other_listing
+  -#   .pick_up_category_ladies.main_block_new_items
+  -#     %h2
+  -#       = link_to "#{@item.user.nickname}さんのその他の出品", "#"
+  -#     .main_block_new_items_area
+  -#       - @item.user.items.each do |item|
+  -#         = link_to item_path(item), class: "new_item" do
+  -#           .new_item__image_area
+  -#             = image_tag item.images[0]
+  -#           .new_item__text_area
+  -#             .new_item__text_area--title
+  -#               = item.name
+  -#             .new_item__text_area--price
+  -#               %span.new_item__text_area--price_display
+  -#                 = item.price
+  -#               %span
+  -#                 = fa_icon "heart-o"
+  -#                 8
+  -# .item_listing
+  -#   .pick_up_category_ladies.main_block_new_items
+  -#     %h2
+  -#       = link_to "レディース 新着アイテム", "#"
+  -#     .main_block_new_items_area
+  -#       = link_to "#", class: "new_item" do
+  -#         .new_item__image_area
+  -#           = image_tag "300×300.png"
+  -#         .new_item__text_area
+  -#           .new_item__text_area--title
+  -#             メンズジャケットaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  -#           .new_item__text_area--price
+  -#             ￥5000sss
+  -#             %span
+  -#               = fa_icon "heart-o"
+  -#               8
+  -#       = link_to "#", class: "new_item" do
+  -#         .new_item__image_area
+  -#           = image_tag "300×300.png"
+  -#         .new_item__text_area
+  -#           .new_item__text_area--title
+  -#             メンズジャケット
+  -#           .new_item__text_area--price
+  -#             %span.new_item__text_area--price_display
+  -#               5000
+  -#             %span
+  -#               = fa_icon "heart-o"
+  -#               8
+  -#       = link_to "#", class: "new_item" do
+  -#         .new_item__image_area
+  -#           = image_tag "300×300.png"
+  -#         .new_item__text_area
+  -#           .new_item__text_area--title
+  -#             メンズジャケット
+  -#           .new_item__text_area--price
+  -#             ￥5000
+  -#             %span
+  -#               = fa_icon "heart-o"
+  -#               8
+  -#       = link_to "#", class: "new_item" do
+  -#         .new_item__image_area
+  -#           = image_tag "300×300.png"
+  -#         .new_item__text_area
+  -#           .new_item__text_area--title
+  -#             メンズジャケット
+  -#           .new_item__text_area--price
+  -#             ￥5000
+  -#             %span
+  -#               = fa_icon "heart-o"
+  -#               8
   = render "shared/footer"
