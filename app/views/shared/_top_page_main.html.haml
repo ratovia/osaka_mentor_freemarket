@@ -27,18 +27,7 @@
         %h2 
           = link_to "コスメ・香水・美容 新着アイテム", "#"
         .main_block_new_items_area
-          - @items.each do |cosme|
-            = link_to "#", class: "new_item" do
-              .new_item__image_area
-                = image_tag cosme.images[0]
-              .new_item__text_area
-                .new_item__text_area--title
-                  = cosme.name
-                .new_item__text_area--price
-                  ="￥#{cosme.price}"
-                  %span
-                    = fa_icon "heart-o"
-                    8
+          = render @items
         %p.link_to_items
           = link_to "すべての商品を見る", "#"
   .pick_up_bland.wrapper
