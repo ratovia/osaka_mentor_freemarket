@@ -13,8 +13,6 @@ class ItemsController < ApplicationController
 
   def edit
    @item = Item.find(params[:id])
-  #  @item.image.attach(image)
-  #  binding.pry
   end
   
   def create
