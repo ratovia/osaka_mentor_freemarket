@@ -134,13 +134,13 @@
                 必須
             .input_price__area
               ¥
-              = f.text_field :price, {id: "price", placeholder: "例）300", maxlength: "7"}
+              = f.text_field :price, {id: "price", class: "edit_item", placeholder: "例）300", maxlength: "7"}
           .sales_fee
             %p 販売手数料(10%)
-            %p.sales_fee__computed -
+            %p.sales_fee__computed.edit_page_fee -
           .sales_benefit
             %p 販売利益
-            %p.sales_benefit__computed -
+            %p.sales_benefit__computed.edit_page_benefit -
       .new_item_page_container_main_submit
         %p.new_item_page_container_main_submit__attension
           = link_to "禁止されている出品", "#"
