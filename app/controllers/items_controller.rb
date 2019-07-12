@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: [:index,:create,:new]
+  before_action :set_item, except: [:index,:create,:new, :edit, :update, :destory, :preview]
   def index
     @items = Item.limit(4).order("id DESC")
   end
@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
   
   def create
@@ -26,10 +25,19 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def update
+    @item.update(item_params)
+  end
+
+  def destory
+    @item.destory if @item.user.id == current_user.id
+  end
+
   def preview
-    @item = Item.find(params[:id])
     @items = Item.where(user_id: current_user.id)
   end
+
+
   
   private
 
