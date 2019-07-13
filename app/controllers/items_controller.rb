@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: [:index,:create,:new]
+
   def index
     @items = Item.limit(4).order("id DESC")
   end
@@ -23,8 +26,24 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def preview
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
+
+  def destroy
+    @item.destroy if @item.user.id == current_user.id
+    redirect_to root_path
+  end
+
+  def preview
+    @items = current_user.items
+  end
+
+
   
   private
 

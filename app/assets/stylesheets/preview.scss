@@ -1,0 +1,38 @@
+.detail_item {
+
+  .preview_page_box {
+    width: 700px;
+    margin: 30px auto;
+    padding: 30px 20px;
+    background: white;
+    text-align: center;
+    font-size: 13.5px;
+    a {
+      display: block;
+      text-decoration: none;
+    }
+    &__edit {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      background: $red;
+      text-align: center;
+      color: white;
+      margin-bottom: 10px;
+    }
+    &__suspend, &__destroy {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-decoration: none;
+      background: #aaa;
+      text-align: center;
+      color: white;
+      margin-top: 15px;
+    }
+  }
+  .repeview_page_comment {
+    margin-bottom: 50px;
+
+  }
+}
