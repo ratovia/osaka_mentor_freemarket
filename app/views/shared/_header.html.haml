@@ -56,9 +56,10 @@
       .header_container_bottom__center
       - if user_signed_in?
         .header_container_bottom__info
-          %p
-            = fa_icon "bell-o"
-            お知らせ
+          = link_to user_path(current_user) do
+            %p
+              = fa_icon "bell-o"
+              お知らせ
           %ul.header_container_bottom__info_list
             %li
               = image_tag "mercari_profile.png"
@@ -98,13 +99,14 @@
                 = fa_icon "chevron-right"
             
         .header_container_bottom__todo
-          %p
-            = fa_icon "check"
-            やることリスト
+          = link_to user_path(current_user) do
+            %p
+              = fa_icon "check"
+              やることリスト
           .header_container_bottom__todo_list
         .header_container_bottom__mypage
           %p
-            = link_to "マイページ", "#"
+            = link_to "マイページ", user_path(current_user)
           .header_container_bottom__mypage_image
             = image_tag "member_photo_noimage_thumb.png"
           .header_container_bottom__mypage_overview
@@ -158,7 +160,7 @@
                     = fa_icon "chevron-right"
       - else 
         .header_container_bottom__new_user
-          = link_to "新規会員登録", new_user_registration_path, class: "registration"
+          = link_to "新規会員登録", new_user_path, class: "registration"
           = link_to "ログイン", new_user_session_path, class: "session"
 
 
