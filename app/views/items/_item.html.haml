@@ -1,5 +1,6 @@
+
 - if item.buy_history.present?
-  = link_to "#", class: "one-item item_soldout__parent" do
+  = link_to item, class: "one-item item_soldout__parent" do
     .new_item__image_area.item_soldout__children
       = image_tag item.images[0]
     .new_item__text_area
@@ -11,7 +12,7 @@
           = fa_icon "heart-o"
           8
 - else 
-  = link_to "#", class: "one-item" do
+  = link_to item, class: "one-item" do
     .new_item__image_area
       = image_tag item.images[0]
     .new_item__text_area
@@ -22,3 +23,4 @@
         %span
           = fa_icon "heart-o"
           8
+
