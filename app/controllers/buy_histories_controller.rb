@@ -1,7 +1,12 @@
 class BuyHistoriesController < CreditsController
   before_action :set_item
+  before_action :authenticate_user!
 
   def new
+    if @item.buy_history.present?
+      redirect_to item_path(@item)
+    end
+
     if current_user.credits.present?
       @card_info = get_card_info(current_user)
     end
