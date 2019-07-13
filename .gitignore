@@ -59,4 +59,3 @@ node_modules/
 
 # storage/*
 storage/*
-config/secrets.yml
