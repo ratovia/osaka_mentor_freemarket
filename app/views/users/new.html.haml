@@ -15,8 +15,7 @@
                 メールアドレスで登録
             %button.signup_main__selection--btn-facebook
               = fa_icon "facebook-square"
-              %a
-                Facebook
+              = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
             %button.signup_main__selection--btn-google
               .signup_main_btn__img
                 = image_tag "google-icon.png"

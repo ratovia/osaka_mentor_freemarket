@@ -4,8 +4,7 @@ class User < ApplicationRecord
   # 以下omniauthを有効化する記述
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-        #  :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-         :omniauthable, omniauth_providers: [:google_oauth2]
+         :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
   validates :email, uniqueness: true
 
