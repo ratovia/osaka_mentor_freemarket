@@ -21,7 +21,7 @@ $(function () {
     }
     reader.readAsDataURL(target.files[0]);
     
-    $(target).closest('.image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id + 1}">`);
+    $(target).closest('.image_file_area').append(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id + 1}">`);
     $(target).css('width', '0px');
 
     filesArray.push(id);
@@ -32,7 +32,7 @@ $(function () {
       case 5: $(target).closest('.image_file_area').css('display', 'none');
               $('.under_area .image_file_area').css('display', 'block');
               $('.under_area .image_file_area').css('width', '100%');
-              $('.under_area .image_file_area').prepend(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id + 1}">`);
+              $('.under_area .image_file_area').append(`<input multiple="multiple" id="upload_file" class="upload_files", accept="image/png, image/jpeg, image/gif" type="file" name="item[images][]" data-id="${id + 1}">`);
         break;
       case 10: $(target).closest('.image_file_area').css('display', 'none');     
         break;
@@ -75,7 +75,7 @@ $(function () {
       if (filesArray.length === 4) {
         var fileField = $('.under_area .upload_files');
         fileField.remove();
-        $('.image_file_area:first').prepend(fileField);
+        $('.image_file_area:first').append(fileField);
       }
       $('.image_file_area:last').css('display', 'none');
       $('.image_file_area:first').css('display', 'block').css('width', `calc(${width} + 20%)`);
