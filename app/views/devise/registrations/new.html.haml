@@ -16,15 +16,13 @@
         %span メールアドレス
         %a.required_red 必須
         = f.email_field :email, {autofocus: true, autocomplete: "email", class: "email_input", placeholder: "PC・携帯どちらでも可"}
-
-        %span パスワード
-        %a.required_red 必須
-        = f.password_field :password, {class: "password_input", autocomplete: "new-password"}
-
-        %span パスワード(確認)
-        %a.required_red 必須
-        = f.password_field :password_confirmation, {class: "password_input", autocomplete: "new-password"}
-        
+        - if @user.nickname == ""
+          %span パスワード
+          %a.required_red 必須
+          = f.password_field :password, {class: "password_input", autocomplete: "new-password"}
+          %span パスワード(確認)
+          %a.required_red 必須
+          = f.password_field :password_confirmation, {class: "password_input", autocomplete: "new-password"}
         %h2 本人確認
         %p 安心・安全にご利用いただくために、お客さまの<br>本人情報の登録にご協力ください。他のお客さま<br>に公開されることはありません。
 
