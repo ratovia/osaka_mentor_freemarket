@@ -1,15 +1,16 @@
 .user-my-page
-  = render "header"
+  = render "shared/header"
   .container
     .left-column
-      = render "my_page_sidebar"
+      = render "shared/my_page_sidebar"
     .right-column
       .profile
         = link_to "#" do
           .profile__image
             = image_tag "member_photo_noimage_thumb.png"
           .profile__name
-            John
+            = link_to user_path(current_user) do
+              = current_user.nickname
           .profile__number
             .profile__number__evaluation
               評価数
@@ -18,7 +19,7 @@
             .profile__number__upload
               出品数
               %span.profile__number__upload__value
-                0
+                = current_user.items.count
       %ul.information.list-parent
         .information__header
           .information__header-pos-left
@@ -86,5 +87,5 @@
           %li.finished__item-data-nothing
             %h3 
               過去に取引した商品がありません
-  = render "footer"
-  = render "new_item_button"
+  = render "shared/footer"
+  = render "shared/new_item_button"

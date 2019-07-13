@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: [:index,:create,:new]
 
@@ -9,6 +8,7 @@ class ItemsController < ApplicationController
   
   def new
     @prefectures = Prefecture.all
+    @item = Item.new
   end
 
   def edit
@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.limit(4).order("id DESC")
   end
 
   def update
