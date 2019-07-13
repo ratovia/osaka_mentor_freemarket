@@ -8,4 +8,10 @@ Rails.application.routes.draw do
       get 'preview'
     end
   end
+  resources :users, only: [:new, :show, :edit, :update] do
+    member do
+      get 'identification'
+      get 'logout'
+    end
+  end
 end
