@@ -15,13 +15,13 @@
         %p.desc 最大10枚までアップロードできます。
         .new_item_page_container_main_item_image_area
           .top_area.prepend_area
-            - if @item.images.each_with_index do |index, image|
-            .select_image{data{id: index}
-              = image_tag image id="image_preview">
-              %p
-                = link_to "編集"
-              %p
-                = link_to "削除", class: "remove_image"
+            - @item.images.each_with_index do |index, image|
+              .select_image{data: {id: index}}
+                = image_tag image, id: "image_preview"
+                %p
+                  = link_to "編集"
+                %p
+                  = link_to "削除", class: "remove_image"
             .image_file_area
               %p 
                 ドラッグアンドドロップ
