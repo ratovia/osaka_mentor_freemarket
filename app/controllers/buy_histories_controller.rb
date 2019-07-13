@@ -1,5 +1,6 @@
 class BuyHistoriesController < CreditsController
   before_action :set_item
+  before_action :authenticate_user!
 
   def new
     if current_user.credits.present?
