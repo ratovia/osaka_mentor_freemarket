@@ -13,54 +13,68 @@
     width: 50%;
     height: 100%;
     margin: 0 auto;
-  }
-  p{
-    display: flex;
-    flex-direction: column;
-    width: 340px;
-    margin: auto;
-  }
-  button{
-    height: 50px;
-    width: 350px;
-    display: flex;
-    margin-bottom: 15px;
-    border-radius: 7px;
-  }
-  i {
-    display: inline-block;
-    font-size: 30px;
-    padding-left: 10px;
-  }
-  a{
-    font-size: 15px;
-    margin: auto;
-    padding-right: 40px;
-  }
-  &__selection--btn-mail{
-    color: $white;
-    background-color: $red
-  }
-  &__selection--btn-facebook{
-    color: $white;
-    background-color: #3B579D;
-  }
-  &__selection--btn-google{
-    color: $black;
-    font-size: 15px;
-    margin: auto;
-    padding-right: 20px;
-    background-color: rgba(255,255,255, 0);
-    .signup_main_btn__img{
-      width: 350px;
+    &_selection{
       display: flex;
-      margin-left: 3px;
-      img {
+      flex-direction: column;
+      width: 340px;
+      margin: auto;
+      position: relative;
+      .btn-mail{
+        background-color: $red;
+        color: $white;
+        height: 50px;
+        width: 350px;
+        text-align: center;
+        border-radius: 7px;
+        text-decoration: none;
+        padding-top: 18px;
+        }
+      .icon_mail {
+        position: absolute;
+        font-size: 20px;
+        margin: 15px 0 0 15px;
+        color: $white;
+      }
+      .btn-facebook{
+        background-color: #3B579D;
+        color: $white;
+        height: 50px;
+        width: 350px;
+        text-align: center;
+        border-radius: 7px;
+        text-decoration: none;
+        padding-top: 18px;
+        margin-top: 18px;
+      }
+      .icon_facebook{
+        position: absolute;
+        font-size: 30px;
+        margin-left: 15px;
+        color: $white;
+        top: 78px;
+      }
+      .btn-google{
         background-color: $white;
-        display: inline-block;
+        color: black;
+        height: 50px;
+        width: 350px;
+        text-align: center;
+        border-radius: 7px;
+        text-decoration: none;
+        padding-top: 18px;
+        margin-top: 18px;
+        border: 1px solid; border-color: #979797;
+      }
+      .icon_google{
+        position: absolute;
         height: 30px;
         width: 40px;
+        bottom: 10px;
+        margin-left: 7px;
       }
     }
   }
 }
+  
+  
+  
