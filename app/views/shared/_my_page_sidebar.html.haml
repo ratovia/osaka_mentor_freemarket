@@ -1,8 +1,7 @@
 %ul.menu-list.list-parent
-  = link_to user_path(current_user) , class: "active_link" do
-    %li.menu-list__item.list-item
-      マイページ
-      = fa_icon "chevron-right",class:"menu-list__item__arrow"
+  %li.menu-list__title.list-item
+    マイページ
+    = fa_icon "chevron-right",class:"menu-list__title__arrow"
   %li.menu-list__item.list-item
     お知らせ
     = fa_icon "chevron-right",class:"menu-list__item__arrow"
@@ -12,10 +11,9 @@
   %li.menu-list__item.list-item
     いいね！一覧
     = fa_icon "chevron-right",class:"menu-list__item__arrow"
-  = link_to new_item_path , class: "active_link" do
-    %li.menu-list__item.list-item
-      出品する
-      = fa_icon "chevron-right",class:"menu-list__item__arrow"
+  %li.menu-list__item.list-item
+    出品する
+    = fa_icon "chevron-right",class:"menu-list__item__arrow"
   %li.menu-list__item.list-item
     出品した商品 - 出品中
     = fa_icon "chevron-right",class:"menu-list__item__arrow"
@@ -55,28 +53,24 @@
 %h3
   設定
 %ul.setting.list-parent
-  = link_to edit_user_path(current_user) , class: "active_link" do
-    %li.setting__item.list-item
-      プロフィール
-      = fa_icon "chevron-right",class:"menu-list__item__arrow"
+  %li.setting__item.list-item
+    プロフィール
+    = fa_icon "chevron-right",class:"menu-list__item__arrow"
   %li.setting__item.list-item
     発送元・お届け先住所変更
     = fa_icon "chevron-right",class:"menu-list__item__arrow"
-  = link_to credits_path , class: "active_link" do
-    %li.setting__item.list-item
-      支払い方法
-      = fa_icon "chevron-right",class:"menu-list__item__arrow"
+  %li.setting__item.list-item
+    支払い方法
+    = fa_icon "chevron-right",class:"menu-list__item__arrow"
   %li.setting__item.list-item
     メール/パスワード
     = fa_icon "chevron-right",class:"menu-list__item__arrow"
-  = link_to identification_user_path(current_user) , class: "active_link" do
-    %li.setting__item.list-item
-      本人情報
-      = fa_icon "chevron-right",class:"menu-list__item__arrow"
+  %li.setting__item.list-item
+    本人情報
+    = fa_icon "chevron-right",class:"menu-list__item__arrow"
   %li.setting__item.list-item
     電話番号の確認
     = fa_icon "chevron-right",class:"menu-list__item__arrow"
-  = link_to logout_user_path(current_user) , class: "active_link" do 
-    %li.setting__item.list-item
-      ログアウト
-      = fa_icon "chevron-right",class:"menu-list__item__arrow"
+  %li.setting__item.list-item
+    = link_to "ログアウト", "#"
+    = fa_icon "chevron-right",class:"menu-list__item__arrow"

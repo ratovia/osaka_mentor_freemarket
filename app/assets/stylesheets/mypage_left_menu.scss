@@ -1,24 +1,23 @@
 .user-my-page{
   .left-column{
-    .menu-list,
-    .melpay,
-    .setting{
-      @include disable_link_decoration();
-      &__item{
+    .menu-list{
+      &__title{
         min-height: 48px;
         width: 280px;
-        
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #eee;
+        &__arrow{
+          float: right;
+          color: #333;
+        } 
+      }
+      &__item{
         &__arrow{
           float: right;
           color: rgb(204, 204, 204);
         }  
-      }
-      .active_link:hover{
-        li{
-          background-color: $red;
-          color: $white;
-          font-weight:bold;
-        }
       }
     }
     h3{
