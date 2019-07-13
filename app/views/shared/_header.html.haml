@@ -2,8 +2,7 @@
   .header_container
     .header_container_top
       .header_container_top_left
-        = link_to root_path do
-          = image_tag "logo.svg"
+        = image_tag "logo.svg"
       .header_container_top_right
         %form.header_search
           %input(type="text" class="header_search__input" placeholder="何かお探しですか？")
@@ -56,10 +55,9 @@
       .header_container_bottom__center
       - if user_signed_in?
         .header_container_bottom__info
-          = link_to user_path(current_user) do
-            %p
-              = fa_icon "bell-o"
-              お知らせ
+          %p
+            = fa_icon "bell-o"
+            お知らせ
           %ul.header_container_bottom__info_list
             %li
               = image_tag "mercari_profile.png"
@@ -99,14 +97,13 @@
                 = fa_icon "chevron-right"
             
         .header_container_bottom__todo
-          = link_to user_path(current_user) do
-            %p
-              = fa_icon "check"
-              やることリスト
+          %p
+            = fa_icon "check"
+            やることリスト
           .header_container_bottom__todo_list
         .header_container_bottom__mypage
           %p
-            = link_to "マイページ", user_path(current_user)
+            = link_to "マイページ", "#"
           .header_container_bottom__mypage_image
             = image_tag "member_photo_noimage_thumb.png"
           .header_container_bottom__mypage_overview
