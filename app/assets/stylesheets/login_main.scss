@@ -37,44 +37,39 @@
     &__sns{
       display: flex;
       flex-direction: column;
-      &--login-facebook{
-        display: block;
-        margin: 0 auto;
-        margin-top: 30px;
-        position: relative;
-        button{
-          color: $white;
-          background-color: #3B579D;
-          width: 320px;
-          height: 50px;
-          font-size: 13px;
-        }
-        i{
-          position: absolute;
-          bottom: 10px;
-          left: 15px;
-          font-size: 30px;
-          color: $white;
-        }
+      position: relative;
+      padding: 30px 0 30px 0;
+      .btn-facebook{
+        background-color: #3B579D;
+        width: 320px;
+        height: 40px;
+        color: $white;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 13px;
       }
-      &--login-google{
-        display: block;
-        margin: 0 auto;
-        padding-top: 15px;
-        position: relative;
-        button{
-          color: $black;
-          background-color: rgba(255,255,255, 0);
-          width: 320px;
-          height: 50px;
-        }
-        img{
-          position: absolute;
-          height: 30px;
-          width: 40px;
-          bottom: 11px;
-          left: 7px;
-        }
+      .icon_facebook{
+        position: absolute;
+        top: 48px;
+        left: 75px;
+        color: $white;
+        font-size: 25px;
+      }
+      .btn-google{
+        width: 320px;
+        height: 40px;
+        border: 1px solid; border-color: #979797;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 12px;
+      }
+      .icon_google{
+        width: 30px;
+        height: 20px;;
+        position: absolute;
+        top: 100px;
+        left: 70px;
       }
       &--login-mail{
         display: block;
@@ -115,7 +110,7 @@
       }
       a{
         font-size: 13px;
-        margin: 30px 0 30px 65px;
+        margin: 10px 0 0 65px;
         color: #0099e8;
       }
     }
