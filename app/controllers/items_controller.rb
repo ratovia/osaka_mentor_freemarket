@@ -28,8 +28,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+    images = @item.images
     if @item.update(item_params)
-    redirect_to root_path
+      remove_images_params.each do |i|
+        images[i].purge
+      end
+      redirect_to root_path
     else
       render :edit
     end
@@ -66,4 +70,9 @@ class ItemsController < ApplicationController
       images: []
     ).merge(user_id: current_user.id)
   end
+
+  def remove_images_params
+    params.require(:item).permit(remove_images: [])
+  end
 end
+
