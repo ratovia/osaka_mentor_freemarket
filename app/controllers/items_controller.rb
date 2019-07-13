@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def preview
-    @items = Item.where(user_id: current_user.id)
+    @items = current_user.items
   end
 
 
