@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # binding.pry
+   
   end
   
   def create
@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @item.update(item_params)
       redirect_to root_path
     else
