@@ -1,8 +1,8 @@
 .user-my-page
-  = render "header"
+  = render "shared/header"
   .container
     .left-column
-      = render "my_page_sidebar"
+      = render "shared/my_page_sidebar"
     .right-column
       .edit-profile
         .edit-profile__header
@@ -17,5 +17,5 @@
             %textarea{placeholder: "例)こんにちは！ご覧になってくれてありがとうございます。"}
           .edit-profile__form__button
             = link_to "変更する", "#"
-  = render "footer"
-  = render "new_item_button"
+  = render "shared/footer"
+  = render "shared/new_item_button"
