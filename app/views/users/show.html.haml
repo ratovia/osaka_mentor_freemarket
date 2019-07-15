@@ -3,7 +3,7 @@
   .bread
     %span 
       - breadcrumb :user
-      = breadcrumbs separator: " > "
+      = breadcrumbs separator: " #{content_tag(:i, '', class:'fa fa-chevron-right')} "
   .container
     .left-column
       = render "shared/my_page_sidebar"

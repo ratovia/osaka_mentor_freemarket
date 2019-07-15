@@ -3,10 +3,14 @@ crumb :root do
 end
 
 crumb :user do
-  link "マイページ", @user
+  link "マイページ", user_path
   parent :root
 end
 
+crumb :logout do
+  link "ログアウト"
+  parent :user
+end
 # crumb :project do |project|
 #   link project.name, project_path(project)
 #   parent :projects
