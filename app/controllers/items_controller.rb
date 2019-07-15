@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
     @keyword = keyword_params[:keyword]
     @items = []
     @items.push(Item.where('name LIKE(?)', "%#{@keyword}%"))
-    if @keyword.class == "Integer"
+    if @keyword.to_i > 0
       @items.push(Item.where('price = ?', @keyword))
       @items.push(Item.where('price < ? ', @keyword).where('price > ? ', @keyword * 0.9).limit(10))
     end
