@@ -1,5 +1,9 @@
 .detail_item
   = render 'shared/header'
+  .bread
+    %span 
+      - breadcrumb :detail_item, @item
+      = breadcrumbs separator: " #{content_tag(:i, '', class:'fa fa-chevron-right')} "
   .main
     .main_header
       %h2 
