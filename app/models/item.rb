@@ -17,25 +17,21 @@ class Item < ApplicationRecord
   def images_validation
     if images.attached?
       if images.length > 10
-        images.purge
         errors.add(:images, "画像の枚数は最大10枚までです。")        
       end
       byte_sum = 0
       images.each do |image|
-        if image.blob.byte_size > (1 * 1024 * 1024)
-          images.purge
+        if image.blob.byte_size > (3 * 1024 * 1024)
           errors.add(:images, "#{image.filename}: 画像のサイズは最大3Mまでです。")
         end
 
         if !image.content_type.starts_with?('image/')
-          images.purge
           errors.add(:images, "#{image.content_type}: 画像のフォーマットではありません。")
         end
-        byte_sum += image.byte_size
+        byte_sum += image.blob.byte_size
       end
 
       if byte_sum > (15 * 1024 * 1024)
-        images.purge
         errors.add(:images, "画像のサイズは最大(合計)15Mまでです。")
       end
     else

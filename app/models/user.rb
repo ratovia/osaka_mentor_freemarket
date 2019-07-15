@@ -14,10 +14,13 @@ class User < ApplicationRecord
     data = access_token.info
     #emailが既に登録されているか確認する
     user = User.where(email: data['email']).first
+    password = Devise.friendly_token[0,20]
     unless user
       user = User.new(
         nickname: data['name'],
-        email: data['email']
+        email: data['email'],
+        password: password,
+        password_confirmation: password
       )
     end
     user

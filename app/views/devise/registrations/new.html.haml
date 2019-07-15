@@ -23,6 +23,10 @@
           %span パスワード(確認)
           %a.required_red 必須
           = f.password_field :password_confirmation, {class: "password_input", autocomplete: "new-password"}
+        - else
+          = f.password_field :password, {class: "password_input_none", autocomplete: "new-password", value: "#{@user.password}", style: "display: none;"}
+          = f.password_field :password_confirmation, {class: "password_input_none", autocomplete: "new-password", value: "#{@user.password_confirmation}", style: "display: none;"}
+ 
         %h2 本人確認
         %p 安心・安全にご利用いただくために、お客さまの<br>本人情報の登録にご協力ください。他のお客さま<br>に公開されることはありません。
 
@@ -74,5 +78,4 @@
         = f.submit "次へ進む",{class: "next_page_buttom",disabled: "disabled"}
         .rule_list
           =link_to"本人情報の登録のついて>", "#"
-          = render "devise/shared/links"
     = render 'shared/new_signup_footer'
