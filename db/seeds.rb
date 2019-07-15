@@ -10,11 +10,11 @@
 
 require "csv"
 
-CSV.read('db/category.csv').each do |row|
+CSV.read('db/category.csv', headers: true).each do |row|
   Category.create!(
-    id: row[0], 
-    name: row[1], 
-    created_at: row[2], 
-    updated_at: row[3], 
-    category_id: row[4])
+    id: row['id'], 
+    name: row['name'], 
+    created_at: row['created_at'], 
+    updated_at: row['updated_at'], 
+    category_id: row['category_id'])
 end
