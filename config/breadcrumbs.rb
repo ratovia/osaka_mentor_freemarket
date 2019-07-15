@@ -1,10 +1,11 @@
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
 end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+crumb :user do
+  link "マイページ", @user
+  parent :root
+end
 
 # crumb :project do |project|
 #   link project.name, project_path(project)
