@@ -23,7 +23,7 @@ $(function () {
    var num = $(this).closest('.select_image').data('number')
    console.log(num);
    $('.image_file_area:first').append(`
-   <input multiple="multiple" value=${num} type="hidden" name="item[remove_image][]" id="item_remove_image">
+   <input multiple="multiple" value=${num} type="hidden" name="item[remove_images][]" id="item_remove_images">
    `)
  })
 });

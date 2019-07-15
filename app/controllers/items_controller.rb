@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: [:index,:create,:new]
+  before_action :set_item, except: [:index,:create,:new,:search,:incremental]
 
   def index
     @items = Item.limit(4).order("id DESC")
@@ -29,7 +29,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    images = @item.images
     if @item.update(item_params)
+      remove_images_params[:remove_images].map(&:to_i).each do |i|
+        images[i].purge
+      end
       redirect_to root_path
     else
       render :edit
@@ -45,9 +49,30 @@ class ItemsController < ApplicationController
     @items = current_user.items
   end
 
+  def search
+    @keyword = keyword_params[:keyword]
+    @items = Item.where('name LIKE(?)', "%#{@keyword}%")
+  end
 
-  
+  def incremental
+    @keyword = keyword_params[:keyword]
+    @items = []
+    @items.push(Item.where('name LIKE(?)', "%#{@keyword}%"))
+    if @keyword.to_i > 0
+      @items.push(Item.where('price = ?', @keyword.to_i))
+      @items.push(Item.where('price < ? ', @keyword.to_i).where('price > ? ', @keyword.to_i * 0.9).limit(10))
+    end
+    @items.flatten!
+    @items.uniq!
+    respond_to do |format|
+      format.json {}
+    end 
+  end
   private
+
+  def keyword_params
+    params.permit(:keyword)
+  end
 
   def set_item
     @item = Item.find(params[:id])
@@ -64,7 +89,19 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       :size,
-      images: []
-    ).merge(user_id: current_user.id)
+    ).merge(user_id: current_user.id).merge(images: images_params)
+  end
+
+  def images_params
+    strong_param = params.require(:item).permit(images: [])
+    strong_param[:images].each do |image|
+      image.original_filename = URI.encode(image.original_filename)
+    end
+    strong_param[:images]
+  end
+
+  def remove_images_params
+    params.require(:item).permit(remove_images: [])
   end
 end
+
