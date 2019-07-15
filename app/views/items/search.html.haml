@@ -1,0 +1,21 @@
+.item_search_page
+  = render "shared/header"
+  .container
+    .left-column
+      .search-panel
+        = form_with url: incremental_items_path ,method: :get ,class: "header_search" do |f| 
+          = f.text_field :keyword ,{class: "header_search__input incremental", placeholder: "インクリメンタルサーチ！"}
+    .right-column
+      .main_block
+        .main_block__text
+          %h2
+            %span.main_block__text__keyword
+              = "#{@keyword}の検索結果"
+          %p
+            %span.main_block__text__hit_count
+              = "#{@items.length}件表示"
+        .main_block__item
+          = render @items
+  = render "shared/footer"
+  = render "shared/new_item_button"
+
