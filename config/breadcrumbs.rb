@@ -26,3 +26,8 @@ crumb :profile do
   link "プロフィール"
   parent :user
 end
+
+crumb :detail_item do |item|
+  link item.name
+  parent :root
+end
