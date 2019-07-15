@@ -425,7 +425,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
-  omniauth-rails_csrf_protection (= 0.1.2)
+  omniauth-rails_csrf_protection
   payjp
   pry-byebug
   pry-rails (>= 0.3.9)
