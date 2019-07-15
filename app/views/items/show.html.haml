@@ -91,12 +91,12 @@
           - else 
             送料別
     - if user_signed_in? && @item.user.id != current_user.id
-      .main_balloon_area
       - if @item.buy_history.present?
        
         .main_purchase_button.main_purchase_button--disable 
           売り切れました
       - else
+      .main_balloon_area
         .main_stock_money
           残高 ¥925をお持ちです
           .main_stock_money__triangle
@@ -116,6 +116,13 @@
         = link_to "#", class: "safty_effort_link" do
           = fa_icon "lock"
           安心、安全への取り組み
+  - if @item.user.id == current_user.id
+    .preview_page_box
+      = link_to "商品の編集", edit_item_path, class: "preview_page_box__edit"
+      or
+      .preview_page_box__suspend
+        商品の出品を一旦停止する
+      = link_to "この商品を削除する", item_path, class: "preview_page_box__destroy", method: :delete
   .user_comments
     .user_comments__bix
       .user_icon

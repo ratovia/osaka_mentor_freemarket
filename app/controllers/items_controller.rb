@@ -44,12 +44,6 @@ class ItemsController < ApplicationController
     @item.destroy if @item.user.id == current_user.id
     redirect_to root_path
   end
-
-  def preview
-    @items = current_user.items
-  end
-
-
   
   private
 
