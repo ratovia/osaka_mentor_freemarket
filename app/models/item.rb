@@ -21,14 +21,14 @@ class Item < ApplicationRecord
       end
       byte_sum = 0
       images.each do |image|
-        if image.blob.byte_size > (1 * 1024 * 1024)
+        if image.blob.byte_size > (3 * 1024 * 1024)
           errors.add(:images, "#{image.filename}: 画像のサイズは最大3Mまでです。")
         end
 
         if !image.content_type.starts_with?('image/')
           errors.add(:images, "#{image.content_type}: 画像のフォーマットではありません。")
         end
-        byte_sum += image.byte_size
+        byte_sum += image.blob.byte_size
       end
 
       if byte_sum > (15 * 1024 * 1024)

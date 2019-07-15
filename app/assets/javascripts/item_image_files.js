@@ -16,8 +16,9 @@ $(function () {
           <p><a class="remove_image">削除</a></p>
         </div>
       `);
-      var width = $(target).closest('.image_file_area').css('width');
-      $(target).closest('.image_file_area').css('width', `calc(${width} - 20% + 80px)`);
+      var imagesLength = $('.select_image').length;
+      
+      $(target).closest('.image_file_area').css('width', `calc(100% - ${20 * (imagesLength % 5)}%)`);
     }
     reader.readAsDataURL(target.files[0]);
     
@@ -28,7 +29,8 @@ $(function () {
     $('.item_images_hidden').val(filesArray);
     
     var filesArray = $('.item_images_hidden').val().split(',');
-    switch (filesArray.length) {
+    var imagesLength = $('.select_image').length;
+    switch (imagesLength + 1) {
       case 5: $(target).closest('.image_file_area').css('display', 'none');
               $('.under_area .image_file_area').css('display', 'block');
               $('.under_area .image_file_area').css('width', '100%');
@@ -69,20 +71,21 @@ $(function () {
     $(this).closest('.select_image').remove();
 
     var filesArray = $('.item_images_hidden').val().split(',');
+    var imagesLength = $('.select_image').length;
     // .image_file_areaの幅を調整
-    if(filesArray.length < 5) {
+    if(imagesLength < 5) {
       var width = $('.image_file_area:first').css('width');
-      if (filesArray.length === 4) {
+      if (imagesLength === 4) {
         var fileField = $('.under_area .upload_files');
         fileField.remove();
         $('.image_file_area:first').append(fileField);
       }
       $('.image_file_area:last').css('display', 'none');
-      $('.image_file_area:first').css('display', 'block').css('width', `calc(${width} + 20%)`);
+      $('.image_file_area:first').css('display', 'block').css('width', `calc(100% - ${20 * (imagesLength % 5)}%)`);
     } else {
       var width = $('.image_file_area:last').css('width');
       
-      $('.image_file_area:last').css('display', 'block').css('width', `calc(${width} + 20%)`);
+      $('.image_file_area:last').css('display', 'block').css('width', `calc(100% - ${20 * (imagesLength % 5)}%)`);
     }
     
   });
