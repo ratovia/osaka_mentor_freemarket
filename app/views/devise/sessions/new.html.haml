@@ -9,9 +9,9 @@
         %p アカウントをお持ちでない方はこちら
         = link_to "新規会員登録", new_user_registration_path
       .login_main_view__sns
-        = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class:'btn-facebook'
+        = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path,method: :post, class:'btn-facebook'
         = fa_icon "facebook-square", class:'icon_facebook'
-        = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, class:'btn-google'
+        = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path,method: :post, class:'btn-google'
         = image_tag "google-icon.png", class:'icon_google'
         .login_main_view__sns--login-mail
           = f.email_field :email,  {autofocus: true, autocomplete: "email", class: "email_login_input", placeholder: "メールアドレス"}
