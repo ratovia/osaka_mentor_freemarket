@@ -30,9 +30,9 @@
           padding-bottom: 40px;
         }
         .main_block_new_items_area {
-          height: 320px;
           display: flex;
           justify-content: space-between;
+          @include disable-link-decoration();
         }
         .link_to_items {
           padding-top: 10px;
