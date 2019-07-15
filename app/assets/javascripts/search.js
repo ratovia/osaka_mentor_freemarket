@@ -74,6 +74,7 @@ $(function(){
         if(event.key === "Backspace"){
           if(input === ""){
             $(".main_block__item").empty();
+            $(".main_block__text__hit_count").text("0 件表示");
           }
         }
       }).fail(function(){
