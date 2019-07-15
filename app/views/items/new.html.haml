@@ -4,7 +4,7 @@
       .new_item_page_container_top__img
         = link_to root_path do
           = image_tag "logo.svg"
-    = form_with model: Item.new, url: items_path, class: "new_item_page_container_main" ,method: :post , local: true do |f|
+    = form_with model: @item, url: items_path, class: "new_item_page_container_main" ,method: :post , local: true do |f|
       .new_item_page_container_main_title
         商品の情報を入力
       .new_item_page_container_main_item_image
@@ -13,6 +13,7 @@
           %span.required
             必須
         %p.desc 最大10枚までアップロードできます。
+        = @item.errors[:images] if @item && @item.errors[:images].any?
         .new_item_page_container_main_item_image_area
           .top_area.prepend_area
             .image_file_area
@@ -20,7 +21,7 @@
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
-              = f.file_field :images, multiple: true, id: "upload_file", class: "upload_files", data:{id: "1"}, accept: "image/png, image/jpeg, image/gif"
+              = f.file_field :images, multiple: true, id: "upload_file", class: "upload_files", data:{id: "1"}
               = f.hidden_field :file, class: "item_images_hidden", multiple: true
           .under_area.prepend_area
             .image_file_area

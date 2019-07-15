@@ -92,10 +92,15 @@
             送料別
     - if user_signed_in? && @item.user.id != current_user.id
       .main_balloon_area
+      - if @item.buy_history.present?
+       
+        .main_purchase_button.main_purchase_button--disable 
+          売り切れました
+      - else
         .main_stock_money
           残高 ¥925をお持ちです
           .main_stock_money__triangle
-      = link_to "購入画面に進む", "#", class: "main_purchase_button"
+        = link_to "購入画面に進む", new_item_buy_history_path(@item), class: "main_purchase_button"
     .main_item_description
       .main_item_description__top
         = @item.description
@@ -154,67 +159,11 @@
       %h2
         = link_to "#{@item.user.nickname}さんのその他の出品", "#"
       .main_block_new_items_area
-        - @item.user.items.each do |item|
-          = link_to item_path(item), class: "new_item" do
-            .new_item__image_area
-              = image_tag item.images[0]
-            .new_item__text_area
-              .new_item__text_area--title
-                = item.name
-              .new_item__text_area--price
-                %span.new_item__text_area--price_display
-                  = item.price
-                %span
-                  = fa_icon "heart-o"
-                  8
+        = render @item.user.items
   .item_listing
     .pick_up_category_ladies.main_block_new_items
       %h2
         = link_to "レディース 新着アイテム", "#"
       .main_block_new_items_area
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケットaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            .new_item__text_area--price
-              ￥5000sss
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              %span.new_item__text_area--price_display
-                5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
-        = link_to "#", class: "new_item" do
-          .new_item__image_area
-            = image_tag "300×300.png"
-          .new_item__text_area
-            .new_item__text_area--title
-              メンズジャケット
-            .new_item__text_area--price
-              ￥5000
-              %span
-                = fa_icon "heart-o"
-                8
+        = render @items
   = render "shared/footer"
