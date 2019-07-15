@@ -1,7 +1,6 @@
 $(function(){
 
   function appendItem(item){
-    console.log(item);
     if(item.buy_history){
       var html = `
                   <a class="one_item item_soldout__parent search_item" href="/items/${item.id}">
