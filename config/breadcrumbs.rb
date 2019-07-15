@@ -21,3 +21,8 @@ crumb :person_registration do
   link "本人確認情報"
   parent :user
 end
+
+crumb :profile do
+  link "プロフィール"
+  parent :user
+end
