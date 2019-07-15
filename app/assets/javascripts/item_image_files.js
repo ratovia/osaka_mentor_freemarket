@@ -30,7 +30,6 @@ $(function () {
     
     var filesArray = $('.item_images_hidden').val().split(',');
     var imagesLength = $('.select_image').length;
-    console.log(imagesLength);
     switch (imagesLength + 1) {
       case 5: $(target).closest('.image_file_area').css('display', 'none');
               $('.under_area .image_file_area').css('display', 'block');
