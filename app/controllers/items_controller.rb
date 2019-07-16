@@ -31,8 +31,10 @@ class ItemsController < ApplicationController
   def update
     images = @item.images
     if @item.update(item_params)
-      remove_images_params[:remove_images].map(&:to_i).each do |i|
-        images[i].purge
+      if remove_images_params[:remove_images].present?
+        remove_images_params[:remove_images].map(&:to_i).each do |i|
+          images[i].purge
+        end
       end
       redirect_to root_path
     else
