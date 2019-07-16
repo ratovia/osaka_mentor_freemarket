@@ -9,6 +9,8 @@
     = form_with model: @user, url: user_registration_path, method: :post, local: true, class: "registration_main_view" do |f|
       %h1 会員情報入力
       .registration_main_view__input
+        = render "shared/error_messages" , model: f.object
+
         %span ニックネーム
         %a.required_red 必須
         = f.text_field :nickname, class: "nickname_input", placeholder: "例）メルカリ太郎" 
