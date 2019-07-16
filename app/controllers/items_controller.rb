@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   def new
     @prefectures = Prefecture.all
     @item = Item.new
+    @categories = Category.all
   end
 
   def edit
