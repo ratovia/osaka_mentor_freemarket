@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :credits, only: [:index, :new, :create, :destroy]
   resources :items, only: [:index,:new,:create,:show, :edit, :update, :destroy] do
+    collection do
+      get 'search'
+      get 'incremental'
+    end
     resources :buy_histories, only: [:new, :create]
   end
   resources :users, only: [:new, :show, :edit, :update] do

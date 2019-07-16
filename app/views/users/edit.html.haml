@@ -1,5 +1,9 @@
 .user-my-page
   = render "shared/header"
+  .bread
+    %span 
+      - breadcrumb :profile
+      = breadcrumbs separator: " #{content_tag(:i, '', class:'fa fa-chevron-right')} "
   .container
     .left-column
       = render "shared/my_page_sidebar"
