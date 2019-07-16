@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
+    strong_param = params.require(:item).permit(
       :name,
       :price,
       :description,
@@ -89,15 +89,22 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       :size,
-    ).merge(user_id: current_user.id).merge(images: images_params)
+    ).merge(user_id: current_user.id)
+    if images_params
+      strong_param.merge(images: images_params)
+    end
   end
 
   def images_params
     strong_param = params.require(:item).permit(images: [])
-    strong_param[:images].each do |image|
-      image.original_filename = URI.encode(image.original_filename)
+    if strong_param[:images].present?
+      strong_param[:images].each do |image|
+        image.original_filename = URI.encode(image.original_filename)
+      end
+      strong_param[:images]
+    else
+      return false
     end
-    strong_param[:images]
   end
 
   def remove_images_params
