@@ -17,9 +17,11 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if item_params[:images].present? && @item.save
+      flash[:notice] = "商品を出品しました！"
       redirect_to root_path
     else
+      flash[:alert] = "商品を出品できませんでした"
       render "new"
     end
   end
@@ -30,20 +32,28 @@ class ItemsController < ApplicationController
 
   def update
     images = @item.images
-    if @item.update(item_params)
+    if item_params[:images].present? && @item.update(item_params)
       if remove_images_params[:remove_images].present?
+        if @item.images.length <= remove_images_params[:remove_images].length
+          flash[:alert] = "商品情報を更新できませんでした"
+          render :edit
+          return false
+        end
         remove_images_params[:remove_images].map(&:to_i).each do |i|
           images[i].purge
         end
       end
+      flash[:notice] = "商品情報を更新しました！"
       redirect_to root_path
     else
+      flash[:alert] = "商品情報を更新できませんでした"
       render :edit
     end
   end
 
   def destroy
     @item.destroy if @item.user.id == current_user.id
+    flash[:notice] = "商品を削除しました"
     redirect_to root_path
   end
 
@@ -81,7 +91,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    strong_param = params.require(:item).permit(
+    params.require(:item).permit(
       :name,
       :price,
       :description,
@@ -91,10 +101,7 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       :size,
-    ).merge(user_id: current_user.id)
-    if images_params
-      strong_param.merge(images: images_params)
-    end
+    ).merge(user_id: current_user.id).merge(images: images_params)
   end
 
   def images_params
@@ -103,10 +110,8 @@ class ItemsController < ApplicationController
       strong_param[:images].each do |image|
         image.original_filename = URI.encode(image.original_filename)
       end
-      strong_param[:images]
-    else
-      return false
     end
+    strong_param[:images]
   end
 
   def remove_images_params

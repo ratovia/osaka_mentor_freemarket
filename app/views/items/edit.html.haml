@@ -8,6 +8,7 @@
       .new_item_page_container_main_title
         商品の情報を入力
       .new_item_page_container_main_item_image
+        = render "shared/error_messages" , model: f.object
         %p.new_item_page_container_main_label
           出品画像
           %span.required
