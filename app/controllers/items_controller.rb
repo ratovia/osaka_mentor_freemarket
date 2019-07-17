@@ -17,9 +17,11 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if item_params[:images].present? && @item.save
+      flash[:notice] = "商品を出品しました！"
       redirect_to root_path
     else
+      flash[:alert] = "商品を出品できませんでした"
       render "new"
     end
   end
@@ -55,14 +57,17 @@ class ItemsController < ApplicationController
           images[i].purge
         end
       end
+      flash[:notice] = "商品情報を更新しました！"
       redirect_to root_path
     else
+      flash[:alert] = "商品情報を更新できませんでした"
       render :edit
     end
   end
 
   def destroy
     @item.destroy if @item.user.id == current_user.id
+    flash[:notice] = "商品を削除しました"
     redirect_to root_path
   end
 
@@ -115,8 +120,10 @@ class ItemsController < ApplicationController
 
   def images_params
     strong_param = params.require(:item).permit(images: [])
-    strong_param[:images].each do |image|
-      image.original_filename = URI.encode(image.original_filename)
+    if strong_param[:images].present?
+      strong_param[:images].each do |image|
+        image.original_filename = URI.encode(image.original_filename)
+      end
     end
     strong_param[:images]
   end

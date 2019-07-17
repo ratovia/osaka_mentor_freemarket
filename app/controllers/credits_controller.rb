@@ -26,8 +26,10 @@ class CreditsController < ApplicationController
     end
     
     if @credit.save
+      flash[:notice] = "クレジットカードを登録しました"
       redirect_to credits_path
     else
+      flash[:alert] = "登録に失敗しました"
       render "new"
     end
   end
@@ -40,6 +42,7 @@ class CreditsController < ApplicationController
       customer.delete
       credit.destroy
     end
+    flash[:notice] = "クレジットカードを削除しました"
     redirect_to action: "index"
   end
 
