@@ -47,7 +47,10 @@
           .cell
             カテゴリー
           .cell
-            = @item.category.name
+            - if @item.category_id != 0
+              = @item.category.name
+            - else 
+              レディース
         .main_item-detail_table__row
           .cell
             ブランド
