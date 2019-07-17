@@ -32,7 +32,21 @@ class ItemsController < ApplicationController
 
   def update
     images = @item.images
-    if item_params[:images].present? && @item.update(item_params)
+    if @item.update(
+        name: item_params["name"],
+        price: item_params["price"],
+        description: item_params["description"],
+        status: item_params["status"],
+        delivery_burden: item_params["delivery_burden"],
+        delivery_method: item_params["delivery_method"],
+        delivery_prefecture: item_params["delivery_prefecture"],
+        delivery_time: item_params["delivery_time"],
+        user_id: item_params["user_id"],
+        size: item_params["size"],
+        )
+      if item_params[:images].present?
+        @item.update(images: item_params["images"])
+      end
       if remove_images_params[:remove_images].present?
         if @item.images.length <= remove_images_params[:remove_images].length
           flash[:alert] = "商品情報を更新できませんでした"
