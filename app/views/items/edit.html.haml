@@ -55,24 +55,17 @@
             %span.required
               必須
           .select_box.category1
-            %select(name="category" id="category1")
-              %option(value="0") ---
-              %option(value="1") レディース
-              %option(value="2") メンズ
-              %option(value="3") ベビー・キッズ
-              %option(value="4") 家具・インテリア
-              %option(value="5") 本・音楽・ゲーム
-            -# =f.select :categoly1, [["---", "---"], ["レディース", "レディース"],["メンズ", "メンズ"],["ベビー・キッズ", "ベビー・キッズ"], ["家具・インテリア", "家具・インテリア"], ["本・音楽・ゲーム", "本・音楽・ゲーム"]]
+            = f.select :category_id, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
             = fa_icon "angle-down"
           .select_box.category2
-            %select(name="category" id="category2")
+            %select(name="category" id="item_category2")
               %option(value="0") ---
               %option(value="1") トップス
               %option(value="2") ボトムス
               %option(value="3") パンツ
             = fa_icon "angle-down"
           .select_box.category3
-            = f.select :category_id, [["---",""],["半袖","半袖"],["長袖","長袖"],["七分","七分"]]
+            = f.select :category3, [["---",""],["半袖","半袖"],["長袖","長袖"],["七分","七分"]]
             = fa_icon "angle-down"
           #select_size
             %p.new_item_page_container_main_label.select_label

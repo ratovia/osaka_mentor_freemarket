@@ -24,9 +24,9 @@ $(function () {
     var categorySelect1 = $('#item_category_id').prop('selectedIndex');
     if (categorySelect3 !== 0 && categorySelect1 <= 3
       ) {
-        $('#select_size').css('display', 'block');
+        $('#item_size').css('display', 'block');
       } else {
-        $('#select_size').css('display', 'none');
+        $('#item_size').css('display', 'none');
     }
   });
 
