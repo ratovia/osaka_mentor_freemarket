@@ -1,6 +1,6 @@
 $(function () {
 
-  $('#category1').change(function(){
+  $('#item_category_id').change(function(){
     var categorySelect1 = $(this).prop('selectedIndex');
 
     if (categorySelect1 !== 0) {
@@ -10,7 +10,7 @@ $(function () {
       $('.category3').css('display', 'none');
     }
   });
-  $('#category2').change(function(){
+  $('#item_category2').change(function(){
     var categorySelect2 = $(this).prop('selectedIndex');
     if (categorySelect2 !== 0) {
       $('.category3').css('display', 'block');
@@ -18,14 +18,15 @@ $(function () {
       $('.category3').css('display', 'none');
     }
   });
-  $('#item_category_id').change(function(){
+  $('#item_category3').change(function(){
+    
     var categorySelect3 = $(this).prop('selectedIndex');
-    var categorySelect1 = $('#category1').prop('selectedIndex');
+    var categorySelect1 = $('#item_category_id').prop('selectedIndex');
     if (categorySelect3 !== 0 && categorySelect1 <= 3
       ) {
-      $('#select_size').css('display', 'block');
-    } else {
-      $('#select_size').css('display', 'none');
+        $('#select_size').css('display', 'block');
+      } else {
+        $('#select_size').css('display', 'none');
     }
   });
 
