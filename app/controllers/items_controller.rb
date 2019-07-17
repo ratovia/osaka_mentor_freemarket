@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
   def new
     @prefectures = Prefecture.all
     @item = Item.new
+    @categories = Category.where('id < 14')
+
   end
 
   def edit
@@ -71,6 +73,7 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+
   def preview
     @items = current_user.items
   end
@@ -115,6 +118,7 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       :size,
+      :category_id
     ).merge(user_id: current_user.id).merge(images: images_params)
   end
 
