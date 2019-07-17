@@ -1,14 +1,38 @@
 $(function () {
+  $('#item_category1').change(function(){
+    var categorySelect1 = $(this).prop('selectedIndex') + 1;
 
-  $('#item_category_id').change(function(){
-    var categorySelect1 = $(this).prop('selectedIndex');
-
-    if (categorySelect1 !== 0) {
+    $.ajax({
+      type: 'GET',
+      url: '/items/new',
+      data: {keyword: categorySelect1},
+      dataType: 'json'
+    })
+    .done(function (categories) {
       $('.category2').css('display', 'block');
-    } else {
-      $('.category2').css('display', 'none');
-      $('.category3').css('display', 'none');
-    }
+      console.log(categories);
+      $('#item_category2').empty();
+      $('#item_category2').append(`
+        <option value="">---</option>
+        `)
+      categories.forEach(function (category) {
+        $('#item_category2').append(`
+        <option value="${category.id}">${category.name}</option>
+        `)
+        
+      })
+    })
+    .fail(function () {
+      console.log('だめ');
+      
+    });
+    
+    // if (categorySelect1 !== 0) {
+    //   $('.category2').css('display', 'block');
+    // } else {
+    //   $('.category2').css('display', 'none');
+    //   $('.category3').css('display', 'none');
+    // }
   });
   $('#item_category2').change(function(){
     var categorySelect2 = $(this).prop('selectedIndex');
@@ -18,15 +42,15 @@ $(function () {
       $('.category3').css('display', 'none');
     }
   });
-  $('#item_category3').change(function(){
+  $('#item_category_id').change(function(){
     
     var categorySelect3 = $(this).prop('selectedIndex');
     var categorySelect1 = $('#item_category_id').prop('selectedIndex');
     if (categorySelect3 !== 0 && categorySelect1 <= 3
       ) {
-        $('#item_size').css('display', 'block');
+        $('#select_size').css('display', 'block');
       } else {
-        $('#item_size').css('display', 'none');
+        $('#select_size').css('display', 'none');
     }
   });
 
