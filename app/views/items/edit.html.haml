@@ -56,13 +56,13 @@
             %span.required
               必須
           .select_box.category1
-            = f.select :category1, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
+            = f.select :category1, options_from_collection_for_select(Category.where(category_id: @item.category.parent.parent.category_id), :id, :name)
             = fa_icon "angle-down"
-          .select_box.category2
-            = f.select :category2, []
+          .select_box.category2{style: "display: block"}
+            = f.select :category2, options_from_collection_for_select(Category.where(category_id: @item.category.parent.category_id), :id, :name)
             = fa_icon "angle-down"
-          .select_box.category3
-            = f.select :category_id, []
+          .select_box.category3{style: "display: block"}
+            = f.select :category_id, options_from_collection_for_select(Category.where(category_id: @item.category.category_id), :id, :name)
             = fa_icon "angle-down"
           #select_size
             %p.new_item_page_container_main_label.select_label

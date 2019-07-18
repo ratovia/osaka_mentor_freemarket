@@ -49,7 +49,7 @@
             %span.required
               必須
           .select_box.category1
-            = f.select :category1, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
+            = f.select :category1, options_from_collection_for_select(Category.where('id < 14'), :id, :name), class: "new_category1"
             = fa_icon "angle-down"
           .select_box.category2
             = f.select :category2, []
