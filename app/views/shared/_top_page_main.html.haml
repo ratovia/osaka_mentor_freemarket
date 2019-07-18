@@ -4,58 +4,19 @@
     .categocies.main_block
       .pick_up_category_ladies.main_block_new_items
         %h2
-          = link_to "全ての新着アイテム", "#"
+          = link_to "レディース 新着アイテム", "#"
         .main_block_new_items_area
+          - @items = @ladys
           = render @items
-  -#     .pick_up_category_mens.main_block_new_items
-  -#       %h2
-  -#         = link_to "メンズ 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
-  -#     .pick_up_category_babies.main_block_new_items
-  -#       %h2
-  -#         = link_to "ベビー・キッズ 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
-  -#     .pick_up_category_cosme.main_block_new_items
-  -#       %h2 
-  -#         = link_to "コスメ・香水・美容 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
-  -# .pick_up_bland.wrapper
-  -#   %h1 ピックアップブランド
-  -#   .blands.new_items.main_block
-  -#     .pick_up_bland_chanel.main_block_new_items
-  -#       %h2
-  -#         = link_to "シャネル 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
-  -#     .pick_up_bland_vuitton.main_block_new_items
-  -#       %h2 
-  -#         = link_to "ルイヴィトン 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
-  -#     .pick_up_bland_supreme.main_block_new_items
-  -#       %h2 
-  -#         = link_to "シュプリーム 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
-  -#     .pick_up_bland_nike.main_block_new_items
-  -#       %h2
-  -#         = link_to "ナイキ 新着アイテム", "#"
-  -#       .main_block_new_items_area
-  -#         = render @items
-  -#       %p.link_to_items
-  -#         = link_to "すべての商品を見る", "#"
+      .pick_up_category_mens.main_block_new_items
+        %h2
+          = link_to "メンズ 新着アイテム", "#"
+        .main_block_new_items_area
+          - @items = @mens
+          = render @items
+      .pick_up_category_mens.main_block_new_items
+        %h2
+          = link_to "新着アイテム", "#"
+        .main_block_new_items_area
+          - @items = @latest_items
+          = render @items
