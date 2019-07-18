@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
-    @ladys = Item.where("category_id = 1").limit(4).order("id DESC")
-    @mens = Item.where("category_id = 2").limit(4).order("id DESC")
+    @ladys = get_category_item(1)
+    @mens = get_category_item(2)
   end
   
   def new
@@ -144,6 +144,25 @@ class ItemsController < ApplicationController
 
   def remove_images_params
     params.require(:item).permit(remove_images: [])
+  end
+
+  def get_category_item(id)
+    parent = Category.find_by("id = ?", id)
+    child = parent.children
+    grandchild = []
+    child.each do |child|
+      grandchild.push(child.children)
+    end
+    grandchild.flatten!
+    result = []
+    grandchild.each do |grandchild|
+      result.push(grandchild.items) 
+    end
+    result.flatten!
+    if result.length >= 4
+      result.slice(-4,4)
+    end
+    result
   end
 end
 
