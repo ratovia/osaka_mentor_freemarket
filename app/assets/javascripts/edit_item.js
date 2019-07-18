@@ -15,13 +15,18 @@ $(function () {
   $('.edit_page_fee').text('¥' + String(salesFee).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
   $('.edit_page_benefit').text('¥' + String(salesBenefit).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 
+  //デフォルトのcategory1を表示
+  var parent = $('#item_category_parent').val();
+  $('.edit_category1 > select').val(parent);
 
+   //file_fieldの幅を調整
   var imagesLength = $('.select_image').length;
   $('.image_file_area').css('width', `calc(100% - ${20 * (imagesLength % 5)}%)`);
   
+
+  // remove_imageを追加
   $('.edit_image_remove').on('click', function () {
    var num = $(this).closest('.select_image').data('number')
-   console.log(num);
    $('.image_file_area:first').append(`
    <input multiple="multiple" value=${num} type="hidden" name="item[remove_images][]" id="item_remove_images">
    `)

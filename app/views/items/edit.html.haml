@@ -55,8 +55,9 @@
             カテゴリ
             %span.required
               必須
-          .select_box.category1
+          .select_box.category1.edit_category1
             = f.select :category1, options_from_collection_for_select(Category.where(category_id: @item.category.parent.parent.category_id), :id, :name)
+            = f.hidden_field :category_parent, value: @item.category.parent.parent.id
             = fa_icon "angle-down"
           .select_box.category2{style: "display: block"}
             = f.select :category2, options_from_collection_for_select(Category.where(category_id: @item.category.parent.category_id), :id, :name)
