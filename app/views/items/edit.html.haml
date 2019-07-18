@@ -56,17 +56,13 @@
             %span.required
               必須
           .select_box.category1
-            = f.select :category_id, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
+            = f.select :category1, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
             = fa_icon "angle-down"
           .select_box.category2
-            %select(name="category" id="item_category2")
-              %option(value="0") ---
-              %option(value="1") トップス
-              %option(value="2") ボトムス
-              %option(value="3") パンツ
+            = f.select :category2, []
             = fa_icon "angle-down"
           .select_box.category3
-            = f.select :category3, [["---",""],["半袖","半袖"],["長袖","長袖"],["七分","七分"]]
+            = f.select :category_id, []
             = fa_icon "angle-down"
           #select_size
             %p.new_item_page_container_main_label.select_label
@@ -113,7 +109,6 @@
             %span.required
               必須
           .select_box
-
             = f.select :delivery_prefecture, options_from_collection_for_select(Prefecture.all, :name, :name)
             = fa_icon "angle-down"
           %p.new_item_page_container_main_label

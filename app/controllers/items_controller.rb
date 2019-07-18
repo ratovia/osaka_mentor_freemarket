@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
         delivery_time: item_params["delivery_time"],
         user_id: item_params["user_id"],
         size: item_params["size"],
+        category_id: item_params["category_id"]
         )
       if item_params[:images].present?
         @item.update(images: item_params["images"])
