@@ -10,6 +10,10 @@
 
 require "csv"
 
+Category.delete_all('id > 158')
+Category.delete_all('id > 14')
+Category.all.destroy
+
 CSV.read('db/category.csv', headers: true).each do |row|
   Category.create!(
     id: row['id'], 
