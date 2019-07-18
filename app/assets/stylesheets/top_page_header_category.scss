@@ -6,7 +6,7 @@
   border-bottom: $border-design;
 }
 .header_container_bottom__category {
-  &_list {
+  &_list1 {
     display: none;
   }
   &:hover {
@@ -29,6 +29,7 @@
           border-right: 0px;
         ul {
             @include ul-style();
+            height: 650px;
             color: $black;
             position: absolute;
             top: 0px;
@@ -47,6 +48,7 @@
                   position: absolute;
                   top: 0px;
                   left: 200px;
+                  height: 650px;
                   border-right: $border-design;
                   li {
                   background: white;

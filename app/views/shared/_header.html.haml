@@ -20,7 +20,7 @@
           = fa_icon "list"
           カテゴリーから探す
         %ul.header_container_bottom__category_list1
-          - @parent_categories1.each do |category|
+          - @parent_categories.each do |category|
             %li{data: {id: category.id}}
               = category.name
               %ul
@@ -35,17 +35,6 @@
                 %li パンツ
                 %li スカート
                 %li ワンピース
-          -# %li 
-          -#   メンズ
-          -#   %ul
-          -#     %li トップス
-          -#     %li アウター・ジャケット
-          -#     %li パンツ
-          -#     %li バッグ
-          -#     %li 靴
-          -# %li ベビー・キッズ
-          -# %li インテリア・住まい
-          -# %li 本・音楽・ゲーム
       .header_container_bottom__bland
         %p
           = fa_icon "tag"
