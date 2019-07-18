@@ -48,9 +48,16 @@
             カテゴリー
           .cell
             - if @item.category_id != 0
-              = @item.category.name
+              = link_to "#" do
+                = @item.category.parent.parent.name
+                %br
+                >
+                = @item.category.parent.name
+                %br
+                >
+                = @item.category.name
             - else 
-              レディース
+              カテゴリ未登録
         .main_item-detail_table__row
           .cell
             ブランド

@@ -1,32 +1,63 @@
 $(function () {
 
-  $('#item_category_id').change(function(){
-    var categorySelect1 = $(this).prop('selectedIndex');
+var changeSelect = function (id, nextSelect) {
+  $.ajax({
+    type: 'GET',
+    url: '/items/new',
+    data: {keyword: id},
+    dataType: 'json'
+  })
+  .done(function (categories) {
+    nextSelect.empty();
+    nextSelect.append(`
+      <option value="">---</option>
+      `);
+    categories.forEach(function (category) {
+      nextSelect.append(`
+      <option value="${category.id}">${category.name}</option>
+      `);
+    });
+  })
+  .fail(function () {
+    alert('カテゴリの取得に失敗しました');
+  });
+}
 
-    if (categorySelect1 !== 0) {
-      $('.category2').css('display', 'block');
-    } else {
+$('.new_category1 > select').prepend(`
+  <option value="" >---</option>
+  `).val("");
+
+  $('#item_category1').change(function(){
+    var id = $(this).val();
+
+    if (id === "") {
       $('.category2').css('display', 'none');
       $('.category3').css('display', 'none');
+      return;
     }
+    $('.category2').css('display', 'block');
+    changeSelect(id, $('#item_category2'));
   });
+
   $('#item_category2').change(function(){
-    var categorySelect2 = $(this).prop('selectedIndex');
-    if (categorySelect2 !== 0) {
-      $('.category3').css('display', 'block');
-    } else {
+    var id = $(this).val();
+    if (id === "") {
       $('.category3').css('display', 'none');
+      return;
     }
+    $('.category3').css('display', 'block');
+    changeSelect(id, $('#item_category_id'));
   });
-  $('#item_category3').change(function(){
+
+  $('#item_category_id').change(function(){
     
-    var categorySelect3 = $(this).prop('selectedIndex');
-    var categorySelect1 = $('#item_category_id').prop('selectedIndex');
-    if (categorySelect3 !== 0 && categorySelect1 <= 3
+    var categorySelect3 = $(this).val();
+    var categorySelect1 = $('#item_category1').val();
+    if (categorySelect3 !== "" && categorySelect1 <= 3
       ) {
-        $('#item_size').css('display', 'block');
+        $('#select_size').css('display', 'block');
       } else {
-        $('#item_size').css('display', 'none');
+        $('#select_size').css('display', 'none');
     }
   });
 
@@ -47,7 +78,7 @@ $(function () {
       <option value="ゆうメール">ゆうメール</option>
       <option value="レターパック"> レターパック</option>
       <option value="普通郵便(定型、定形外)"> 普通郵便(定型、定形外）</option>
-      <option value="クロネコヤマ"> クロネコヤマ</option>
+      <option value="クロネコヤマト"> クロネコヤマト</option>
       <option value="ゆうパック"> ゆうパック</option>
       <option value="クリックポスト"> クリックポスト</option>
       <option value="ゆうパケット"> ゆうパケット</option>

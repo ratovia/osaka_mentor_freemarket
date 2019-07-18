@@ -68,6 +68,16 @@
         }
         &__row > .cell:last-child{
           width: 65%;
+          font-size: 13px;
+          line-height: 18px;
+          a {
+            text-decoration: none;
+            color: $blue;
+            &:hover {
+              text-decoration: underline;
+              opacity: 0.8;
+            }
+          }
         }
         .listing-person{
           display:flex;
