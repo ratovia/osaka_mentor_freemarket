@@ -148,6 +148,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(remove_images: [])
   end
 
+<<<<<<< HEAD
   def item_list(item_array, i)
     Item.find_each do |item|
       category_id = item.category.parent.parent.id
@@ -158,6 +159,25 @@ class ItemsController < ApplicationController
     array_length = item_array.length
     item_array.slice!(-4, (array_length - 4))
     return item_array
+=======
+  def get_category_item(id)
+    parent = Category.find_by("id = ?", id)
+    child = parent.children
+    grandchild = []
+    child.each do |child|
+      grandchild.push(child.children)
+    end
+    grandchild.flatten!
+    result = []
+    grandchild.each do |grandchild|
+      result.push(grandchild.items) 
+    end
+    result.flatten!
+    if result.length >= 4
+      result.slice(-4,4)
+    end
+    result
+>>>>>>> 853c81e085ec0e4b96655abb5637ca1ca852f54b
   end
 end
 
