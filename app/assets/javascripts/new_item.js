@@ -24,7 +24,7 @@ var changeSelect = function (id, nextSelect) {
   });
 }
 
-$('.new_category').prepend(`
+$('.new_category1 > select').prepend(`
   <option value="" >---</option>
   `).val("");
 
