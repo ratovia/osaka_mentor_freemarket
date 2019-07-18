@@ -19,32 +19,33 @@
         %p
           = fa_icon "list"
           カテゴリーから探す
-        %ul.header_container_bottom__category_list
-          %li
-            レディース
-            %ul
-              %li
-                トップス
-                %ul
-                  %li Tシャツ/カットソー(半袖)
-                  %li Tシャツ/カットソー(長袖)
-                  %li シャツ/ブラウス(長袖)
-                  %li シャツ/ブラウス(半袖)
-              %li アウター・ジャケット
-              %li パンツ
-              %li スカート
-              %li ワンピース
-          %li 
-            メンズ
-            %ul
-              %li トップス
-              %li アウター・ジャケット
-              %li パンツ
-              %li バッグ
-              %li 靴
-          %li ベビー・キッズ
-          %li インテリア・住まい
-          %li 本・音楽・ゲーム
+        %ul.header_container_bottom__category_list1
+          - @parent_categories1.each do |category|
+            %li{data: {id: category.id}}
+              = category.name
+              %ul
+                %li
+                  トップス
+                  %ul
+                    %li Tシャツ/カットソー(半袖)
+                    %li Tシャツ/カットソー(長袖)
+                    %li シャツ/ブラウス(長袖)
+                    %li シャツ/ブラウス(半袖)
+                %li アウター・ジャケット
+                %li パンツ
+                %li スカート
+                %li ワンピース
+          -# %li 
+          -#   メンズ
+          -#   %ul
+          -#     %li トップス
+          -#     %li アウター・ジャケット
+          -#     %li パンツ
+          -#     %li バッグ
+          -#     %li 靴
+          -# %li ベビー・キッズ
+          -# %li インテリア・住まい
+          -# %li 本・音楽・ゲーム
       .header_container_bottom__bland
         %p
           = fa_icon "tag"
