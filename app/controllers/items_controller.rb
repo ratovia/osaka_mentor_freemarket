@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index,:create,:new,:search,:incremental]
 
   def index
-    @items = Item.limit(20).order("id DESC")
+    @latest_items = Item.limit(20).order("id DESC")
+    @ladys = Item.where("category_id = 1")
+    @mens = Item.where("category_id = 2")
   end
   
   def new
