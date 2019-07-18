@@ -23,7 +23,6 @@ $(function () {
   var imagesLength = $('.select_image').length;
   $('.image_file_area').css('width', `calc(100% - ${20 * (imagesLength % 5)}%)`);
   
-
   // remove_imageを追加
   $('.edit_image_remove').on('click', function () {
    var num = $(this).closest('.select_image').data('number')

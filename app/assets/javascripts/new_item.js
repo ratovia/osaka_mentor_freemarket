@@ -20,7 +20,6 @@ var changeSelect = function (id, nextSelect) {
   })
   .fail(function () {
     alert('カテゴリの取得に失敗しました');
-    
   });
 }
 
@@ -38,9 +37,7 @@ $('.new_category1 > select').prepend(`
     }
     $('.category2').css('display', 'block');
     changeSelect(id, $('#item_category2'));
-    
   });
-
 
   $('#item_category2').change(function(){
     var id = $(this).val();
@@ -50,9 +47,7 @@ $('.new_category1 > select').prepend(`
     }
     $('.category3').css('display', 'block');
     changeSelect(id, $('#item_category_id'));
-
   });
-
 
   $('#item_category_id').change(function(){
     
