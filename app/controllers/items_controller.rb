@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     item_list(@mens, 2)
 
     @parent_categories = Category.where('id < 14')
-    @child_categories = Category.where(category_id: params[:keyword])
+    @child_categories = Category.where(category_id: params[:id])
 
     respond_to do |format|
       format.html
