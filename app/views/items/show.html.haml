@@ -99,15 +99,14 @@
             送料別
     - if user_signed_in? && @item.user.id != current_user.id
       - if @item.buy_history.present?
-       
         .main_purchase_button.main_purchase_button--disable 
           売り切れました
       - else
-      .main_balloon_area
-        .main_stock_money
-          残高 ¥925をお持ちです
-          .main_stock_money__triangle
-        = link_to "購入画面に進む", new_item_buy_history_path(@item), class: "main_purchase_button"
+        .main_balloon_area
+          .main_stock_money
+            残高 ¥925をお持ちです
+            .main_stock_money__triangle
+          = link_to "購入画面に進む", new_item_buy_history_path(@item), class: "main_purchase_button"
     .main_item_description
       .main_item_description__top
         = @item.description
