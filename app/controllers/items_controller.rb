@@ -4,7 +4,16 @@ class ItemsController < ApplicationController
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
-    @ladys = Item.where("category_id = 1").limit(4).order("id DESC")
+    @ladies = []
+    Item.find_each do |item|
+      category_id = item.category.parent.parent.id
+      if category_id == 1
+        @ladies.push(item)
+      end
+    end
+    @ladies.flatten!
+    @ladies.slice!(-4, 4)
+
     @mens = Item.where("category_id = 2").limit(4).order("id DESC")
   end
   
