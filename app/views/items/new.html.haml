@@ -48,14 +48,14 @@
             カテゴリ
             %span.required
               必須
-          .select_box.category1
-            = f.select :category_id, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
+          .select_box.category1.new_category1
+            = f.select :category1, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
             = fa_icon "angle-down"
           .select_box.category2
-            = f.select :category2, [["---",""],["半袖","半袖"],["長袖","長袖"],["七分","七分"]]
+            = f.select :category2, []
             = fa_icon "angle-down"
           .select_box.category3
-            = f.select :category3, [["---",""],["半袖","半袖"],["長袖","長袖"],["七分","七分"]]
+            = f.select :category_id, []
             = fa_icon "angle-down"
           #select_size
             %p.new_item_page_container_main_label.select_label

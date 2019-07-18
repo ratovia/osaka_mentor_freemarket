@@ -55,18 +55,15 @@
             カテゴリ
             %span.required
               必須
-          .select_box.category1
-            = f.select :category_id, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
+          .select_box.category1.edit_category1
+            = f.select :category1, options_from_collection_for_select(Category.where(category_id: @item.category.parent.parent.category_id), :id, :name)
+            = f.hidden_field :category_parent, value: @item.category.parent.parent.id
             = fa_icon "angle-down"
-          .select_box.category2
-            %select(name="category" id="item_category2")
-              %option(value="0") ---
-              %option(value="1") トップス
-              %option(value="2") ボトムス
-              %option(value="3") パンツ
+          .select_box.category2{style: "display: block"}
+            = f.select :category2, options_from_collection_for_select(Category.where(category_id: @item.category.parent.category_id), :id, :name)
             = fa_icon "angle-down"
-          .select_box.category3
-            = f.select :category3, [["---",""],["半袖","半袖"],["長袖","長袖"],["七分","七分"]]
+          .select_box.category3{style: "display: block"}
+            = f.select :category_id, options_from_collection_for_select(Category.where(category_id: @item.category.category_id), :id, :name)
             = fa_icon "angle-down"
           #select_size
             %p.new_item_page_container_main_label.select_label
@@ -88,7 +85,7 @@
             %span.required
               必須
           .select_box
-            = f.select :status, [["---", ""], ["新品", "新品"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]]
+            = f.select :status, [["---", ""],["新品", "新品"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]]
             = fa_icon "angle-down"
       .new_item_page_container_main_item_delivary
         .left_content
@@ -101,19 +98,27 @@
           .select_box
             = f.select :delivery_burden, [["---", ""], ["送料込み(出品者負担)", "送料込み(出品者負担)"],["着払い(購入者負担)", "着払い(購入者負担)"]]
             = fa_icon "angle-down"
-          %p.new_item_page_container_main_label.delivery_method_select_label
-            配送の方法
-            %span.required
-              必須
-          .select_box.delivery_method_select
-            = f.select :delivery_method, [], id: "delivery_method"
-            = fa_icon "angle-down"
+          - if @item.delivery_burden == "送料込み(出品者負担)"
+            %p.new_item_page_container_main_label.delivery_method_select_label{style: "display: block"}
+              配送の方法
+              %span.required
+                必須
+            .select_box.delivery_method_select{style: "display: block"}
+              = f.select :delivery_method, [["---", ""], ["未定", ""], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便(定型、定形外)", "普通郵便(定型、定形外)"], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["クリックポスト", "クリックポスト"], ["ゆうパケット", "ゆうパケット"]], id: "delivery_method"
+              = fa_icon "angle-down"
+          - else
+            %p.new_item_page_container_main_label.delivery_method_select_label{style: "display: block", }
+              配送の方法
+              %span.required
+                必須
+            .select_box.delivery_method_select{style: "display: block"}
+              = f.select :delivery_method, [["---", ""], ["未定", ""], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["ゆうメール", "ゆうメール"]], id: "delivery_method"
+              = fa_icon "angle-down"
           %p.new_item_page_container_main_label
             発送元の地域
             %span.required
               必須
           .select_box
-
             = f.select :delivery_prefecture, options_from_collection_for_select(Prefecture.all, :name, :name)
             = fa_icon "angle-down"
           %p.new_item_page_container_main_label
