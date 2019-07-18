@@ -8,9 +8,6 @@ Rails.application.routes.draw do
       get 'incremental'
     end
     resources :buy_histories, only: [:new, :create]
-    member do
-      get 'preview'
-    end
   end
   resources :users, only: [:new, :show, :edit, :update] do
     member do

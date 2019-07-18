@@ -3,23 +3,31 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index,:create,:new,:search,:incremental]
 
   def index
-    @items = Item.limit(4).order("id DESC")
+    @latest_items = Item.limit(20).order("id DESC")
+    @ladys = Item.where("category_id = 1").limit(4).order("id DESC")
+    @mens = Item.where("category_id = 2").limit(4).order("id DESC")
   end
   
   def new
     @prefectures = Prefecture.all
     @item = Item.new
+    @categories = Category.where('id < 14')
+
   end
 
   def edit
-   
+   if current_user.id != @item.user.id
+    redirect_to item_path(@item)
+   end
   end
   
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if item_params[:images].present? && @item.save
+      flash[:notice] = "商品を出品しました！"
       redirect_to root_path
     else
+      flash[:alert] = "商品を出品できませんでした"
       render "new"
     end
   end
@@ -30,20 +38,45 @@ class ItemsController < ApplicationController
 
   def update
     images = @item.images
-    if @item.update(item_params)
-      remove_images_params[:remove_images].map(&:to_i).each do |i|
-        images[i].purge
+    if @item.update(
+        name: item_params["name"],
+        price: item_params["price"],
+        description: item_params["description"],
+        status: item_params["status"],
+        delivery_burden: item_params["delivery_burden"],
+        delivery_method: item_params["delivery_method"],
+        delivery_prefecture: item_params["delivery_prefecture"],
+        delivery_time: item_params["delivery_time"],
+        user_id: item_params["user_id"],
+        size: item_params["size"],
+        )
+      if item_params[:images].present?
+        @item.update(images: item_params["images"])
       end
+      if remove_images_params[:remove_images].present?
+        if @item.images.length <= remove_images_params[:remove_images].length
+          flash[:alert] = "商品情報を更新できませんでした"
+          render :edit
+          return false
+        end
+        remove_images_params[:remove_images].map(&:to_i).each do |i|
+          images[i].purge
+        end
+      end
+      flash[:notice] = "商品情報を更新しました！"
       redirect_to root_path
     else
+      flash[:alert] = "商品情報を更新できませんでした"
       render :edit
     end
   end
 
   def destroy
     @item.destroy if @item.user.id == current_user.id
+    flash[:notice] = "商品を削除しました"
     redirect_to root_path
   end
+
 
   def preview
     @items = current_user.items
@@ -89,13 +122,16 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       :size,
+      :category_id
     ).merge(user_id: current_user.id).merge(images: images_params)
   end
 
   def images_params
     strong_param = params.require(:item).permit(images: [])
-    strong_param[:images].each do |image|
-      image.original_filename = URI.encode(image.original_filename)
+    if strong_param[:images].present?
+      strong_param[:images].each do |image|
+        image.original_filename = URI.encode(image.original_filename)
+      end
     end
     strong_param[:images]
   end
