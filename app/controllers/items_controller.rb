@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
-    @ladys = Item.where("category_id = 1")
-    @mens = Item.where("category_id = 2")
+    @ladys = Item.where("category_id = 1").limit(4).order("id DESC")
+    @mens = Item.where("category_id = 2").limit(4).order("id DESC")
   end
   
   def new
