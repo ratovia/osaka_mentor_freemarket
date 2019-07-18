@@ -14,7 +14,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-   
+   if current_user.id != @item.user.id
+    redirect_to item_path(@item)
+   end
   end
   
   def create
