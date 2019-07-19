@@ -4,10 +4,8 @@ class ItemsController < ApplicationController
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
-    @ladies = []
-    @mens = []
-    item_list(@ladies, 1)
-    item_list(@mens, 2)
+    @ladies = item_list(1)
+    @mens = item_list(2)
   end
   
   def new
@@ -148,7 +146,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(remove_images: [])
   end
 
-  def item_list(item_array, i)
+  def item_list(i)
+    item_array = []
     Item.find_each do |item|
       category_id = item.category.parent.parent.id
       if category_id == i
@@ -156,8 +155,7 @@ class ItemsController < ApplicationController
       end
     end
     array_length = item_array.length
-    item_array.slice!(-4, (array_length - 4))
-    return item_array
+    item_array.slice!(-4, 4)
   end
 end
 
