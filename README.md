@@ -105,3 +105,4 @@ The final product of the team B.
 
 ### association
 - has_many :items
+
