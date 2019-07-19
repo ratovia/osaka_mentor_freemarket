@@ -107,3 +107,4 @@ The final product of the team B.
 - has_many :items
 
 test
+
