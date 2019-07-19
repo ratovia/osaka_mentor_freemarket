@@ -1,24 +1,24 @@
 @mixin ul-style() {
   display: block;
   list-style: none;
-  width: 200px;
+  width: 220px;
   background: white;
   border-bottom: $border-design;
 }
 .header_container_bottom__category {
-  &_list {
+  &_list1 {
     display: none;
   }
   &:hover {
-    .header_container_bottom__category_list {
+    .header_container_bottom__category_list1 {
       @include ul-style();
       font-weight: normal;
       position: absolute;
+      border-right: $border-design;
+      border-left: $border-design;
       top: 40px;
       left: 0;
       li {
-        border-right: $border-design;
-        border-left: $border-design;
         padding: 5px 10px;
         ul {
           display: none;
@@ -29,12 +29,15 @@
           border-right: 0px;
         ul {
             @include ul-style();
+            border-right: $border-design;
+            height: 650px;
             color: $black;
             position: absolute;
             top: 0px;
-            left: 200px;
+            left: 219px;
             li {
-              height: 40px;
+              height: 33px;
+              line-height: 33px;
               ul {
                 display: none;
               }
@@ -45,8 +48,10 @@
                 ul {
                   @include ul-style();
                   position: absolute;
+                  width: 300px;
                   top: 0px;
-                  left: 200px;
+                  left: 220px;
+                  height: 650px;
                   border-right: $border-design;
                   li {
                   background: white;
