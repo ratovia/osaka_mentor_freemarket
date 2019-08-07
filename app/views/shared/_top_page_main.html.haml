@@ -7,16 +7,16 @@
           = link_to "レディース 新着アイテム", "#"
         .main_block_new_items_area
           - @items = @ladies
-          = render @items
+          = render @items if @items.present?
       .pick_up_category_mens.main_block_new_items
         %h2
           = link_to "メンズ 新着アイテム", "#"
         .main_block_new_items_area
           - @items = @mens
-          = render @items
+          = render @items if @items.present?
       .pick_up_category_mens.main_block_new_items
         %h2
           = link_to "新着アイテム", "#"
         .main_block_new_items_area
           - @items = @latest_items
-          = render @items
+          = render @items if @items.present?
