@@ -48,7 +48,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :rbenv_custom_path, '/usr/local/rbenv'
 # config ssh
 set :ssh_options, auth_methods: ['publickey'],
-                    keys: ['~/.ssh/ratovia_ssh_key']
+                    keys: ['~/.ssh/ratovia_ssh_key.pem']
                   # keys: ['~/.ssh/mercari_25519']
 
 # config unicorn
