@@ -18,7 +18,7 @@
         %span メールアドレス
         %a.required_red 必須
         = f.email_field :email, {autofocus: true, autocomplete: "email", class: "email_input", placeholder: "PC・携帯どちらでも可"}
-        - if @user.nickname == ""
+        - unless @user.persisted?
           %span パスワード
           %a.required_red 必須
           = f.password_field :password, {class: "password_input", autocomplete: "new-password"}
