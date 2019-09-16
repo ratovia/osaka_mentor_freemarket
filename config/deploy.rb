@@ -59,7 +59,9 @@ set :keep_releases, 5 # releasesファイルを最大5つ残す
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
+    # invoke 'unicorn:restart'
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
   end
 end
 
