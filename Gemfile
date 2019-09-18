@@ -48,7 +48,9 @@ gem 'payjp'
 ### Add gem the 'omniauth-google-oauth2' and 'bundle install'
 gem 'omniauth-google-oauth2'
 # gem 'omniauth-facebook'
-# gem "omniauth-rails_csrf_protection"
+### mercari-study-step9
+### add protection gem
+gem "omniauth-rails_csrf_protection"
 gem 'gretel'
 gem 'toastr_rails'
 gem 'nokogiri', ">= 1.10.4"
