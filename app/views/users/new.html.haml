@@ -16,7 +16,9 @@
           -# <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
           -### mercari-study-8
           -### add button for google-Oauth
-          = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class:'btn-google'
+          -# = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class:'btn-google'
+          -### mercari-study-10
+          -### add change method post
+          = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, method: :post, class:'btn-google'
           = image_tag "google-icon.png", class:'icon_google'
-          -# = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path,method: :post, class:'btn-google'
     = render 'shared/new_signup_footer'
