@@ -1,4 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  ### mercari-study-step5
+  ### rails g devise:controllers
+
   def google_oauth2
     #
     # 53bmercari　
