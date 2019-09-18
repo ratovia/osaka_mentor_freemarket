@@ -44,7 +44,9 @@ gem 'active_hash'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'payjp'
 # gem 'omniauth'
-# gem 'omniauth-google-oauth2'
+### mercari-study-step1 
+### Add gem the 'omniauth-google-oauth2' and 'bundle install'
+gem 'omniauth-google-oauth2'
 # gem 'omniauth-facebook'
 # gem "omniauth-rails_csrf_protection"
 gem 'gretel'
