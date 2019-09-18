@@ -32,7 +32,10 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  # config.omniauth :google_oauth2, Rails.application.credentials.GOOGLE_CLIENT_ID, Rails.application.credentials.GOOGLE_CLIENT_SECRET, {}
+  ### mercari-study-step2
+  ### add omniauth config
+  # config.omniauth :google_oauth2, 'GOOGLE_CLIENT_ID', 'GOOGLE_CLIENT_SECRET', {}
+  config.omniauth :google_oauth2, Rails.application.credentials.GOOGLE_CLIENT_ID, Rails.application.credentials.GOOGLE_CLIENT_SECRET, {}
   # config.omniauth :facebook, Rails.application.credentials.FACEBOOK_KEY, Rails.application.credentials.FACEBOOK_SECRET, {}
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
