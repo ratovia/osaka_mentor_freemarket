@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  # 以下omniauthを有効化する記述
+  ### mercari-study-step4
+  ### add omniauth method to devise
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-        #  ,:omniauthable, 
-        # omniauth_providers: [:google_oauth2, :facebook]
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
   validates :email, uniqueness: true
 
