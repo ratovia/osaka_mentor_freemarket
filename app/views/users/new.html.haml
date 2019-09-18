@@ -10,8 +10,8 @@
         .signup_main__view_selection
           = link_to "メールアドレスで登録", new_user_registration_path, class:'btn-mail'
           = fa_icon "envelope-o", class:'icon_mail'
-          = link_to "Facebookで登録", user_facebook_omniauth_authorize_path,method: :post, class:'btn-facebook'
-          = fa_icon "facebook-square", class:'icon_facebook'
-          = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path,method: :post, class:'btn-google'
-          = image_tag "google-icon.png", class:'icon_google'
+          -# = link_to "Facebookで登録", user_facebook_omniauth_authorize_path,method: :post, class:'btn-facebook'
+          -# = fa_icon "facebook-square", class:'icon_facebook'
+          -# = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path,method: :post, class:'btn-google'
+          -# = image_tag "google-icon.png", class:'icon_google'
     = render 'shared/new_signup_footer'

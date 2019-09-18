@@ -4,10 +4,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    super
-    @user.uid = session[:uid]
-    @user.provider = session[:provider]
-    @user.save
+    # super
+    # @user.uid = session[:uid]
+    # @user.provider = session[:provider]
+    # @user.save
   end
 
 end

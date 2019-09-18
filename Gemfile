@@ -43,11 +43,11 @@ gem 'active_hash'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'payjp'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-facebook'
+# gem 'omniauth'
+# gem 'omniauth-google-oauth2'
+# gem 'omniauth-facebook'
+# gem "omniauth-rails_csrf_protection"
 gem 'gretel'
-gem "omniauth-rails_csrf_protection"
 gem 'toastr_rails'
 gem 'nokogiri', ">= 1.10.4"
 
