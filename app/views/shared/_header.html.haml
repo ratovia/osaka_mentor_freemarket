@@ -52,43 +52,16 @@
               = fa_icon "bell-o"
               お知らせ
           %ul.header_container_bottom__info_list
-            %li
-              = image_tag "mercari_profile.png"
-              .header_info__msg
-                チケットがあります
-                .header_info__msg__time
-                  = fa_icon "clock-o"
-                  2時間前
-              .header_info__chevrson_right
-                = fa_icon "chevron-right"
-            %li
-              = image_tag "mercari_profile.png"
-              .header_info__msg
-                チケットがあります
-                .header_info__msg__time
-                  = fa_icon "clock-o"
-                  2時間前
-              .header_info__chevrson_right
-                = fa_icon "chevron-right"
-            %li
-              = image_tag "mercari_profile.png"
-              .header_info__msg
-                チケットがあります
-                .header_info__msg__time
-                  = fa_icon "clock-o"
-                  2時間前
-              .header_info__chevrson_right
-                = fa_icon "chevron-right"
-            %li
-              = image_tag "mercari_profile.png"
-              .header_info__msg
-                チケットがあります
-                .header_info__msg__time
-                  = fa_icon "clock-o"
-                  2時間前
-              .header_info__chevrson_right
-                = fa_icon "chevron-right"
-            
+            - 4.times do |i|
+              %li
+                = image_tag "mercari_profile.png"
+                .header_info__msg
+                  チケットがあります
+                  .header_info__msg__time
+                    = fa_icon "clock-o"
+                    2時間前
+                .header_info__chevrson_right
+                  = fa_icon "chevron-right"
         .header_container_bottom__todo
           = link_to user_path(current_user) do
             %p
