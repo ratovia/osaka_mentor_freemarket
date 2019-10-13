@@ -18,6 +18,7 @@ $(function(){
         for (var i = 0; i < files.length; i++) {
           var file = files[i];
           var imageType = /image.*/;
+          uploadAreaSizing(image_num + i);
           if (!file.type.match(imageType)) {
             continue;
           }
@@ -58,8 +59,7 @@ $(function(){
       // display noneでinput隠す
       prev_input = `[data-id='${image_num - 1}']`;
       $(prev_input).css("display","none");
-      // uploadエリアのサイズを変える
-      uploadAreaSizing(image_num);
+      
       // 新しいinputだす
       appendFileInput(image_num);
     });
