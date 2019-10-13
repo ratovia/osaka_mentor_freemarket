@@ -21,14 +21,8 @@
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
-              = f.file_field :images, multiple: true, id: "upload_file", class: "upload_files", data:{id: "1"}
+              = f.file_field :images, multiple: true, id: "upload_file", class: "upload_files", data:{id: "0"}
               = f.hidden_field :file, class: "item_images_hidden", multiple: true
-          .under_area.prepend_area
-            .image_file_area
-              %p 
-                ドラッグアンドドロップ
-                %br
-                もしくはクリックをしてアップロード
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名 
