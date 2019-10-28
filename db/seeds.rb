@@ -16,5 +16,6 @@ CSV.read('db/category.csv', headers: true).each do |row|
     name: row['name'], 
     created_at: row['created_at'], 
     updated_at: row['updated_at'], 
-    category_id: row['category_id'])
+    category_id: row['category_id']
+  )
 end

@@ -12,11 +12,11 @@ describe "User" do
   describe 'invalid' do
     describe :email do
       it '重複して登録できないこと' do
-        duplicate_user2 = User.new(
-          email: 'test_case@test.local',
+        duplicate_user = User.new(
+          email: @user.email,
           password: 'testcase'
         )
-        expect(duplicate_user2).to be_invalid
+        expect(duplicate_user).to be_invalid
       end
       it '空データで登録できないこと' do
         user = User.new(
