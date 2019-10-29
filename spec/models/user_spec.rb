@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "User" do
+RSpec.describe User, type: :model do
   before do 
     @user = create(:user)
   end
@@ -12,33 +12,29 @@ describe "User" do
   describe 'invalid' do
     describe :email do
       it '重複して登録できないこと' do
-        duplicate_user = User.new(
-          email: @user.email,
-          password: 'testcase'
-        )
+        duplicate_user = build(:user, email: @user.email)
         expect(duplicate_user).to be_invalid
       end
       it '空データで登録できないこと' do
-        user = User.new(
-          email: nil,
-          password: 'testcase'
-        )
+        user = build(:user,email: nil)
+        expect(user).to be_invalid
+      end
+      it 'メールアドレスの形式でないと登録できないこと' do
+        user = build(:user,email: "hello")
         expect(user).to be_invalid
       end
     end
     describe :password do
       it '5文字以下で登録できないこと' do
-        user = User.new(
-          email: 'test_case@test.local',
-          password: 'test'
-        )
+        user = build(:user,password: "Passw",password_confirmation: "Passw")
         expect(user).to be_invalid
       end
       it '空データで登録できないこと' do
-        user = User.new(
-          email: 'test_case@test.local',
-          password: nil
-        )
+        user = build(:user,password: "")
+        expect(user).to be_invalid
+      end
+      it '再確認が一致しないと登録できないこと' do
+        user = build(:user,password: "Password",password_confirmation: "Password2")
         expect(user).to be_invalid
       end
     end
