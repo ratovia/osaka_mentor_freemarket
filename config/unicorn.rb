@@ -12,7 +12,6 @@ pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 
 #ポート番号/sockファイルを指定
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
-# listen "#{app_path}/tmp/sockets/unicorn.sock"
 
 #エラーログ
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
