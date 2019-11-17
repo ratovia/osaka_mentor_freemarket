@@ -2,9 +2,27 @@
   = render "shared/header"
   .container
     .left-column
-      .search-panel
+      .incremental-search-panel
         = form_with url: incremental_items_path ,method: :get ,class: "header_search" do |f| 
           = f.text_field :keyword ,{class: "header_search__input incremental", placeholder: "インクリメンタルサーチ！"}
+      .detail-search-panel
+        = search_form_for @q, url: "ransack" do |f|
+          詳細検索
+          .detail-search-panel_section
+            = fa_icon "plus"
+            キーワードを追加する
+            = f.search_field :name_cont, placeholder: "例) コート",class: "ransack_input_panel"
+          -# .detail-search-panel_section
+          -#   = fa_icon "align-justify"
+          -#   カテゴリーを選択する
+          -#   = f.search_field :name_cont
+          -#   = f.collection_select :category_id_eq, @category, :id, :name, :include_blank => '指定なし'
+          .detail-search-panel_section
+            .search_btn
+              .search_btn_reset
+                クリア
+              .search_btn_submit
+                = f.submit "完了"
     .right-column
       .main_block
         .main_block__text

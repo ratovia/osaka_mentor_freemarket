@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: [:index,:create,:new,:search,:incremental]
+  before_action :set_item, except: [:index,:create,:new,:search,:incremental, :ransack]
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
@@ -91,6 +91,14 @@ class ItemsController < ApplicationController
   def search
     @keyword = keyword_params[:keyword]
     @items = Item.where('name LIKE(?)', "%#{@keyword}%")
+    @q = Item.ransack(params[:q])
+  end
+
+  def ransack
+    @keyword = params[:q].values[0]
+    @q = Item.ransack(search_params)
+    @items = @q.result.includes(:category)
+    render :search
   end
 
   def incremental
@@ -156,6 +164,10 @@ class ItemsController < ApplicationController
     end
     array_length = item_array.length
     item_array.slice!(-4, 4)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end
 
