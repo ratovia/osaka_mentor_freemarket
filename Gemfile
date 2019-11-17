@@ -10,7 +10,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -37,7 +37,6 @@ gem 'jquery-rails', '>= 4.3.3', '< 4.3.5'
 gem 'haml-rails', '>= 2.0.1'
 gem 'erb2haml', '>= 0.1.5'
 gem 'font-awesome-rails', '>= 4.7.0.5'
-gem 'font-awesome-sass'
 gem 'devise', '>= 4.6.2'
 gem 'active_hash'
 # Reduces boot times through caching; required in config/boot.rb
@@ -50,6 +49,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'gretel'
 gem 'toastr_rails'
 gem 'nokogiri', ">= 1.10.4"
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

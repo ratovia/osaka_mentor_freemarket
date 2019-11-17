@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'incremental'
+      get 'ransack'
     end
     resources :buy_histories, only: [:new, :create]
   end
