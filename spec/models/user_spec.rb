@@ -3,14 +3,11 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do 
     @user = create(:user)
-    @google_user = User.from_omniauth(google_mock)
+    @google_user = create(:user, :google_user)
   end
   describe 'valid' do
     it 'パスワードとメール指定のみで登録できること' do
       expect(@user).to be_valid
-    end
-    it 'Omniauthの情報でユーザが登録できること' do
-      expect(@google_user).to be_valid
     end
   end
   describe 'invalid' do
@@ -41,6 +38,15 @@ RSpec.describe User, type: :model do
         user = build(:user,password: "Password",password_confirmation: "Password2")
         expect(user).to be_invalid
       end
+    end
+  end
+
+  describe 'method' do
+    describe 'from_omniauth', foo: true do
+      it "from_omniauth" do
+        google_user = User.from_omniauth(google_mock)
+        expect(@google_user.email).to eq google_user.email
+      end      
     end
   end
 end

@@ -5,5 +5,10 @@ FactoryBot.define do
     password = Faker::Internet.password(min_length: 8)
     password {password}
     password_confirmation {password}
+
+    trait :google_user do
+      nickname {"mockuser"}
+      email {"sample@test.com"}
+    end
   end
 end
