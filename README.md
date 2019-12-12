@@ -1,5 +1,5 @@
 # freemarket_sample_53b
-It is a copy site of popular freemarket application.
+It is a copy site of popular freemarket application!
 We are Osaka Tech::Expert 53term. The team B!
 The final product of the team B.
 
