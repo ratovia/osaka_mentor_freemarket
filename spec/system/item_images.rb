@@ -15,6 +15,4 @@ describe "item_images", type: :system do
     page.attach_file('upload_file', 'public/test/images/test_image.jpg', make_visible: true)
     expect(page).to have_selector '.select_image', count: 1
   end
-  
 end
-

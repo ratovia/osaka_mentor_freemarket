@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Users::OmniauthCallbacksController do
-  # before do 
+  # before do
   #   @google_user = User.from_omniauth(google_mock)
   # end
   # describe 'GET #google_oauth2' do

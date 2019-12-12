@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: [:index,:create,:new,:search,:incremental, :ransack]
+  before_action :set_item, except: [:index, :create, :new, :search, :incremental, :ransack]
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
     @ladies = item_list(1)
     @mens = item_list(2)
   end
-  
+
   def new
     @prefectures = Prefecture.all
     @item = Item.new
@@ -21,11 +21,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-   if current_user.id != @item.user.id
-    redirect_to item_path(@item)
-   end
+    if current_user.id != @item.user.id
+      redirect_to item_path(@item)
+    end
   end
-  
+
   def create
     @item = Item.new(item_params)
     if item_params[:images].present? && @item.save
@@ -44,18 +44,18 @@ class ItemsController < ApplicationController
   def update
     images = @item.images
     if @item.update(
-        name: item_params["name"],
-        price: item_params["price"],
-        description: item_params["description"],
-        status: item_params["status"],
-        delivery_burden: item_params["delivery_burden"],
-        delivery_method: item_params["delivery_method"],
-        delivery_prefecture: item_params["delivery_prefecture"],
-        delivery_time: item_params["delivery_time"],
-        user_id: item_params["user_id"],
-        size: item_params["size"],
-        category_id: item_params["category_id"]
-        )
+      name: item_params["name"],
+      price: item_params["price"],
+      description: item_params["description"],
+      status: item_params["status"],
+      delivery_burden: item_params["delivery_burden"],
+      delivery_method: item_params["delivery_method"],
+      delivery_prefecture: item_params["delivery_prefecture"],
+      delivery_time: item_params["delivery_time"],
+      user_id: item_params["user_id"],
+      size: item_params["size"],
+      category_id: item_params["category_id"]
+    )
       if item_params[:images].present?
         @item.update(images: item_params["images"])
       end
@@ -82,7 +82,6 @@ class ItemsController < ApplicationController
     flash[:notice] = "商品を削除しました"
     redirect_to root_path
   end
-
 
   def preview
     @items = current_user.items
@@ -113,8 +112,9 @@ class ItemsController < ApplicationController
     @items.uniq!
     respond_to do |format|
       format.json {}
-    end 
+    end
   end
+
   private
 
   def keyword_params
@@ -170,4 +170,3 @@ class ItemsController < ApplicationController
     params.require(:q).permit!
   end
 end
-

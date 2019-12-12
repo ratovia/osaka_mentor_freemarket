@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   def new
   end
 
@@ -9,5 +8,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.provider = session[:provider]
     @user.save
   end
-
 end

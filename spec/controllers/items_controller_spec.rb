@@ -16,5 +16,4 @@ describe ItemsController do
       expect(response).to render_template :new
     end
   end
-  
 end
