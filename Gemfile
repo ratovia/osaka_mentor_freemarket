@@ -55,7 +55,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'bcrypt_pbkdf'
   gem 'bullet', '>= 6.0.0'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capistrano', '>= 3.11.2'
   gem 'capistrano-bundler', '>= 1.5.0'
   gem 'capistrano-rails', '>= 1.4.0'
@@ -92,4 +92,4 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

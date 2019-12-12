@@ -1,5 +1,5 @@
 # サーバ上でのアプリケーションコードが設置されているディレクトリ
-app_path = File.expand_path('../../../', __FILE__)
+app_path = File.expand_path('../..', __dir__)
 
 # レスポンスを生成するworkerの数
 worker_processes 1

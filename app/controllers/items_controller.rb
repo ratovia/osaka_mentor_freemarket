@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: [:index, :create, :new, :search, :incremental, :ransack]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_item, except: %i[index create new search incremental ransack]
 
   def index
     @latest_items = Item.limit(20).order("id DESC")
@@ -21,9 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user.id != @item.user.id
-      redirect_to item_path(@item)
-    end
+    redirect_to item_path(@item) if current_user.id != @item.user.id
   end
 
   def create
@@ -56,9 +54,7 @@ class ItemsController < ApplicationController
       size: item_params["size"],
       category_id: item_params["category_id"]
     )
-      if item_params[:images].present?
-        @item.update(images: item_params["images"])
-      end
+      @item.update(images: item_params["images"]) if item_params[:images].present?
       if remove_images_params[:remove_images].present?
         if @item.images.length <= remove_images_params[:remove_images].length
           flash[:alert] = "商品情報を更新できませんでした"
@@ -158,9 +154,7 @@ class ItemsController < ApplicationController
     item_array = []
     Item.find_each do |item|
       category_id = item.category.parent.parent.id
-      if category_id == i
-        item_array.push(item)
-      end
+      item_array.push(item) if category_id == i
     end
     array_length = item_array.length
     item_array.slice!(-4, 4)

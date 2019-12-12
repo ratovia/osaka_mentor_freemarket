@@ -34,7 +34,7 @@ describe "Item" do
     it "商品の状態が空の時出品できない" do
       item = build(
         :item,
-        status: "",
+        status: ""
       )
       item.valid?
       expect(item.errors[:status]).to include("を入力してください")
@@ -43,7 +43,7 @@ describe "Item" do
     it "商品名が41文字以上の時に出品できない" do
       item = build(
         :item,
-        name: "アイテム" * 41,
+        name: "アイテム" * 41
       )
       item.valid?
       expect(item.errors[:name]).to include("は40文字以内で入力してください")
@@ -52,7 +52,7 @@ describe "Item" do
     it "商品説明が1000文字以上の時に出品できない" do
       item = build(
         :item,
-        description: "商品説明欄" * 201,
+        description: "商品説明欄" * 201
       )
       item.valid?
       expect(item.errors[:description]).to include("は1000文字以内で入力してください")
