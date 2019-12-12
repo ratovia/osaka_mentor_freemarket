@@ -9,7 +9,7 @@ class CreditsController < ApplicationController
       @card_info = get_card_info(current_user)
     end
   end
-  
+
   def new
     if current_user.credits.present?
       redirect_to credits_path
@@ -19,12 +19,12 @@ class CreditsController < ApplicationController
   def create
     if current_user.credits.present?
       credit = current_user.credits.first
-      @credit = create_payjp_card(current_user , credit.costomer)
+      @credit = create_payjp_card(current_user, credit.costomer)
     else
       customer = create_payjp_customer()
       @credit = create_payjp_card(current_user, customer)
     end
-    
+
     if @credit.save
       flash[:notice] = "クレジットカードを登録しました"
       redirect_to credits_path
@@ -34,7 +34,7 @@ class CreditsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     if current_user.credits.present?
       Payjp.api_key = get_payjp_key()
       credit = current_user.credits.first
@@ -53,7 +53,7 @@ class CreditsController < ApplicationController
     customer = Payjp::Customer.create()
   end
 
-  def create_payjp_card(user,customer)
+  def create_payjp_card(user, customer)
     customer.cards.create(card: token_parmas[:token])
     credit = Credit.new(
       user_id: user.id,
@@ -84,16 +84,17 @@ class CreditsController < ApplicationController
     else
       card_info[:brand] = "non-card.png"
     end
-    
+
     card_info[:last4] = "*" * 12 + card.last4
-    card_info[:exp_date] = "#{card.exp_month}/#{card.exp_year.to_s.slice(2,2)}"
+    card_info[:exp_date] = "#{card.exp_month}/#{card.exp_year.to_s.slice(2, 2)}"
     return card_info
   end
 
-  def pay(user,item)
+  def pay(user, item)
     if user.nil? || item.nil? || user.credits.blank?
       return false
     end
+
     Payjp.api_key = get_payjp_key()
     charge = Payjp::Charge.create(
       amount: item.price,

@@ -11,7 +11,7 @@ describe "Item" do
       expect(item).to be_valid
     end
   end
-  
+
   describe "invalid" do
     it "商品名が空の時出品できない" do
       item = build(
@@ -68,20 +68,20 @@ describe "Item" do
     end
 
     it "価格が300円未満の場合できない" do
-    item = build(
-      :item,
-      price: "299"
-    )
-    item.valid?
-    expect(item.errors[:price]).to include("は300以上の値にしてください")
+      item = build(
+        :item,
+        price: "299"
+      )
+      item.valid?
+      expect(item.errors[:price]).to include("は300以上の値にしてください")
     end
     it "価格が9,999,999円を超える場合出品できない" do
       item = build(
-      :item,
-      price: "10000000"
-    )
-    item.valid?
-    expect(item.errors[:price]).to include("は9999999以下の値にしてください")
+        :item,
+        price: "10000000"
+      )
+      item.valid?
+      expect(item.errors[:price]).to include("は9999999以下の値にしてください")
     end
   end
 end

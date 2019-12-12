@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
+lock "~> 3.11.2"
 
 # application name
 set :application, "freemarket_sample_53b"
@@ -48,8 +48,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :rbenv_custom_path, '/usr/local/rbenv'
 # config ssh
 set :ssh_options, auth_methods: ['publickey'],
-                    keys: ['~/.ssh/ratovia_ssh_key.pem']
-                  # keys: ['~/.ssh/mercari_25519']
+                  keys: ['~/.ssh/ratovia_ssh_key.pem']
+# keys: ['~/.ssh/mercari_25519']
 
 # config unicorn
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
@@ -68,7 +68,7 @@ end
 namespace :deploy do
   desc 'db_seed'
   task :db_seed do
-    on roles(:db) do |host|
+    on roles(:db) do |_host|
       with rails_env: fetch(:rails_env) do
         within current_path do
           execute :bundle, :exec, :rake, 'db:seed'

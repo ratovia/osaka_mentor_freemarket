@@ -14,6 +14,7 @@ module OmniauthMacros
       }
     )
   end
+
   def google_build_mock
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
       {

@@ -9,12 +9,12 @@ class User < ApplicationRecord
   has_many :credits
   has_many :buy_histories
   has_many :items
-  #SNS認証で得られたユーザー情報を取得する
+  # SNS認証で得られたユーザー情報を取得する
   def self.from_omniauth(access_token)
     data = access_token.info
-    #emailが既に登録されているか確認する
+    # emailが既に登録されているか確認する
     user = User.where(email: data['email']).first
-    password = Devise.friendly_token[0,20]
+    password = Devise.friendly_token[0, 20]
     unless user
       user = User.new(
         nickname: data['name'],

@@ -7,7 +7,7 @@ describe "SNSFeature", sns: true do
       Rails.application.env_config['omniauth.auth'] = google_mock
       visit new_user_path
     end
-    
+
     it "「Googleで登録」を押すと適切な登録画面が表示される" do
       click_link "Googleで登録"
       expect(page).to have_content '会員情報入力'
