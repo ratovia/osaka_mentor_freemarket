@@ -3,7 +3,7 @@
 
 # 環境をtestにし、環境ファイルを読み込み、それで本番環境だったらabortする。
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 require 'spec_helper'

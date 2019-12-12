@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # 以下omniauthを有効化する記述
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+         :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   validates :email, uniqueness: true
 
@@ -15,14 +15,12 @@ class User < ApplicationRecord
     # emailが既に登録されているか確認する
     user = User.where(email: data['email']).first
     password = Devise.friendly_token[0, 20]
-    unless user
-      user = User.new(
-        nickname: data['name'],
-        email: data['email'],
-        password: password,
-        password_confirmation: password
-      )
-    end
+    user ||= User.new(
+      nickname: data['name'],
+      email: data['email'],
+      password: password,
+      password_confirmation: password
+    )
     user
   end
 end
