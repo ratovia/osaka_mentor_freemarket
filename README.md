@@ -3,6 +3,9 @@ It is a copy site of popular freemarket application.
 We are Osaka Tech::Expert 53term. The team B!
 The final product of the team B.
 
+
+
+
 # Database design
 
 ## Users table
