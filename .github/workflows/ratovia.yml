@@ -1,0 +1,46 @@
+name: rspecer
+
+on:
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql
+        ports:
+        - 3306
+    container:
+      image: ratovia/tech-linux
+      
+  steps:
+    - uses: actions/checkout@v1
+
+    - name: Setting
+      run: 
+        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+        echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+        source ~/.bash_profile
+        rbenv rehash
+    
+    - name: install bundler2
+      run: |
+        gem install bundler -v 2.0.1
+    - name: Bundle install
+      run: bundle install --jobs 4 --retry 3
+  
+    - name: Setup Database
+      run: |
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+        bundle exec rake db:seed
+      env:  
+        RAILS_ENV: test
+
+    - name: Run rspec
+      run: bundle exec rspec
+      env:
+        RAILS_ENV: test
