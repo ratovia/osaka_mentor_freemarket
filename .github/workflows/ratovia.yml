@@ -16,7 +16,7 @@ jobs:
     container:
       image: ratovia/tech-linux
       
-  steps:
+    steps:
     - uses: actions/checkout@v1
 
     - name: Setting
