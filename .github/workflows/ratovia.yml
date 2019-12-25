@@ -25,7 +25,7 @@ jobs:
         rbenv rehash
         ruby -v
         gem install bundler -v 2.0.1
-        yum install mysql-devel
+        yum install -y mysql-devel
         bundle install --jobs 4 --retry 3
       shell: bash
     
