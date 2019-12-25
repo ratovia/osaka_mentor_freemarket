@@ -23,23 +23,13 @@ jobs:
       run: |
         source /etc/profile
         rbenv rehash
-        ruby -v
         gem install bundler -v 2.0.1
         yum install -y mysql-devel
         bundle install --jobs 4 --retry 3
-      shell: bash
-    
-    - name: Setup Database
-      run: |
         bundle exec rake db:create
         bundle exec rake db:schema:load
         bundle exec rake db:seed
+        bundle exec rspec
       shell: bash
       env:  
-        RAILS_ENV: test
-
-    - name: Run rspec
-      run: bundle exec rspec
-      shell: bash
-      env:
         RAILS_ENV: test
