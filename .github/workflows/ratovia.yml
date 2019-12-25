@@ -8,14 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
-        ports:
-        - 3306
     container:
       image: ratovia/tech-linux
       
@@ -27,7 +19,6 @@ jobs:
         source /etc/profile
         rbenv rehash
         gem install bundler -v 2.0.1
-        yum install -y mysql-devel
         bundle install --jobs 4 --retry 3
         bundle exec rake db:create
         bundle exec rake db:schema:load
@@ -36,4 +27,3 @@ jobs:
       shell: bash
       env:
         RAILS_ENV: test 
-        DATABASE_URL: "mysql2://root:root@127.0.0.1:3306/freemarket_sample_53b"
