@@ -35,5 +35,3 @@ jobs:
         bundle exec rake db:seed
         bundle exec rspec
       shell: bash
-      env:  
-        RAILS_ENV: test
