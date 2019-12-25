@@ -21,9 +21,7 @@ jobs:
 
     - name: Setting
       run: |
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-        echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-        source ~/.bash_profile
+        source /etc/profile
         rbenv rehash
       shell: bash
     
