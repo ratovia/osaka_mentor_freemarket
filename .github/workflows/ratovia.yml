@@ -11,16 +11,14 @@ jobs:
     services:
       mysql:
         image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: root
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
         ports:
         - 3306
     container:
       image: ratovia/tech-linux
-      env:
-        RAILS_ENV: test
-        RAILS_DATABASE_HOST: mysql
-        RAILS_DATABASE_USER: root
-        RAILS_DATABASE_PASSWORD: root
+      
     steps:
     - uses: actions/checkout@v1
     
