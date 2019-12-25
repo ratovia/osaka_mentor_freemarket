@@ -25,6 +25,7 @@ jobs:
         rbenv rehash
         ruby -v
         gem install bundler -v 2.0.1
+        bundle config --global build.mysql2 --with-opt-dir="$(brew --prefix openssl)"
         bundle install --jobs 4 --retry 3
       shell: bash
     
