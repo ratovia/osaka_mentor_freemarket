@@ -27,8 +27,8 @@ jobs:
     
     - name: install bundler2
       run: |
-      ruby -v
-      gem install bundler -v 2.0.1
+        ruby -v
+        gem install bundler -v 2.0.1
       shell: bash
       
     - name: Bundle install
