@@ -23,18 +23,11 @@ jobs:
       run: |
         source /etc/profile
         rbenv rehash
-      shell: bash
-    
-    - name: install bundler2
-      run: |
         ruby -v
         gem install bundler -v 2.0.1
+        bundle install --jobs 4 --retry 3
       shell: bash
-      
-    - name: Bundle install
-      run: bundle install --jobs 4 --retry 3
-      shell: bash
-  
+    
     - name: Setup Database
       run: |
         bundle exec rake db:create
