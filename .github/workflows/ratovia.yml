@@ -34,3 +34,6 @@ jobs:
         bundle exec rake db:seed
         bundle exec rspec
       shell: bash
+      env:
+        RAILS_ENV: test 
+        DATABASE_URL: "mysql2://root:root@127.0.0.1:3306/freemarket_sample_53b"
