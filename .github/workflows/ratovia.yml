@@ -24,6 +24,7 @@ jobs:
         bundle exec rake db:schema:load
         bundle exec rake db:seed
         bundle exec rspec
+        service mysqld start
       shell: bash
       env:
         RAILS_ENV: test 
