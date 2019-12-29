@@ -1,6 +1,28 @@
 ---
 ja:
   activerecord:
+    models:
+      user: ユーザ
+      category: カテゴリー
+      item: 商品
+    attributes:
+      user:
+        nickname: 名前
+        email: メールアドレス
+        password: パスワード
+      item:
+        name: 商品名
+        price: 価格
+        description: 説明文
+        status: 商品の状態
+        delivery_burden: 配送料の負担先
+        delivery_method: 配送方法
+        delivery_prefecture: 発送元地域
+        delivery_time: 発送までの日数
+        size: サイズ
+        category: カテゴリー
+      category:
+        name: カテゴリー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -205,3 +227,4 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+      
