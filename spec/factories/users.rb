@@ -10,9 +10,5 @@ FactoryBot.define do
       nickname { "mockuser" }
       email { "google@test.com" }
     end
-    trait :google_user_build do
-      nickname { "mockuser" }
-      email { "google-build@test.com" }
-    end
   end
 end
