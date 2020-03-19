@@ -27,7 +27,7 @@
             .price_container_pay_money__display
               = "¥#{@item.price}"
           - if @card_info.nil?
-            .price_container_purchase_button.disable_buy_btn
+            .price_container_purchase_button.disable_buy_btn#pay_button
               購入する
           - else 
             .price_container_purchase_button
