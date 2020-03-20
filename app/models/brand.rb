@@ -3,5 +3,5 @@ class Brand < ApplicationRecord
   has_many :products, dependent: :destroy
 
   # validation
-
+  validates :name, presence: true
 end

@@ -4,4 +4,5 @@ class Size < ApplicationRecord
   belongs_to :size_group
 
   # validation
+  validates :name, presence: true
 end
