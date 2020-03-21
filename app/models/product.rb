@@ -1,11 +1,12 @@
 class Product < ApplicationRecord
   # association
   has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images
   belongs_to :seller, class_name: 'User'
-  belongs_to :buyer,  class_name: 'User'
+  belongs_to :buyer,  class_name: 'User', optional: true
   belongs_to :product_category
   # product.size_groupと使えるようになる
-  delegate :size_group, to: :category
+  delegate :size_group, to: :product_category
   belongs_to :size,  optional: :true
   belongs_to :brand, optional: :true
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -15,10 +16,11 @@ class Product < ApplicationRecord
   validates :name, presence: true, length: { maximum: 40 }
   validates :price, presence: true,
                     numericality: { greater_than_or_equal_to: 300,
-                    less_than_or_equal_to: 9999999 }
+                    less_than_or_equal_to: 9_999_999 }
   validates :description, presence: true, length: { maximum: 1000 }
   validates :condition, :delivery_burden, :delivery_method, :delivery_time, :status, :prefecture_id, presence: true
   validates :size, presence: true, if: Proc.new{ |product| product.size_group.present? }
+  validate :validate_images
 
   # enums
   # 商品の状態
@@ -59,4 +61,11 @@ class Product < ApplicationRecord
     sold: 2,
     stopped: 3,
   }
+
+  private
+
+  def validate_images
+    errors.add(:images, 'を1つ以上選択してください') if images.length.zero?
+    errors.add(:images, 'は最大10枚までです') if images.length > 10
+  end
 end
