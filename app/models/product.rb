@@ -65,7 +65,7 @@ class Product < ApplicationRecord
   private
 
   def validate_images
-    errors.add(:images, 'を1つ以上選択してください') if images.length.zero?
+    errors.add(:images, 'を入力してください') if images.length.zero?
     errors.add(:images, 'は最大10枚までです') if images.length > 10
   end
 end
