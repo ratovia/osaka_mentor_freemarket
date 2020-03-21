@@ -16,19 +16,18 @@ class CreditsController < ApplicationController
 
   def create
     if current_user.credits.present?
-      credit = current_user.credits.first
-      @credit = create_payjp_card(current_user, credit.costomer)
-    else
-      customer = create_payjp_customer
-      @credit = create_payjp_card(current_user, customer)
-    end
-
-    if @credit.save
-      flash[:notice] = "クレジットカードを登録しました"
       redirect_to credits_path
     else
-      flash[:alert] = "登録に失敗しました"
-      render "new"
+      Payjp.api_key = get_payjp_key
+      customer = Payjp::Customer.create
+      @credit = create_payjp_card(current_user, customer)
+      if @credit.save
+        flash[:notice] = "クレジットカードを登録しました"
+        redirect_to credits_path
+      else
+        flash[:alert] = "登録に失敗しました"
+        render "new"
+      end
     end
   end
 
@@ -39,9 +38,9 @@ class CreditsController < ApplicationController
       customer = Payjp::Customer.retrieve(credit.customer_id)
       customer.delete
       credit.destroy
+      flash[:notice] = "クレジットカードを削除しました"
     end
-    flash[:notice] = "クレジットカードを削除しました"
-    redirect_to action: "index"
+    redirect_to credits_path
   end
 
   private
