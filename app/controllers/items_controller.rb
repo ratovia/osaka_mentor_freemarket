@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
   before_action :set_item, except: %i[index create new search incremental ransack]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @latest_items = Item.limit(20).order("id DESC")

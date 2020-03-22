@@ -1,6 +1,5 @@
 class BuyHistoriesController < CreditsController
   before_action :set_item
-  before_action :authenticate_user!
 
   def new
     redirect_to item_path(@item) if @item.buy_history.present?
