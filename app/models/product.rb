@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   belongs_to :buyer,  class_name: 'User', optional: true
   belongs_to :product_category
   # product.size_groupと使えるようになる
-  delegate :size_group, to: :product_category
+  delegate :size_group, to: :product_category, allow_nil: true
   belongs_to :size,  optional: :true
   belongs_to :brand, optional: :true
   extend ActiveHash::Associations::ActiveRecordExtensions

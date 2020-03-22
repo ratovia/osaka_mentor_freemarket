@@ -1,0 +1,152 @@
+.new_item_page#products_form
+  .new_item_page_container
+    .new_item_page_container_top
+      .new_item_page_container_top__img
+        = link_to root_path do
+          = image_tag "logo.svg"
+    = form_with model: @product, class: "new_item_page_container_main", local: true do |f|
+      .new_item_page_container_main_title
+        商品の情報を入力
+      .new_item_page_container_main_item_image
+        = render "shared/error_messages" , model: f.object
+        %p.new_item_page_container_main_label
+          出品画像
+          %span.required
+            必須
+        %p.desc 最大10枚までアップロードできます。
+        .new_item_page_container_main_item_image_area
+          .top_area.prepend_area
+            .js-previews
+            - label_index = @product.persisted? ? @product.images.length : 0
+            = label_tag :image, :src, for: "product_images_attributes_#{label_index}_src", class: 'image_file_area js-label' do
+              %p
+                ドラッグアンドドロップ
+                %br
+                もしくはクリックをしてアップロード
+          .js-hidden_inputs
+            .js-inputs
+              = f.fields_for :images do |i|
+                = i.file_field :src
+      .new_item_page_container_main_item_description
+        %p.new_item_page_container_main_label
+          商品名
+          %span.required
+            必須
+        = f.text_field :name, {placeholder: "商品名 (必須40文字まで)", maxlength: "40"}
+        %p.new_item_page_container_main_label
+          商品の説明
+          %span.required
+            必須
+        = f.text_area :description, {maxlength: "1000",  placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+      .new_item_page_container_main_item_detail
+        .left_content
+          商品の詳細
+        .right_content
+          %p.new_item_page_container_main_label
+            カテゴリ
+            %span.required
+              必須
+          .select_box.category1.new_category1
+            = f.collection_select :product_category_id, ProductCategory.roots, :id, :name, { include_blank: "---", selected: "---" }, {class: 'js-product_category'}
+            = fa_icon "angle-down"
+          #select_size
+            %p.new_item_page_container_main_label.select_label
+              サイズ
+              %span.required
+                必須
+            .select_box.js-size
+          #input_bland
+            %p.new_item_page_container_main_label.select_label
+              ブランド
+              %span.optional
+                任意
+            .input_box
+              = f.text_field :bland_id, {placeholder: "例) シャネル"}
+          %p.new_item_page_container_main_label.select_label
+            商品の状態
+            %span.required
+              必須
+          .select_box
+            = f.collection_select :condition, Product.conditions, :first, :first, {include_blank: "---", selected: "---"}
+            = fa_icon "angle-down"
+      .new_item_page_container_main_item_delivary
+        .left_content
+          配送について
+        .right_content
+
+          %p.new_item_page_container_main_label
+            配送料の負担
+            %span.required
+              必須
+          .select_box
+            = f.collection_select :delivery_burden, Product.delivery_burdens, :first, :first, { include_blank: "---", selected: "---" }
+            = fa_icon "angle-down"
+
+          %p.new_item_page_container_main_label
+            配送の方法
+            %span.required
+              必須
+          .select_box
+            = f.collection_select :delivery_method, Product.delivery_methods, :first, :first, { include_blank: "---", selected: "---" }
+            = fa_icon "angle-down"
+
+          %p.new_item_page_container_main_label
+            発送元の地域
+            %span.required
+              必須
+          .select_box
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+            = fa_icon "angle-down"
+          %p.new_item_page_container_main_label
+            発送までの日数
+            %span.required
+              必須
+          .select_box
+            = f.collection_select :delivery_time, Product.delivery_times, :first, :first, { include_blank: "---", selected: "---" }
+            = fa_icon "angle-down"
+      .new_item_page_container_main_item_price
+        .left_content
+          販売価格
+          %span (300〜9,999,999)
+        .right_content
+          .input_price
+            %p.new_item_page_container_main_label
+              価格
+              %span.required
+                必須
+            .input_price__area
+              ¥
+              = f.text_field :price, {id: "price", placeholder: "例）300", maxlength: "7", value: ""}
+          .sales_fee
+            %p 販売手数料(10%)
+            %p.sales_fee__computed -
+          .sales_benefit
+            %p 販売利益
+            %p.sales_benefit__computed -
+      .new_item_page_container_main_submit
+        %p.new_item_page_container_main_submit__attension
+          = link_to "禁止されている出品", "#"
+          、
+          = link_to "行為", "#"
+          を必ずご確認ください。
+          %br
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "#"
+            は犯罪であり処罰される可能性があります。
+            %br
+              また、出品をもちまして
+              = link_to "加盟店規約", "#"
+              に同意したことになります。
+        = f.submit "出品する", {id: "item_submit"}
+        = link_to "もどる", :back, class: "page_back"
+    .new_item_page_container_bottom
+      .bottom__attention
+        %span プライバシーポリシー
+        %span メルカリ利用規約
+        %span 特定商取引に関する表記
+      .bottom__logo
+        = link_to root_path do
+          = image_tag 'logo-gray.svg'
+      .bottom__copy_light
+        &copy;2019 Mercari
+  = render "shared/new_item_button"

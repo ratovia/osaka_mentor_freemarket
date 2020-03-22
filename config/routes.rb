@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     end
     resources :buy_histories, only: %i[new create]
   end
+
+  resources :products, only: %i[ new create edit update ]
+
   resources :users, only: %i[new show edit update] do
     member do
       get 'identification'
