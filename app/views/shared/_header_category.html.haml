@@ -4,7 +4,7 @@
 %ul.header_container_bottom__category_list1
   - Category.where('id < 14').each do |category|
     %li.category_list_item{data: {id: category.id}}
-      = category
+      = category.name
       %ul
         - Category.where(category_id: category.id).each do |child_category|
           %li.category_list_item{data: {id: child_category.id}}
@@ -17,4 +17,4 @@
                   - break
 
 -# %ul.header_category_box
--#   %li 
+-#   %li aaaa
