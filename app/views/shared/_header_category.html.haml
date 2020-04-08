@@ -1,0 +1,25 @@
+%p
+  = fa_icon "list"
+  カテゴリーから探す
+%ul.header_container_bottom__category_list1
+  - Category.where('id < 14').each do |category|
+    %li.category_list_item{data: {id: category.id}}
+      = category
+      %ul
+        - Category.where(category_id: category.id).each do |child_category|
+          %li.category_list_item{data: {id: child_category.id}}
+            = child_category.name
+            %ul
+              - Category.where(category_id: child_category.id).each_with_index do |grandchild_category, index|
+                %li.category_list_item{data: {id: grandchild_category.id}}
+                  = grandchild_category.name
+                - if index == 18
+                  - break
+
+-# %ul.header_category_box
+-#   %li aaaaaaa
+-#   %li aaaaaaaaaaaaa
+-#   %li
+-#   %li
+-#   %li
+-#   %li
