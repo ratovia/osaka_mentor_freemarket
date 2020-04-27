@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = create(:user)
-    @google_user = create(:user, :google_user)
+    # @google_user = create(:user, :google_user)
+    @google_user = create(:google_user)
   end
   describe 'valid' do
     it 'パスワードとメール指定のみで登録できること' do
