@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 describe ItemsController do
-  before do
-    login create(:user)
+  describe 'ログイン' do
+    before do
+      login create(:user)
+    end
   end
   describe 'GET #index' do
     it "indexアクションが動いた時にindex.html.hamlにページが移動したか" do

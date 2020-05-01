@@ -1,3 +1,34 @@
+# RSpecロープレ！
+
+このブランチはRspecロープレ用のブランチです。
+
+準備方法は以下の通り、
+
+```
+git clone -b study-rspec https://github.com/ratovia/freemarket_sample_53b.git freemarket_rspec_rollplay
+cd freemarket_rspec_rollpaly
+bundle install
+rails db:create
+rails db:migrate
+rails db:migrate RAILS_ENV=test
+
+bundle exec rspec
+```
+
+## 基本問題
+bundle exec rspecで発生したエラーを解決していきます。
+よく質問が来る部分を抽出して問題にしました。
+簡単かと思いますが、すべて解決できるようになっていたほうが良いと思います。
+
+## 発展問題
+各スペックに_specをつけると実施できます。
+### レベル１ (devise周り)
+spec/controllers/item_controller.rb → spec/controllers/item_controller_spec.rb
+### レベル２ (mock周り)
+spec/controllers/credits_controller.rb → spec/controllers/credits_controller_spec.rb
+### レベル3  (capybara周り)
+spec/features/users.rb → spec/features/users_spec.rb
+
 # freemarket_sample_53b
 It is a copy site of popular freemarket application.
 We are Osaka Tech::Expert 53term. The team B!

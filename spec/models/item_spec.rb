@@ -19,14 +19,11 @@ describe "Item" do
         name: ""
       )
       item.valid?
-      expect(item.errors[:name]).to include("を入力してください")
+      expect(item.errors[:name]).to include("can't be blank")
     end
 
     it "価格が空の時出品できない" do
-      item = build(
-        :item,
-        price: ""
-      )
+      item = build(:item)
       item.valid?
       expect(item.errors[:price]).to include("を入力してください", "は数値で入力してください")
     end

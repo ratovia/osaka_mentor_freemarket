@@ -9,10 +9,9 @@ describe "SNSFeature", sns: true do
     end
 
     it "「Googleで登録」を押すと適切な登録画面が表示される" do
-      click_link "Googleで登録"
       expect(page).to have_content '会員情報入力'
       # nickname及びemailは入力済みになる
-      expect(find_field(id: 'user_nickname').value).not_to eq ""
+      expect(find_field(id: 'user_name').value).not_to eq ""
       expect(find_field(id: 'user_email').value).not_to eq ""
       # パスワード入力欄は表示されなくなる
       expect(page).not_to have_content 'パスワード'

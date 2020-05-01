@@ -15,7 +15,7 @@ RSpec.describe CreditsController, type: :controller do
         payjp_customer = double("Payjp::Customer")
         payjp_list = double("Payjp::ListObject")
         payjp_card = double("Payjp::Card")
-        allow(Payjp::Customer).to receive(:retrieve).and_return(payjp_customer) # Payjp::Customer.retrieve()というメソッドがきたらpayjp_customerというモックを返す
+        allow(Payjp::Customer).to receive(:create).and_return(payjp_customer)
         allow(payjp_customer).to receive(:cards).and_return(payjp_list) # customer.cardsというメソッドがきたらpayjp_listというモックを返す
         allow(payjp_list).to receive(:retrieve).and_return(payjp_card) # customer.cards.retrieve()というメソッドがきたらpayjp_cardというモックを返す
         allow(payjp_card).to receive_messages(brand: "Visa", last4: "4242", exp_month: 2, exp_year: 2024) # card.brand、card.last4等のメソッドがきたらそれぞれ値を返す
@@ -66,7 +66,7 @@ RSpec.describe CreditsController, type: :controller do
         allow(payjp_customer).to receive(:delete).and_return(true) # Payjp::Customer.retrieve()というメソッドがきたらpayjp_customerというモックを返す
       }
       it "indexアクションにリダイレクトされる事" do
-        delete :destroy, params: {id: ""}
+        delete :destroy
         expect(response).to redirect_to(credits_path)
       end 
     end
