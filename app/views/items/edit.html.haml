@@ -36,6 +36,19 @@
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
+      
+      .new_item_page_container_main_carrierwave_image
+        %p.new_item_page_container_main_label
+          Carrirwaveの場合
+        - @item.item_images.each do |image|
+          = image_tag image.src.url, width: 100 if image.persisted?
+        = f.label :_, {for: "item_item_images_attributes_1_src"} do
+          .image_file_area
+        = f.fields_for :item_images do |i|
+          = i.file_field :src
+          = i.check_box :_destroy if i.object.persisted?
+
+
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名 

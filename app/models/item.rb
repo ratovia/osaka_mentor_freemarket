@@ -3,6 +3,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   belongs_to :category
+  has_many :item_images
+  accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true
+  # accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true, reject_if: :reject_images
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
@@ -14,6 +17,10 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
   validate :images_validation
+
+  # def reject_images(images_attributes)
+  #   images_attributes.src.blank?
+  # end
 
   def images_validation
     if images.attached?
