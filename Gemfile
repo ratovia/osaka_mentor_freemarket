@@ -50,6 +50,11 @@ gem "omniauth-rails_csrf_protection"
 gem 'payjp'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'toastr_rails'
+gem 'ancestry'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'activerecord-import'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

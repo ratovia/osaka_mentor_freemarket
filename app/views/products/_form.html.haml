@@ -1,10 +1,10 @@
-.new_item_page#items_form
+.new_item_page#products_form
   .new_item_page_container
     .new_item_page_container_top
       .new_item_page_container_top__img
         = link_to root_path do
           = image_tag "logo.svg"
-    = form_with model: @item, url: items_path, class: "new_item_page_container_main" ,method: :post , local: true do |f|
+    = form_with model: @product, class: "new_item_page_container_main", local: true do |f|
       .new_item_page_container_main_title
         商品の情報を入力
       .new_item_page_container_main_item_image
@@ -16,19 +16,17 @@
         %p.desc 最大10枚までアップロードできます。
         .new_item_page_container_main_item_image_area
           .top_area.prepend_area
-            .image_file_area
+            .js-previews
+            - label_index = @product.persisted? ? @product.images.length : 0
+            = label_tag :image, :src, for: "product_images_attributes_#{label_index}_src", class: 'image_file_area js-label' do
               %p
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
-              = f.file_field :images, multiple: true, id: "upload_file", class: "upload_files", data:{id: "1"}
-              = f.hidden_field :file, class: "item_images_hidden", multiple: true
-          .under_area.prepend_area
-            .image_file_area
-              %p
-                ドラッグアンドドロップ
-                %br
-                もしくはクリックをしてアップロード
+          .js-hidden_inputs
+            .js-inputs
+              = f.fields_for :images do |i|
+                = i.file_field :src
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名
@@ -49,68 +47,62 @@
             %span.required
               必須
           .select_box.category1.new_category1
-            = f.select :category1, options_from_collection_for_select(Category.where('id < 14'), :id, :name)
-            = fa_icon "angle-down"
-          .select_box.category2
-            = f.select :category2, []
-            = fa_icon "angle-down"
-          .select_box.category3
-            = f.select :category_id, []
+            = f.collection_select :product_category_id, ProductCategory.roots, :id, :name, { include_blank: "---", selected: "---" }, {class: 'js-product_category'}
             = fa_icon "angle-down"
           #select_size
             %p.new_item_page_container_main_label.select_label
               サイズ
               %span.required
                 必須
-            .select_box
-              = f.select :size, [["---", ""], ["XXS以下", "XXS以下"],["XS(SS)", "XS(SS)"], ["S", "S"], ["M", "M"], ["L", "L"], ["XL(LL)", "XL(LL)"], ["2XL(3L)", "2XL(3L)"], ["3XL(4L)", "3XL(4L)"], ["4XL(5L)以上", "4XL(5L)以上"], ["FREE SIZE", "FREE SIZE"]]
-              = fa_icon "angle-down"
+            .select_box.js-size
           #input_bland
             %p.new_item_page_container_main_label.select_label
               ブランド
               %span.optional
                 任意
             .input_box
-              = f.text_field :bland, {placeholder: "例) シャネル"}
+              = f.text_field :bland_id, {placeholder: "例) シャネル"}
           %p.new_item_page_container_main_label.select_label
             商品の状態
             %span.required
               必須
           .select_box
-            = f.select :status, [["---", ""], ["新品", "新品"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]]
+            = f.collection_select :condition, Product.conditions, :first, :first, {include_blank: "---", selected: "---"}
             = fa_icon "angle-down"
       .new_item_page_container_main_item_delivary
         .left_content
           配送について
         .right_content
+
           %p.new_item_page_container_main_label
             配送料の負担
             %span.required
               必須
           .select_box
-            = f.select :delivery_burden, [["---", ""], ["送料込み(出品者負担)", "送料込み(出品者負担)"],["着払い(購入者負担)", "着払い(購入者負担)"]]
+            = f.collection_select :delivery_burden, Product.delivery_burdens, :first, :first, { include_blank: "---", selected: "---" }
             = fa_icon "angle-down"
-          %p.new_item_page_container_main_label.delivery_method_select_label
+
+          %p.new_item_page_container_main_label
             配送の方法
             %span.required
               必須
-          .select_box.delivery_method_select
-            = f.select :delivery_method, [], id: "delivery_method"
+          .select_box
+            = f.collection_select :delivery_method, Product.delivery_methods, :first, :first, { include_blank: "---", selected: "---" }
             = fa_icon "angle-down"
+
           %p.new_item_page_container_main_label
             発送元の地域
             %span.required
               必須
           .select_box
-
-            = f.select :delivery_prefecture, options_from_collection_for_select(Prefecture.all, :name, :name)
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
             = fa_icon "angle-down"
           %p.new_item_page_container_main_label
             発送までの日数
             %span.required
               必須
           .select_box
-            = f.select :delivery_time, [["---", ""], ["1~2日", "1~2日"],["3~4日", "3~4日"],["4~7日", "4~7日"]]
+            = f.collection_select :delivery_time, Product.delivery_times, :first, :first, { include_blank: "---", selected: "---" }
             = fa_icon "angle-down"
       .new_item_page_container_main_item_price
         .left_content

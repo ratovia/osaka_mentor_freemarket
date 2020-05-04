@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update logout identification]
-  before_action :authenticate_user!, except: [:new]
+  skip_before_action :authenticate_user!, only: [:new]
   # before_action :redirect_root, except: [:new]
   def new; end
 

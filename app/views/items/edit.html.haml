@@ -1,4 +1,4 @@
-.new_item_page
+.new_item_page#items_form
   .new_item_page_container
     .new_item_page_container_top
       .new_item_page_container_top__img
@@ -24,7 +24,7 @@
                 %p
                   = link_to "削除", "javascript:void(0)", class: "remove_image edit_image_remove"
             .image_file_area
-              %p 
+              %p
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
@@ -32,13 +32,13 @@
               = f.hidden_field :file, class: "item_images_hidden", multiple: true, value: ""
           .under_area.prepend_area
             .image_file_area
-              %p 
+              %p
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
-          商品名 
+          商品名
           %span.required
             必須
         = f.text_field :name, {placeholder: "商品名 (必須40文字まで)", maxlength: "40"}
@@ -157,7 +157,7 @@
             またブランド品でシリアルナンバー等がある場合はご記載ください。
             = link_to "偽ブランドの販売", "#"
             は犯罪であり処罰される可能性があります。
-            %br 
+            %br
               また、出品をもちまして
               = link_to "加盟店規約", "#"
               に同意したことになります。
