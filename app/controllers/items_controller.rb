@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def new
     @prefectures = Prefecture.all
     @item = Item.new
+    @item.item_images.build
     @parent_categories = Category.where('id < 14')
     @child_categories = Category.where(category_id: params[:keyword])
 
@@ -21,12 +22,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.item_images.build
     redirect_to item_path(@item) if current_user.id != @item.user.id
   end
 
   def create
     @item = Item.new(item_params)
-    if item_params[:images].present? && @item.save
+    if params[:item][:images].present? && @item.save!
       flash[:notice] = "商品を出品しました！"
       redirect_to root_path
     else
@@ -40,35 +42,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-    images = @item.images
-    if @item.update(
-      name: item_params["name"],
-      price: item_params["price"],
-      description: item_params["description"],
-      status: item_params["status"],
-      delivery_burden: item_params["delivery_burden"],
-      delivery_method: item_params["delivery_method"],
-      delivery_prefecture: item_params["delivery_prefecture"],
-      delivery_time: item_params["delivery_time"],
-      user_id: item_params["user_id"],
-      size: item_params["size"],
-      category_id: item_params["category_id"]
-    )
-      @item.update(images: item_params["images"]) if item_params[:images].present?
-      if remove_images_params[:remove_images].present?
-        if @item.images.length <= remove_images_params[:remove_images].length
-          flash[:alert] = "商品情報を更新できませんでした"
-          render :edit
-          return false
-        end
-        remove_images_params[:remove_images].map(&:to_i).each do |i|
-          images[i].purge
-        end
-      end
-      flash[:notice] = "商品情報を更新しました！"
+    if @item.update(item_params)
       redirect_to root_path
     else
-      flash[:alert] = "商品情報を更新できませんでした"
       render :edit
     end
   end
@@ -122,7 +98,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
+    _params = params.require(:item).permit(
       :name,
       :price,
       :description,
@@ -132,8 +108,14 @@ class ItemsController < ApplicationController
       :delivery_prefecture,
       :delivery_time,
       :size,
-      :category_id
-    ).merge(user_id: current_user.id).merge(images: images_params)
+      :category_id,
+      item_images_attributes: [:src, :_destroy, :id]
+    ).merge(user_id: current_user.id)
+    
+    if params[:item][:images].present?
+      _params.merge!(images: images_params)
+    end
+    _params
   end
 
   def images_params

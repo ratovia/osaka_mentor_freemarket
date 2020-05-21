@@ -29,6 +29,14 @@
                 ドラッグアンドドロップ
                 %br
                 もしくはクリックをしてアップロード
+      
+      .new_item_page_container_main_carrierwave_image
+        %p.new_item_page_container_main_label
+          Carrirwaveの場合
+        
+        = f.fields_for :item_images do |i|
+          = i.file_field :src
+          
       .new_item_page_container_main_item_description
         %p.new_item_page_container_main_label
           商品名 
