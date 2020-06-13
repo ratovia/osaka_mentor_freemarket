@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     @prefectures = Prefecture.all
   end
 
+  def check
+    current_user.update(checked: !current_user.checked)
+    render json:{ check: current_user.checked }
+  end
+  
   private
 
   def set_user

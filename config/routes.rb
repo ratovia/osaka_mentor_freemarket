@@ -15,5 +15,8 @@ Rails.application.routes.draw do
       get 'identification'
       get 'logout'
     end
+    collection do
+      get 'check'
+    end
   end
 end

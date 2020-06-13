@@ -11,7 +11,10 @@
       .profile
         = link_to "#" do
           .profile__image
-            = image_tag "member_photo_noimage_thumb.png"
+            - if current_user.checked
+              = image_tag "profile.png"
+            - else
+              = image_tag "member_photo_noimage_thumb.png"
           .profile__name
             = link_to user_path(current_user) do
               = current_user.nickname
