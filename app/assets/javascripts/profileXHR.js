@@ -3,6 +3,7 @@ window.addEventListener("load",function(){
     const XHR = new XMLHttpRequest()
     XHR.open("GET", `/users/check`, true)
     XHR.responseType = "json"
+    XHR.setRequestHeader("Accept", "text/html")
     XHR.send()
     XHR.onload = function() {
       const res = XHR.response
