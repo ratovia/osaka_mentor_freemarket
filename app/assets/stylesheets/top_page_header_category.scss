@@ -10,15 +10,15 @@
     display: none;
   }
   &:hover {
-    .header_container_bottom__category_list1 {
-      @include ul-style();
-      z-index: 1;
-      font-weight: normal;
-      position: absolute;
-      border-right: $border-design;
-      border-left: $border-design;
-      top: 40px;
-      left: 0;
+    .parent{
+      // @include ul-style();
+      // z-index: 1;
+      // font-weight: normal;
+      // position: absolute;
+      // border-right: $border-design;
+      // border-left: $border-design;
+      // top: 40px;
+      // left: 0;
       li {
         padding: 5px 10px;
         ul {
@@ -28,42 +28,42 @@
           background: $red;
           color: white;
           border-right: 0px;
-        ul {
-            @include ul-style();
-            z-index: 1;
-            border-right: $border-design;
-            height: 650px;
-            color: $black;
-            position: absolute;
-            top: 0px;
-            left: 219px;
-            li {
-              height: 33px;
-              line-height: 33px;
-              ul {
-                display: none;
-              }
-              &:hover {
-                background: $gray;
-                color: $black;
-                border-right: 0px;
+          ul {
+              @include ul-style();
+              z-index: 1;
+              border-right: $border-design;
+              height: 650px;
+              color: $black;
+              position: absolute;
+              top: 0px;
+              left: 219px;
+              li {
+                height: 33px;
+                line-height: 33px;
                 ul {
-                  @include ul-style();
-                  z-index: 1;
-                  position: absolute;
-                  width: 300px;
-                  top: 0px;
-                  left: 220px;
-                  height: 650px;
-                  border-right: $border-design;
-                  li {
-                  background: white;
-                  }
-                  li:hover {
-                    background: $gray;
-                    color: $black;
-                  }
+                  display: none;
                 }
+                &:hover {
+                  background: $gray;
+                  color: $black;
+                  border-right: 0px;
+                  ul {
+                    @include ul-style();
+                    z-index: 1;
+                    position: absolute;
+                    width: 300px;
+                    top: 0px;
+                    left: 220px;
+                    height: 650px;
+                    border-right: $border-design;
+                    li {
+                    background: white;
+                    }
+                    li:hover {
+                      background: $gray;
+                      color: $black;
+                    }
+                  }
               }
             }
           }

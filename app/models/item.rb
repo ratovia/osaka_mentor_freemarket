@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_one :buy_history
   belongs_to :user
+  has_many :comments
   has_many_attached :images
   belongs_to :category
   has_many :item_images

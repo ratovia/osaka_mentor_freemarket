@@ -39,6 +39,8 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.limit(4).order("id DESC")
+    @comments = Comment.where(item_id: @item.id)
+    @comment = Comment.new
   end
 
   def update
