@@ -1,4 +1,4 @@
-.detail_item
+.detail_item{data: {item: {id: @item.id}}}
   = render 'shared/header'
   .bread
     %span 
@@ -148,17 +148,24 @@
           %span
             = fa_icon "clock-o"
             6 時間前
-    .user_comments__bix
-      .user_icon
-        = image_tag "member_photo_noimage_thumb.png"
-      .user_name
-        %p John
-      .user_comment
-        %p 初めまして値下げ可能ですか？
-        .user_comment__timestamp
-          %span
-            = fa_icon "clock-o"
-            6 時間前
+    - @comments.each do |comment|
+      .user_comments__bix
+        .user_icon
+          = image_tag "member_photo_noimage_thumb.png"
+        .user_name
+          %p 
+            = comment.user.nickname
+        .user_comment
+          %p 
+            = comment.text
+          .user_comment__timestamp
+            %span
+              = fa_icon "clock-o"
+              = comment.created_at
+    .user_comments_form
+      = form_with( model: [@item, @comment]) do |f|
+        = f.text_field :text
+        = f.submit
     .adjacent_item
       .return_item
         =link_to "水着"
