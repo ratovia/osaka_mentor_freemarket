@@ -7,6 +7,9 @@ class Item < ApplicationRecord
   has_many :item_images
   accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true
   # accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true, reject_if: :reject_images
+  # def reject_images(images_attributes)
+  #   images_attributes.src.blank?
+  # end
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
@@ -19,12 +22,9 @@ class Item < ApplicationRecord
 
   validate :images_validation
 
-  # def reject_images(images_attributes)
-  #   images_attributes.src.blank?
-  # end
 
   def images_validation
-    if images.attached?
+    if self.images.attached?
       errors.add(:images, "画像の枚数は最大10枚までです。") if images.length > 10
       byte_sum = 0
       images.each do |image|
